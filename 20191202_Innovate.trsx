@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns:nuance="https://developer.nuance.com/mix/nlu/trsx" xml:lang="eng-USA" nuance:version="2.4">
+    <metadata>
+        <entry key="created_by">DaLarm Han</entry>
+        <entry key="created_by">dalarm.han@nuance.com</entry>
+        <entry key="created_at">2019-12-02 21:54:24+00:00</entry>
+    </metadata>
+    <sources>
+        <source name="nuance_custom_data" displayName="nuance_custom_data" version="1.0" type="CUSTOM" useForOOV="true"/>
+    </sources>
+    <ontology base="http://localhost:8080/resources/ontology-1.0.xml">
+        <intents>
+            <intent name="makeName">
+                <links>
+                    <link conceptref="NAME"/>
+                    <link conceptref="LANGUAGE"/>
+                </links>
+            </intent>
+        </intents>
+        <concepts>
+            <concept name="NATURAL_NUMBER">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="LANGUAGE"/>
+            <concept name="CREDIT_CARD">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="CC_EXP_DATE">
+                <relations>
+                    <relation type="isA" conceptref="nuance_EXPIRY_DATE"/>
+                </relations>
+            </concept>
+            <concept name="NAME"/>
+            <concept name="DATE">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CALENDARX"/>
+                </relations>
+            </concept>
+            <concept name="ZIP_CODE">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="PHONE">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="DIGITS">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="CURRENCY">
+                <relations>
+                    <relation type="isA" conceptref="nuance_AMOUNT"/>
+                </relations>
+            </concept>
+            <concept name="TIME">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CALENDARX"/>
+                </relations>
+            </concept>
+            <concept name="YES_NO">
+                <relations>
+                    <relation type="isA" conceptref="nuance_BOOLEAN"/>
+                </relations>
+            </concept>
+            <concept name="SSN">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+        </concepts>
+    </ontology>
+    <samples>
+        <sample count="1" excluded="true">What is my<annotation conceptref="NAME">name</annotation>?</sample>
+        <sample intentref="makeName" count="1">Give me a<annotation conceptref="NAME">name</annotation>in<annotation conceptref="LANGUAGE">Spanish</annotation>
+        </sample>
+        <sample intentref="makeName" count="1">Make a<annotation conceptref="NAME">name</annotation>for me in<annotation conceptref="LANGUAGE">Korean</annotation>
+        </sample>
+        <sample intentref="makeName" count="1">
+            <annotation conceptref="LANGUAGE">Greek</annotation>. Make<annotation conceptref="NAME">name</annotation>.</sample>
+        <sample intentref="makeName" count="1">I want a<annotation conceptref="NAME">name</annotation>in<annotation conceptref="LANGUAGE">Japanese</annotation>
+        </sample>
+    </samples>
+</project>
