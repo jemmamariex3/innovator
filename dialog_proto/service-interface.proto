@@ -1,0 +1,36 @@
+syntax = "proto3";
+package nuance.dialog.channelconnector.v1beta1;
+
+import "google/api/annotations.proto";
+import "service-interface-messages.proto";
+
+option java_multiple_files = true;
+option java_package = "com.nuance.coretech.dialog.channelconnector.v1.service";
+
+service ChannelConnectorService {
+	// Starts a conversation.
+	// Returns a **StartResponse** object.
+	rpc Start(StartRequest) returns (StartResponse) {
+		option (google.api.http) = {
+			post : "/dialog/channelconnector/v1beta1/start/{payload.model_ref}"
+			body: "*"
+		};
+	}
+
+	//Used to continuously interact with the conversation based on end user input or events.
+	//Returns an **ExecuteRequest** object that will contain data related to the dialog interactions and that can be used by the client to interact with the end user.
+	rpc Execute(ExecuteRequest) returns (ExecuteResponse) {
+		option (google.api.http) = {
+			post : "/dialog/channelconnector/v1beta1/execute/{session_id}"
+			body: "*"
+		};
+	}
+
+	//Ends a conversation and performs cleanup.
+	//Returns a **StopResponse** object.
+	rpc Stop(StopRequest) returns (StopResponse) {
+		option (google.api.http) = {
+			post : "/dialog/channelconnector/v1beta1/stop/{session_id}"
+		};
+	}
+}

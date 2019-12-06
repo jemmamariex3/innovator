@@ -1,0 +1,42 @@
+syntax = "proto3";
+package nuance.dialog.channelconnector.v1beta1;
+
+option java_multiple_files = true;
+option java_package = "com.nuance.coretech.dialog.channelconnector.v1.service.messages";
+
+import "google/protobuf/struct.proto";
+import "runtime-interface-messages.proto";
+
+//Request object used by the Start method.
+message StartRequest {
+  string session_id = 1; //Optional session ID. If not provided then one will be generated.
+  nuance.dialog.runtime.common.v1beta1.Selector selector = 2; //Selector providing the channel and language used for the conversation.
+  nuance.dialog.runtime.common.v1beta1.StartRequestPayload payload = 3; //Payload of the Start request.
+}
+
+//Response object used by the Start method.
+message StartResponse {
+  nuance.dialog.runtime.common.v1beta1.StartResponsePayload payload = 1; //Payload of the Start response.
+}
+
+//Request object used by the Execute method.
+message ExecuteRequest {
+  string session_id = 1; // ID for the session.
+  nuance.dialog.runtime.common.v1beta1.Selector selector = 2; //Selector providing the channel and language used for the conversation.
+  nuance.dialog.runtime.common.v1beta1.ExecuteRequestPayload payload = 3; //Payload of the Execute request.
+}
+
+//Response object used by the Execute method.
+message ExecuteResponse {
+  nuance.dialog.runtime.common.v1beta1.ExecuteResponsePayload payload = 1; //Payload of the Execute response.
+}
+
+//Request object used by Stop method.
+message StopRequest {
+  string session_id = 1;  // ID for the session.
+}
+
+
+//Response object used by the Stop method. Currently empty; reserved for future use.
+message StopResponse{
+}
