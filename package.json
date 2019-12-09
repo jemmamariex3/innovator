@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/dalarm/innovator#readme",
   "devDependencies": {
+    "@grpc/proto-loader": "^0.5.3",
+    "grpc": "^1.24.2",
+    "grpc-tools": "^1.8.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   }
