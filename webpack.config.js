@@ -1,23 +1,7 @@
-// Webpack uses this to work with directories
-const path = require('path');
+const env = process.env.NODE_ENV || 'development'; 
 
-// This is main configuration object.
-// Here you write different options and tell Webpack what to do
-module.exports = {
+function buildConfig(env) {
+    return require(`./configs/webpack.${env}.js`); 
+}
 
-    // Path to your entry point. From this file Webpack will begin his work
-    entry: './src/js/index.js',
-
-    // Path and filename of your result bundle.
-    // Webpack will bundle all JavaScript into this file
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
-    },
-
-    // Default mode for Webpack is production.
-    // Depending on mode Webpack will apply different things
-    // on final bundle. For now we don't need production's JavaScript
-    // minifying and other thing so let's set mode to development
-    mode: 'development'
-};
+module.exports = buildConfig(env === 'production' ? 'prod' : 'dev'); 
