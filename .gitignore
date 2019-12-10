@@ -9,3 +9,6 @@ node_modules
 
 # Secret key
 key.js
+
+# Ignore dist folder
+dist
