@@ -1,7 +1,7 @@
 var grpc = require('grpc');
 var GoogleAuth = require('google-auth-library');
 
-function create_channel(args){
+function create_channel(args) {
     args = process.argv;
     var channel_credentials = grpc.Credentials.createSsl(root_certs);
     var call_credentials = "omg how do?";
