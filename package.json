@@ -21,6 +21,7 @@
   "homepage": "https://github.com/jemmamariex3/innovator#readme",
   "devDependencies": {
     "@grpc/proto-loader": "^0.5.3",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.3.0",
     "grpc": "^1.24.2",
     "grpc-tools": "^1.8.0",
