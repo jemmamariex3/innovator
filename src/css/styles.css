@@ -1,3 +1,24 @@
-#test {
-  color: red; 
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  height: 100vh;
+}
+
+.left_container{
+  background-color: bisque;
+  width: 60%;
+  height: 100%;
+}
+
+.right_container{
+  background-color: cadetblue;
+  width: 40%;
+  height: 100%;
+}
+.logoDiv{
+  background-color: coral;
+  width: 250px;
+  height: 50px;
 }

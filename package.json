@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dalarm/innovator.git"
+    "url": "git+https://github.com/jemmamariex3/innovator.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dalarm/innovator/issues"
+    "url": "https://github.com/jemmamariex3/innovator/issues"
   },
-  "homepage": "https://github.com/dalarm/innovator#readme",
+  "homepage": "https://github.com/jemmamariex3/innovator#readme",
   "devDependencies": {
     "@grpc/proto-loader": "^0.5.3",
     "css-loader": "^3.3.0",
