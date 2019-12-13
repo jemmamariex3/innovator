@@ -1,14 +1,19 @@
 // Webpack uses this to work with directories
 const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin'); 
+const HtmlWebpackPlugin = require('html-webpack-plugin'); 
+const CopyWebpackPlugin = require('copy-webpack-plugin'); 
 
 const srcDir = path.resolve(__dirname, '..', 'src'); 
 const distDir = path.resolve(__dirname, '..', 'dist'); 
-const htmlPlugin = new htmlWebpackPlugin({
+
+const htmlPlugin = new HtmlWebpackPlugin({
   path: distDir, 
   filename: 'index.html', 
   template: path.join(srcDir, '..', 'index.html'), 
 }); 
+const copyPlugin = new CopyWebpackPlugin([
+  { from: path.join(srcDir, 'assets'), to: 'assets' }
+])
 
 // This is main configuration object.
 // Here you write different options and tell Webpack what to do
@@ -53,5 +58,5 @@ module.exports = {
     extensions: [".js"]
   }, 
   
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin, copyPlugin]
 };

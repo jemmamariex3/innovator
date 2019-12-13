@@ -1,3 +1,96 @@
-#test {
-  color: red; 
+body{
+  margin:0;
+  font-family: 'Cicle Gordita', arial;
+}
+h1 {
+  color: #ffffff;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  height: 100vh;
+  background-image: url("/assets/Mix_bg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.left_container{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  background-color: transparent;
+  margin: 15px;
+}
+
+.right_container{
+  background-color: #ffffff;
+  width: 30%;
+  height: 100%;
+  border: 2px solid #C0C0C0;
+  position: relative;
+}
+.logo{
+  width: 200px;
+}
+.ticket_container{
+  width: 100%;
+  height: 250px;
+  background-color:rgba(192,192,192,.80);
+  margin-top: 100px;
+  border: 2px solid #ffffff;
+}
+.section_header{
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  border-bottom: 2px solid #ffffff;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#chat_header{
+  border-bottom-color: #C0C0C0;
+}
+.title{
+  margin-left:15px;
+}
+.input-group{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 2px solid #C0C0C0;
+}
+.form_group{
+  display: flex;
+  flex-direction: row;
+}
+input[type=text], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 5px;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
 }
