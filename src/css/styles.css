@@ -1,24 +1,61 @@
+body{
+  margin:0;
+  font-family: 'Cicle Gordita', arial;
+}
+h1 {
+  color: #ffffff;
+}
 .container{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-self: center;
   height: 100vh;
+  background-image: url("/assets/Mix_bg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 .left_container{
-  background-color: bisque;
-  width: 60%;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
   height: 100%;
+  background-color: transparent;
+  margin: 15px;
 }
 
 .right_container{
-  background-color: cadetblue;
-  width: 40%;
+  background-color: #ffffff;
+  width: 30%;
   height: 100%;
+  border: 2px solid #C0C0C0;
 }
-.logoDiv{
-  background-color: coral;
-  width: 250px;
+.logo{
+  width: 200px;
+}
+.ticket_container{
+  width: 100%;
+  height: 250px;
+  background-color:rgba(192,192,192,.80);
+  margin-top: 100px;
+  border: 2px solid #ffffff;
+}
+.section_header{
+  width: 100%;
   height: 50px;
+  background-color: black;
+  border-bottom: 2px solid #ffffff;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#chat_header{
+  border-bottom-color: #C0C0C0;
+}
+.title{
+  margin-left:15px;
 }
