@@ -2,12 +2,13 @@ const token = require("./token_scripts/my-token.json");
 const access_token = token.access_token;
 
 const grpc = require('grpc');
-const service_interface = require('./client_stubs/service-interface_grpc_pb');
-const service_interface2 = require('./client_stubs/service-interface-messages_pb')
+const service_interface = require('./client_stubs/service-interface_grpc_pb'); // wtf is this
+const chat_request = require('./client_stubs/service-interface-messages_pb');
+
+// to start request == chat_request.StartRequest 
 
 console.log("Token json: ", access_token);
-console.log("service pb = ", service_interface);
-console.log("service pb 2 = ", service_interface2);
+console.log("what functions does this have: ", chat_request);
 
 function create_channel(args) {
     args = process.argv;
@@ -21,3 +22,12 @@ function create_channel(args) {
     channel_credentials = grpc.credentials.combineChannelCredentials(channel_credentials, call_credentials);
     return channel_credentials;
 }
+
+function start_request(stub, model_ref, session_id, selector_dict = {}) {
+
+}
+
+
+//   chat_request  === this will have all the Request shit.        
+//   hmMmMmmM i think this SHOULD have startRequest / executeRequest / blah blah
+//
