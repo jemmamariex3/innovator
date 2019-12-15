@@ -41,9 +41,8 @@ function start_request(stub, model_ref, session_id, selector_dict = {}) {
 }
 
 var first_channel = create_channgel(process.argv);
-var stub =
 
 
-    //   chat_request  === this will have all the Request shit.        
-    //   hmMmMmmM i think this SHOULD have startRequest / executeRequest / blah blah
-    //
+//   chat_request  === this will have all the Request shit.        
+//   hmMmMmmM i think this SHOULD have startRequest / executeRequest / blah blah
+//

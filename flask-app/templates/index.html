@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>InnoVAtor</title>
+    <link href="http://allfont.net/allfont.css?fonts=cicle-gordita" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <section class="left_container">
+            <div class="logoDiv">
+                <img class="logo" src="assets/MixLogo_1x.png" alt="Innovation Logo">
+            </div>
+            <div class="ticket_container">
+                <div class="section_header">
+                    <div class="title">JEMMA'S ASSIGNED TICKETS</div>
+                </div>
+                <div class="ticket_body">
+                    <table class="ticket_table">
+                        <tr>
+                            <th>Key #</th>
+                            <th>Summary</th>
+                            <th>Status</th>
+                            <th>Hours Logged</th>
+                            <th>Priority</th>
+                        </tr>
+                    </table>
+                    <button class="accordion">
+              <table class="ticket_table">
+                <tr>
+                  <th>1</th>
+                  <th>Mix.Hacks -- Create NLU Api</th> 
+                  <th>In Progress</th>
+                  <th>160</th> 
+                  <th>High</th>                
+                </tr>
+              </table>
+            </button>
+                    <div class="panel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="right_container">
+            <div class="section_header" id="chat_header">
+                <div class="title">ASK</div>
+            </div>
+            <div class='input-group'>
+                <form action="/" class="form_group">
+                    <input type="text" id="fname" placeholder="Type your question here">
+
+                    <input type="submit" value="SEND" alt="Submit Button">
+                </form>
+            </div>
+        </section>
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
