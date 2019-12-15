@@ -1,0 +1,167 @@
+syntax = "proto3";
+package nuance.dialog.runtime.common.v1beta1;
+
+option java_multiple_files = true;
+option java_package = "com.nuance.coretech.dialog.runtime.common.messages";
+
+import "google/protobuf/struct.proto";
+
+// Provides channel and language used for the conversation.
+message Selector {
+  string channel = 1; //Optional: Channel that this conversation is going to use (for example, WebVA).
+  string language = 2; //Optional: Language to use for this conversation.
+  string library = 3; //Optional: Library to use for this conversation. Advanced customization reserved for future use.
+}
+
+// Sends data into the session.
+message SessionData {
+  string value = 1; //The value of the data being sent.
+}
+
+// Payload sent with the Start request.
+message StartRequestPayload {
+  string model_ref = 1; //URL or URN of the model to use for the request.
+  map<string,SessionData> session_data = 2; //Data to be stored into the current session.
+}
+
+// Payload returned after the Start method is called. If a session ID is not provided in the request, a new one is generated and should be used for subsequent calls.
+message StartResponsePayload {
+  string session_id = 1; // Returns session ID to use for subsequent calls.
+}
+
+/**
+ * @exclude
+ * TODO: Review name of Input message
+ */
+
+// Provides input to the Dialog engine. The client application sends either the text collected from the user, to be interpreted by Mix, or
+// an interpretation that was performed externally.
+message Input { 
+  oneof input {
+    string user_text = 1; //Text collected from end user.
+    Interpretation interpretation = 2; // Interpretation that was done externally (e.g., NR for vxml).
+  }
+}
+
+// Payload sent with the Execute request. If both an event and a user input are provided, the event has precedence. For example, if
+// an error event is provided, the input will be ignored.
+message ExecuteRequestPayload {
+  Input input = 1; // Input provided to the Dialog engine.
+  Event event = 2; //Used to pass in events that can drive the flow. Optional; if an event is not passed, the operation is assumed to be successful.
+  map<string,SessionData> session_data = 3; //Data to be stored into the current session.
+  RequestData data = 4; //Data that was previously requested by engine.
+}
+
+/**
+ * @exclude
+ * TODO: Review name of RequestData message
+ */
+
+
+// Data that was requested by the dialog application.
+message RequestData { 
+  string id = 1; //ID used by the dialog application to identify which node requested the data.
+  google.protobuf.Struct value = 2; //Map of keys to json objects of the data requested.
+}
+
+/**
+ * @exclude
+ * TODO: Review name of Event message 
+ */
+
+//Message used to indicate an event that occurred during the dialog interactions.
+message Event {
+ //The possible event types that can occur on the client side of interactions.
+  enum  EventType {
+    SUCCESS = 0; //Everything went as expected.
+    ERROR = 1; //An unexpected problem occurred.
+    NO_INPUT = 2; //End user has not provided any input.
+    NO_MATCH = 3; //End user provided unrecognizable input.
+    HANGUP = 4; //End user has hung up. Currently used for UVR interactions.
+  }
+  EventType type = 1; // Type of event being triggered.
+  string message = 2; //Optional message providing additional information about the event.
+}
+
+// Payload returned after the Execute method is called.
+message ExecuteResponsePayload {
+  map<string,SessionData> session_data = 1; //Session data to be sent back to the client.
+  repeated Action action = 2; // Action expected to be performed by the client application. 
+  OrchestrationPayload orchestration_payload = 3;// Payload returned by the Dialog Orchestrator.
+  ViewData view_data = 4; //Experimental; data to be used by the client to drive front-end display of dialog options.
+}
+
+
+// Sends interpretation data.
+message Interpretation {
+  double confidence = 2; //Required: Value from 0..1 that indicates the confidence of the interpretation.
+  string input_mode = 3; //Optional: Input mode. Current values are dtmf/voice (but input mode not limited to these).
+  string utterance = 4; //Raw collected text.
+  map<string,string> data = 5; //Data from the interpretation of intents and entities. For example, INTENT:BILL_PAY or FROM_ACCOUNT:CHECKING.
+  repeated Interpretation alternativeInterpretations = 6; //Alternative interpretations possible from the interaction, that is, n-best list.
+}
+
+// Action to be performed by the client application. There are two types of action: data and prompt.
+message Action {
+  oneof payload {
+    DataAction data = 1; // The client application is expected to provide data to the Dialog engine. 
+    PromptAction prompt = 2; // The client application is expected to play a prompt to the user.
+  }
+
+/**
+ * @exclude
+ * TODO: Review name of DataAction message and google.protobuf.Struct value
+ */
+  
+// Specifies the data that is required by the dialog application at this point in the flow.
+  message DataAction { 
+    string id = 1; // ID identifying the state in the dialog application.
+    google.protobuf.Struct value = 2; // Map of keys to json objects of the data requested.
+  }
+
+//Specifies the prompt to be played. 
+  message PromptAction {
+    string id = 1; // ID of the prompt.
+    string vuid = 2; // Visual ID for the prompt.
+
+    repeated Nlg nlg = 3; // Text to be played using Text-to-speech.
+    repeated Visual visual = 4; // Text to be displayed to the user (for example, in a chat).
+    repeated Audio audio = 5; // Prompt to be played from an audio file.
+
+    message Nlg {
+      string text = 1; // Text to be played using Text-to-speech.
+    }
+
+    message Visual {
+      string text = 1; // Text to be displayed to the user (for example, in a chat).
+    }
+
+    message Audio {
+      string text = 1; // Text of the prompt to be played.
+      oneof AudioSrc {
+        string uri = 2; // Uri to the audio file.
+      }
+    }
+  }
+}
+
+// Payload returned by the Dialog Orchestrator.
+message OrchestrationPayload {
+  map<string,string> properties = 1; // Currently not used.
+  repeated string grammars = 2; //Grammar model to be used if external interpretation is being done.
+}
+
+// Experimental. Represents how to display data back to the user, for a richer output. 
+message ViewData { 
+  string id = 1; //Unique identifier to be used by front-end to drive how to display data.
+  repeated ViewComponent components = 2; //Represents a list of options the caller can choose from.
+  map<string,google.protobuf.Struct> variables = 3; //Data to be used consumed by front-end.
+
+//Experimental
+  message ViewComponent { 
+    string slot = 1; //Specifies the slot that this option is filling.
+    string value = 2; //Specifies the value for the slot if picked.
+    string display_text = 3; //Text to be used by front-end to display.
+  }
+}
+
