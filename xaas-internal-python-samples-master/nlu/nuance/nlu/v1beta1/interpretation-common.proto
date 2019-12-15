@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package nuance.nlu.v1beta1;
+
+option java_multiple_files = false;
+option java_package = "com.nuance.grpc.nlu.v1beta1";
+
+/*
+ * Range of text within the origin input literal.
+ */
+message TextRange {
+    uint32 start_index = 1; // The inclusive, 0-based, start index within the input literal.
+    uint32 end_index = 2; // The exclusive, 0-based, end index within the input literal.
+}
+
+/*
+ * Range of time within the original input audio.  For recognition results only.
+ */
+message AudioRange {
+    uint32 start_time_ms = 1; // The inclusive start time in milliseconds of the range
+    uint32 end_time_ms = 2; // The exclusive end time in milliseconds of the range
+}
+
+/*
+ * Origin of a detected intent or entity. Defaults to UNKNOWN. A GRAMMAR origin signifies that the intent
+ * or entity was found using an exact grammar match. A STATISTICAL origin signifies that the intent or
+ * entity was found using the statistical engine.
+ */
+enum EnumOrigin {
+    UNKNOWN = 0;
+    GRAMMAR = 1;
+    STATISTICAL = 2;
+}

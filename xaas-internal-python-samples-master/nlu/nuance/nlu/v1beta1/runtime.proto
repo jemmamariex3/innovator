@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+package nuance.nlu.v1beta1;
+
+option java_multiple_files = true;
+option java_package = "com.nuance.grpc.nlu.v1beta1";
+
+import "nuance/nlu/v1beta1/result.proto";
+import "google/protobuf/any.proto";
+
+/*
+ * Interpretation service API.
+ */
+service Nlu {
+    rpc Interpret (InterpretRequest) returns (InterpretResponse);
+}
+
+/*
+ * RPC interpret request message 
+ */
+message InterpretRequest {
+    InterpretationParameters parameters = 1; // Specifies various optional parameters for the interpretation
+    ResourceReference model = 2; // Domain-specific semantic model used to perform the interpretation
+    repeated InterpretationResource resources = 3; // Optional list of additional resources used to customize the interpretation
+    map<string, string> client_tags = 4; // Optional client-supplied key-value pairs to inject into logs
+    InterpretationInput input = 10; // Input to be interpreted
+}
+
+/*
+ * Optional parameters controlling the interpretation.
+ */
+message InterpretationParameters {
+    EnumInterpretationResultType interpretation_result_type = 1; // Determines the format of interpretation results.
+    EnumInterpretationInputLoggingMode interpretation_input_logging_mode = 2; // Determines how input is logged.
+    map<string, string> post_processing_script_parameters = 3; // Parameters passed directly to any custom post-processing ECMA scripts included in the model
+    uint32 max_interpretations = 12; // A default value (0) causes a server-configured default setting to apply
+}
+
+/*
+ * Indicates the format of interpretations in results. Defaults to single-intent interpretations for
+ * single-intent semantic models and multi-intent interpretations for multi-intent semantic models.
+ */
+enum EnumInterpretationResultType {
+    UNDEFINED = 0; // Will be single-intent for single-intent models and multi-intent for multi-intent models.
+    SINGLE_INTENT = 1; // Always return single-intent interpretations. A default intent will be chosen for multi-intent interpretations.
+    MULTI_INTENT = 2; // Always return multi-intent interpretations.
+}
+
+/*
+ * Indicates how the original input is handled in logs. The default is to log the input as plaintext.
+ */
+enum EnumInterpretationInputLoggingMode {
+    PLAINTEXT = 0; // Input will appear as plaintext
+    ENCRYPTED = 1; // Input will be encrypted
+    OFF = 9; // Input will be suppressed
+}
+
+/*
+ * Specifies an interpretation resource used to customize the interpretation.
+ */
+message InterpretationResource {
+    oneof resource_union {
+        ResourceReference external_reference = 1; // External resource
+        string inline_wordset = 2; // Inline wordset JSON resource
+    }
+}
+
+/*
+ * Properties for defining a fetch of an external interpretation resource.
+ */
+message ResourceReference {
+    EnumResourceType type = 1; // Resource type
+    string uri = 2; // Location or name of the resource
+    oneof optional_resource_reference_max_age {
+        uint32 max_age = 3; // see https://tools.ietf.org/html/rfc7234#section-5.2.1.1
+    }
+    oneof optional_resource_reference_max_stale {
+        uint32 max_stale = 4; // see https://tools.ietf.org/html/rfc7234#section-5.2.1.2
+    }
+    oneof optional_resource_reference_min_fresh {
+        uint32 min_fresh = 5; // see https://tools.ietf.org/html/rfc7234#section-5.2.1.3
+    }
+    string cookies = 6; // Cookies to transmit to the server hosting the resource
+    uint32 request_timeout_ms = 7; // A default value (0) causes a server-configured default setting to apply
+}
+
+/*
+ * Indicates whether a resource is a wordset or a compiled wordset. Can also indicate "undefined" when
+ * it is expected that the server response (content-type) will determine the type of resource.
+ */
+enum EnumResourceType {
+    UNDEFINED_RESOURCE_TYPE = 0;
+    SEMANTIC_MODEL = 1;
+    WORDSET = 2;
+    COMPILED_WORDSET = 3;
+}
+
+/*
+ * Input to be interpreted. Can be either text or a recognition result.
+ */
+message InterpretationInput {
+    oneof input_union {
+        string text = 1;
+        google.protobuf.Any asr_result = 2;
+    }
+}
+
+/*
+ * RPC interpret response message
+ */
+ message InterpretResponse {
+    Status status = 1; // Indicates whether the request was successful or not. Contains
+    InterpretResult result = 3; // On success, the result of the interpretation
+    map<string, string> cookies = 4; // One <uri,cookies> entry per ResourceReference.uri where cookies were returned, for the first response only.}
+}
+
+/*
+ * A Status message indicates whether the request was successful or reports any errors that occurred during the request.
+ */
+message Status {
+    uint32 code = 1; // HTTP style return code: 200, 400, or 500, as appropriate
+    string message = 2; // Brief description of the status
+    string details = 3; // Longer description if available
+}

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package nuance.nlu.v1beta1;
+
+option java_multiple_files = false;
+option java_package = "com.nuance.grpc.nlu.v1beta1";
+
+import "nuance/nlu/v1beta1/interpretation-common.proto";
+import "google/protobuf/struct.proto";
+
+/*
+ * Single-intent interpretation. Used for semantic models trained with single intents only.
+ */
+message SingleIntentInterpretation {
+    string intent = 2; // Intent name, as it is found in the ontology used to train the semantic model.
+    float confidence = 3; // Confidence score (between 0.0 and 1.0 inclusive). The higher the score, the likelier the detected intent is correct.
+    EnumOrigin origin = 4; // Indicates how the intent was detected.
+    map<string, SingleIntentEntityList> entities = 5; // Map of entity names to lists of entities
+}
+
+/*
+ * Entity list
+ */
+message SingleIntentEntityList {
+    repeated SingleIntentEntity entities = 1;
+}
+
+/*
+ * Entity
+ */
+message SingleIntentEntity {
+    TextRange text_range = 1; // Range of literal text for which this entity applies.
+    float confidence = 3; // Confidence score (between 0.0 and 1.0 inclusive). The higher the score, the likelier the entity detection is correct.
+    EnumOrigin origin = 4; // Indicates how the entity was detected.
+    map<string, SingleIntentEntityList> entities = 5; // For hierarchical entities, the child entities of the entity.
+
+    oneof value_union {
+        string string_value = 6; // The entity value as a string
+        google.protobuf.Struct struct_value = 7; // The entity value as an object (its value can be represented as a JSON object)
+    }
+
+    AudioRange audio_range = 15; // Range of audio input for which this entity applies. Only specified when interpreting recognition results.
+}
