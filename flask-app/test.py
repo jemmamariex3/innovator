@@ -37,7 +37,7 @@ def filter_tickets(option, values):
                 if ticket['number'] is int(ticket_num):
                     response_ticketsArr.append(ticket)
                     final_response = ''.join(map(str,response_ticketsArr))
-            print(final_response)
+            print("Final response: " + final_response)
     elif option is "TAD":
         print("yes, here is the assignee")
         if("_concept_TICKET_NUMBER" in values): 
@@ -46,16 +46,17 @@ def filter_tickets(option, values):
                 if ticket['number'] is int(ticket_num):
                     response_ticketsArr.append(ticket['assignee'])
                     final_response = ''.join(map(str,response_ticketsArr))
-            print(final_response)
+            print("Final response: " + final_response)
     elif option is "TBAD":
         print("yes, here are all the tickets from assignee")
         if("_concept_TICKET_ASSIGNEE" in values):
-            print(values['_concept_TICKET_ASSIGNEE'])
+            # print(values['_concept_TICKET_ASSIGNEE'])
+            assignee = values["_concept_TICKET_ASSIGNEE"]
             # for ticket in ticketsArr:
             #     if ticket['status'] is '':
             #         response_ticketsArr.append(ticket['number'])
             #         final_response = ''.join(map(str,response_ticketsArr))
-            # print(final_response)
+            # print("Final response: " + final_response)
     elif option is "TBPD":
         print("yes here are tickets by 'priority':")
     elif option is "TBSD":
@@ -69,28 +70,89 @@ def filter_tickets(option, values):
             data_dict["data"]["value"] = {"returnMessage":final_response, "returnCode":"0"} 
             continue_chat(data_dict)
             print(data_dict)
+            print("Final response: " + final_response)
     elif option is "TBCD":
         print("woo, here are tickets by client")
         if("_concept_TICKET_CLIENT" in values):
+            client = values["_concept_TICKET_CLIENT"]
             for ticket in ticketsArr:
-                if ticket['status'] is 'open':
+                if ticket['client'] == client:
                     response_ticketsArr.append(ticket['number'])
                     final_response = ''.join(map(str,response_ticketsArr))
-            print(final_response)
+            print("Final response: " + final_response)
     elif option is "TBCAD":
         print("here are tickets by client + assignee")
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_ASSIGNEE" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr:
+                if (ticket['client'] == client and ticket['assignee'] == assignee):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBCPD":
         print("here are tickets by client + 'priority':")
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_PRIORITY" in values and  "_concept_TICKET_ASSIGNEE" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            priority = values["concept_TICKET_PRIORITY"]
+            for ticket in ticketsArr: 
+                if (ticket['client'] == client and ticket['priority'] == priority):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBCPAD":
         print("here are tickets by client, 'priority':, assignee")
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_PRIORITY" in values and  "_concept_TICKET_ASSIGNEE" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            priority = values["_concept_TICKET_PRIORITY"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr: 
+                if (ticket['client'] == client and ticket['priority'] == priority and ticket['assignee'] == assignee):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBSAD":
         print("here are tickets by status + assignee")
+        if("_concept_TICKET_STATUS" in values and  "_concept_TICKET_ASSIGNEE" in values):
+            status = values["_concept_TICKET_STATUS"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr: 
+                if (ticket['status'] == status and ticket['assignee'] == assignee):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBSCD":
         print("here are tickets by status+client")
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_STATUS" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            status = values["_concept_TICKET_STATUS"]
+            for ticket in ticketsArr: 
+                if (ticket['client'] == client and ticket['status'] == status):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBSCAD":
         print("here are tickets by status + client + assignee"),
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_STATUS" in values and  "_concept_TICKET_ASSIGNEE" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            status = values["_concept_TICKET_STATUS"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr: 
+                if (ticket['client'] == client and ticket['status'] == status and ticket['assignee'] == assignee):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBSCPD":
         print ("here are tickets by status+client+'priority':")
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_STATUS" in values and  "_concept_TICKET_PRIORITY" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            status = values["_concept_TICKET_STATUS"]
+            priority = values["_concept_TICKET_PRIORITY"]
+            for ticket in ticketsArr: 
+                if (ticket['client'] == client and ticket['status'] == status and ticket['priority'] == priority):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBSCPAD":
         print("here are tickets by status, client, 'priority':, assignee")
     elif option is "TBSPD":
