@@ -42,10 +42,10 @@ def parse_args():
 '''
 
 def create_channel(token, serverUrl):    
-    log.debug("Adding CallCredentials with token %s" % token)
+    #log.debug("Adding CallCredentials with token %s" % token)
     call_credentials = grpc.access_token_call_credentials(token)
 
-    log.debug("Creating secure gRPC channel")
+    #log.debug("Creating secure gRPC channel")
     channel_credentials = grpc.ssl_channel_credentials()
     channel_credentials = grpc.composite_channel_credentials(channel_credentials, call_credentials)
     channel = grpc.secure_channel(serverUrl, credentials=channel_credentials)
@@ -71,10 +71,10 @@ def start_request(stub, model_ref, session_id, selector_dict={}):
     start_req = StartRequest(session_id=session_id, 
                         selector=selector, 
                         payload=start_payload)
-    log.debug(f'Start Request: {start_req}')
+    #log.debug(f'Start Request: {start_req}')
     start_response, call = stub.Start.with_call(start_req)
     response = MessageToDict(start_response)
-    log.debug(f'Start Request Response: {response}')
+    #log.debug(f'Start Request Response: {response}')
     return response, call
 
 def execute_request(stub, session_id, selector_dict={}, payload_dict={}):
@@ -93,29 +93,29 @@ def execute_request(stub, session_id, selector_dict={}, payload_dict={}):
     execute_request = ExecuteRequest(session_id=session_id, 
                         selector=selector, 
                         payload=execute_payload)
-    log.debug(f'Execute Request: {execute_payload}')
+    #log.debug(f'Execute Request: {execute_payload}')
     execute_response, call = stub.Execute.with_call(execute_request)
     response = MessageToDict(execute_response)
-    log.debug(f'Execute Response: {response}')
+    #log.debug(f'Execute Response: {response}')
     return response, call
 
 def stop_request(stub, session_id=None):
     stop_req = StopRequest(session_id=session_id)
-    log.debug(f'Stop Request: {stop_req}')
+    #log.debug(f'Stop Request: {stop_req}')
     stop_response, call = stub.Stop.with_call(stop_req)
     response = MessageToDict(stop_response)
-    log.debug(f'Stop Response: {response}')
+    #log.debug(f'Stop Response: {response}')
     return response, call
 
 def main(): 
     #args = parse_args()
-    log_level = logging.DEBUG
-    logging.basicConfig(
-        format='%(asctime)s %(levelname)-5s: %(message)s', level=log_level)
+    #log_level = logging.DEBUG
+    #logging.basicConfig(
+    #    format='%(asctime)s %(levelname)-5s: %(message)s', level=log_level)
 
         
     session_id = read_session_id_from_response(response)
-    log.debug(f'Session: {session_id}')
+    #log.debug(f'Session: {session_id}')
     assert call.code() == StatusCode.OK
     """
     payload_dict = {

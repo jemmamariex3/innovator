@@ -1,3 +1,5 @@
+//import { resolve } from "dns";
+
 // With CSS loader, we can import the css in the main JS file, rather than the html file
 //import "../css/styles.css";
 //import Ticket from "./Ticket.js";
@@ -67,7 +69,7 @@ function fetch_start() {
                     console.log(response.json());
                     console.log("why is this not showing up?");
                     console.log(response);
-                    return response.json();
+                    response.resolve();
                 }
             })
     } catch (error) {
