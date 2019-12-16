@@ -1,9 +1,9 @@
 
 
-from google.api.api_python import *
+from google.api.python-api-enh import *
 # API-related info
 modelUrn = "urn:nuance:mix/eng-USA/A174_C599/mix.dialog"
-token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjUyMjc4MiwiZXh0Ijp7fSwiaWF0IjoxNTc2NTE5MTgyLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiYzFiODNlMTAtMjJjYy00YjM2LWFmYWYtNTNjYjc4ZDUyZWM3IiwibmJmIjoxNTc2NTE5MTgyLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.DXU5f8pFlHk9ynyFxAkVaAss9H56WiKeKKkzYR3g66QvxiBzafd4NN8zCC-RAeVnK1huW_PDjRHHrGySfFxKIVFPe0slNBJPVVAegzNtcPv7hpEyahIMVd5f1biQSyercFlLlS09baWy7lDoLuhu97qZ-CsxhfU-VP2M1m31VPNXsVeouWD05hSTwc7Mt1wlATE_IzV0s1TO7X8HIxnUo4oj8KEZGXRi0Idr2-KTZHOgnzDrpTYejSNKuaQGGR9bOP2tsYEzcw5rg_vzvFMTIivO0xapuAhOyBu9qXYOYMi0jR9OK10LlUKTKVHTaC6VlXFeZU6DmJOxCbAChH14XPEi1_VY6Qug-izdVkLcehmoT-I0gqGJT3KBT3vGpt4KFtR4NHOto7sXEgNrrUJmjjMmjzRjhUH0tR94rnKWl_Gc6d4fMR-MMFKU551MG0lqmtdI-Iq07_mRXDpQlY1Yph0a104ctxe0Tkm0I639ynFFlcucHZVZcOkE9suvTZNDx8khgnmdGy-5H9SIzkTquoJ9bG_VLS4qgA1eSm6b9-LheuZx-fAc6Hqc9xHd6hgse_PJgt-n9UXB9ebEmG8YmoVBNFTFmIqBnBqnD9IBRS9bhJxQPvzKzmvwYPK-2_pcYCiQLA0eVkSd16IR8Abd2UAd-VI15FopdA_uglVcSDw"
+token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjUzMzA2NywiZXh0Ijp7fSwiaWF0IjoxNTc2NTI5NDY3LCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiYmEyMGY5YzQtYTIxMi00OTM4LTg1YzQtNzA4OWEwNTg3NGY1IiwibmJmIjoxNTc2NTI5NDY3LCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.nJhA0QEy1zHggp8Uyb2mt13YdRsijIr-LULqHAMVvwfvDv2rYLAGMGfTslrB6kh1xvn6hP8WpWqBkyoomJGY_dVVgtz2ZN0a7EwaQ51DYgRE0_L9YLsSIKfe2lw2ccN5YqtysGj3ypsJaZo525HRiI6gfB3hFejqr2n7qg5kwwgt4_IhnNT09o7WTndziq62_XlNEETditEyKDH-xX65XMTgiQvjWqNvkEqd0nC7cNFJEMkpAEwWGS-hrtTzcPT3XD3PBXnzQobTduOIrc0250s3CiCBqg2aw3qxNkjHIYUVmN29-afPK_0CWyy3vewWhA-bOjT_X8-qVwiNN8_LgHf4ft71z34qq4DSKjebmcWGuJEu-2cRLI4oAGM7Vd9Mg-8m751r2nGlQTMWLtM3Xf9pT3POdDTMpt3SL-mDdL-wK8arYnwHpjvLlJnJIqOuKHNCtj-XM0yR5zHtFUgSnXzdZyWcAuQAOqgMJ-Ubw8FdAWLDlNoclIFU4I4a95MkbL3G0CkzYX9OlFG2XSJ_0tfNTIyt3vwrux8xZPd0cbRekiBH6r4cSm7qR0DO9WTrE6jPdpvoVgGzS0rUCONXgIulDSuWrQbwacwTDCG7wEB_U6UpSail9FR9SmlrRfQVpGdqtjFrZONwGRsT-ZLmUct3NX5426TyELawTfRUoak"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 textInput = "test"
 
@@ -18,6 +18,7 @@ session_id = ''
 data_id = ''
 data_values = {}
 response_ticketsArr = []
+data_dict = {'data': {"id": "", "value":{}}}
 userText = "Show me the open tickets"
 
 ticketsArr = [
@@ -27,6 +28,7 @@ ticketsArr = [
 ]
 
 def filter_tickets(option, values):
+    global userText
     if option is "TD":
         print("yes, here is ticket data")
     elif option is "TAD":
@@ -40,9 +42,11 @@ def filter_tickets(option, values):
             for ticket in ticketsArr:
                 if ticket['status'] is 'open':
                     response_ticketsArr.append(ticket['number'])
-                    final_response = ''.join(map(str,response_ticketsArr))
-                
-            print(final_response)
+                    final_response = ','.join(map(str,response_ticketsArr))
+            data_dict["data"]["id"] = "GetTicketByStatusData"
+            data_dict["data"]["value"] = {"returnMessage":final_response, "returnCode":"0"} 
+            continue_chat(data_dict)
+            print(data_dict)
     elif option is "TBCD":
         print("woo, here are tickets by client")
     elif option is "TBCAD":
@@ -69,7 +73,7 @@ def filter_tickets(option, values):
         print("here are tickets by comment")
     elif option is "TDD":
         print("here are ticket dates")
-    elif option is "TPD":
+    elif option is  "TPD":
         print("here is ticket 'priority': data")
     elif option is "TSD":
         print("here is ticket status data")
@@ -84,11 +88,11 @@ def filter_tickets(option, values):
     elif option is "MTCSD":
         print("modify ticket: change status data")
     elif option is "MTLHD":
-        print("modify ticket: log hours data")
-    elif option is "MTACD":
-        print("modify ticket: add comment data")
+        print("modify ticket: log houment data")
     elif option is "MTCSD":
-        print("modify ticket: change status data")
+        print("modify ticket: change srs data")
+    elif option is "MTACD":
+        print("modify ticket: add comtatus data")
     return "success"
 
 def filter_intents(i):
@@ -160,16 +164,13 @@ def start_chat():
     print("This is all the messages", message_array)
     return
 
-def continue_chat(): 
+def continue_chat(payload_msg): 
     global session_id
     global data_id
     global data_values
     print("This is the session_id (in continue_chat()): ", session_id) 
-    payload_dict = {
-            "input": {
-                "userText": userText
-            }
-    }
+    print("this is the payload info", payload_msg)
+    payload_dict = payload_msg
     response, call = execute_request(stub, 
                             session_id=session_id, 
                             selector_dict=selector_dict,
@@ -215,12 +216,17 @@ def continue_chat():
 
 
 start_chat()
-continue_chat()
+payload_msg = {
+            "input": {
+                "userText": userText
+            }
+    }
+continue_chat(payload_msg)
 
 
 
 """
-GetTicketData == This will send TICKET_NUMBER
+GetTicketData == VA will send TICKET_NUMBER
 GetTicketAssigneeData TICKET_NUMBER ##Return assignee
 GetTicketByAssigneeData TICKET_ASSIGNEE ##Return tickets 
 GetTicketByPriorityData TICKET_PRIORTY
