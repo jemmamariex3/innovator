@@ -24,7 +24,7 @@ tasks = [
 
 # API-related info
 modelUrn = "urn:nuance:mix/eng-USA/A174_C517/mix.dialog"
-token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjQ3NDUyOSwiZXh0Ijp7fSwiaWF0IjoxNTc2NDcwOTI5LCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiOTQ0ZGZiNGYtNjFiOS00N2Y0LTk0OTctMGU0ZGY4ZWU3ZmRlIiwibmJmIjoxNTc2NDcwOTI5LCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.e4gcC9583wLFPr88Fqwj10o_c4WqFu6jkJZHbeF0Dv8ePV6Gqez5W-GxnM1T5ab4mS9VaioBStb6HuHvm2MlEho0GQ6ar5N4eunWjqIQKfTXVANFE6yz0I7wpWZdu3rZBpGvKbHWUuW8lmdzzQ7cahLKHx_S2CC-AWY3Q0WQ4CYB5mifqS_99onihFJC52LsbvNOqQ9FqPGUGjNvlRlGrzwOa5mNYIRqwAUch9e92LEE7yK1yyEy09fcz4Cq7iHE2ACwp9aABW0CUJmxd1ZLHTQVxhMLGjrCPGyNkdT8kMM-1tp3yFbEAzUX0zfEza1tuy9OBVrr199Xc0JCQjMIO6O193LD5WJ0_uvyFVLWan7qxGb002Vn1CXJj8-aKmJ93DcilKRkLErLFSAF-CDuJrOhW9CclKSuTb7eUZth-CC4x5yeQF9VFt_qFAir-qh7HuFvKOYzfeC1Yp4Fv4kvh8a1HRXvzx7te3Y81JgRKJU9DgzVC0mlTFizDdazNFRtLV3HlgK0od7_8rFKoKO2rR_qVXeiqaeJ1YGha4gGebUqxQKsfJTXeJij0p51Mp_0KUMJO4vMNeLrAgqY8QWjvqtVoarshC0PpbaUrb0KIGHbwLu4KIvSOqvkqZQ9Pz1qvHmAwRPuBkbouEiQ4wG89Is3y_R2APg6IfnfICwXz48"
+token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjQ3ODQxMCwiZXh0Ijp7fSwiaWF0IjoxNTc2NDc0ODEwLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiMjU2YTcyOTUtYzQyYy00OTY5LWIzYTQtZjczNjAwYjgxNDMyIiwibmJmIjoxNTc2NDc0ODEwLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.VQGpDoT6LpIyC1Hsyx4PHqWGwkB6hpzVgYQ-Kv2-fl16oF6Od_dUK5VUoRnWT8pqiylytoiYiPnnrQqyD854p29Nb0Dfb-Z0tQd9yEepaCZXMQA_sjb_lyz5E93Z530UihaxHT0_iygPnrZHE-QqU1Sf1KsTK1zwdAV_7s5Jxd-8B9VajR-WiTvNdT8WEI66_u7A47mnQQC8xikaJSe8KA3itVBCxyx8708lkXgq5scr2T3YOf4K-qVX7iwmvwzwjnbz61_ZsEy_lXACwLf5klVZSqdv6hqCDzc5jlDDX3jWMRLXaE5CL-vqkOCQqV1G__Cc0p2S_EfN4iCuPgsSoApuf4yZdZu0RJP57PcKfkEN8Fh-KmofRES4qWkAAOckf-Yq9VmlDSGcUXQRLTRTN6mlC6DZ5Wosbj2sd4cJOs9f_ejcrGiCCBjccs6WEnOkdofzUMz21SdZ76K2qSNClHjArqSbaewG1TLtioEjzTFOC9bJwBVDcWQ4suy7WVzjDIhLtuAvPXuSx9qTEADDQndLk2rG8517-pOkU5BHyTb1FntXkUbvQSxuQZILzezap0xdKe9mQvSAAFCk-_2YFs7W3Py2HyoyCHPRuwUijsu005iKgMyxRAeeaL3ryW6Rw644eL3gMBi8qjFlgIL-A9QqIZ1mtkKIaUA3JBWsj4s"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 textInput = "test"
 
@@ -35,12 +35,8 @@ selector_dict = {
             "language": "en-US",
             "library": "default"
 }
-# use decorators to link the function to a url
-@app.route('/')
-def home():
-    return render_template('index.html') # render a template
+session_id = ''
 
-@app.route('/startchat', methods=['GET'])
 def start_chat():
     response, call = start_request(stub, 
                             model_ref=modelUrn, 
@@ -71,7 +67,43 @@ def start_chat():
                             session_id=session_id
                         )
     assert call.code() == StatusCode.OK
-    return jsonify(message=''.join(message_array))
+    return jsonify(userText=''.join(message_array))
+
+def continue_chat(): 
+    if not request.json:
+        abort(400)
+    
+    payload_dict = {
+            "input": request.json
+    }
+    response, call = execute_request(stub, 
+                            session_id=session_id, 
+                            selector_dict=selector_dict,
+                            payload_dict=payload_dict
+                        )    
+    va_response = response["payload"]
+    message_array = []
+    for prompts in va_response["action"]:
+        for message in prompts["prompt"]["visual"]:
+            message_array.append(message["text"])
+    response, call = stop_request(stub, 
+                            session_id=session_id
+                        )
+    assert call.code() == StatusCode.OK
+    return jsonify(userText=''.join(message_array))    
+
+# use decorators to link the function to a url
+@app.route('/')
+def home():
+    return render_template('index.html') # render a template
+
+@app.route('/chat', methods=['GET', 'POST'])
+def chat():
+        if request.method == 'GET':
+            return start_chat()
+        elif request.method == 'POST': 
+            return continue_chat()
+
 
 
 # start the server with the 'run()' method

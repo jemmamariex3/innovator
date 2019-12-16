@@ -116,13 +116,37 @@ let chat_window = document.getElementById('message_container');
 
 async function fetch_start() {
     try {
-        let response = await fetch(`${window.origin}/startchat`);
+        let response = await fetch(`${window.origin}/chat`);
         if (!response.ok) {
             throw new Error("Network response failed.");
         } else {
             let json = await response.json();
-            update_chat(json.message);
+            update_chat(json.userText);
             return
+        }
+    } catch (error) {
+        console.log("Seems like it didn't work out fam", error.message);
+    }
+}
+
+async function fetch_continue(msg) {
+    try {
+        let response = await fetch(`${window.origin}/chat`, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({
+                "userText": msg
+            })
+        });
+        if (!response.ok) {
+            throw new Error("Network failed rip.")
+        } else {
+            let json = await response.json();
+            update_chat(json.userText)
         }
     } catch (error) {
         console.log("Seems like it didn't work out fam", error.message);
@@ -157,9 +181,10 @@ submit_button.addEventListener('click', function(event) {
     event.preventDefault();
     let message_value = document.getElementById('fname').value;
     update_chat(message_value, "Me");
+    fetch_continue(message_value);
     document.getElementById('fname').value = "";
-    fetch_start();
 });
+fetch_start();
 
 /*
 
