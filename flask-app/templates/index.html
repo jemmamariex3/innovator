@@ -4,14 +4,15 @@
 <head>
     <title>InnoVAtor</title>
     <link href="http://allfont.net/allfont.css?fonts=cicle-gordita" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="static/assets/css/styles.css">
+    <script src="static/assets/js/index.js" type="text/javascript" defer></script>
 </head>
 
 <body>
     <div class="container">
         <section class="left_container">
             <div class="logoDiv">
-                <img class="logo" src="assets/MixLogo_1x.png" alt="Innovation Logo">
+                <img class="logo" src="static/assets/MixLogo_1x.png" alt="Innovation Logo">
             </div>
             <div class="ticket_container">
                 <div class="section_header">
@@ -48,11 +49,12 @@
             <div class="section_header" id="chat_header">
                 <div class="title">ASK</div>
             </div>
+            <div id="message_container"></div>
             <div class='input-group'>
                 <form action="/" class="form_group">
                     <input type="text" id="fname" placeholder="Type your question here">
 
-                    <input type="submit" value="SEND" alt="Submit Button">
+                    <input type="submit" id="input-button" value="SEND" alt="Submit Button">
                 </form>
             </div>
         </section>

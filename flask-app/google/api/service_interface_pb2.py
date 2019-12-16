@@ -13,8 +13,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import annotations_pb2 as annotations__pb2
-import service_interface_messages_pb2 as service__interface__messages__pb2
+import google.api.annotations_pb2 as annotations__pb2
+import google.api.service_interface_messages_pb2 as service__interface__messages__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
