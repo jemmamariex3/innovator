@@ -9,6 +9,12 @@ class Ticket {
       this.status = status;
       this.startDate = startDate;
   }
+
+  getTicketInfo() {
+    const { ...params } = this; 
+    
+    return params; 
+  }
 }
 
 export default Ticket;
