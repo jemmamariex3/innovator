@@ -87,9 +87,11 @@ function update_chat(msg, user = "Kevina") {
     message_container.className = "message";
     message_user.className = "message-user";
     message_bubble.className = "message-text";
-
+    if (user == "Kevina") {
+        message_container.classList.add("message-va");
+    }
     message.innerText = msg;
-    message_user.innerText = "Kevina";
+    message_user.innerText = user;
 
     message_container.appendChild(message_user);
 

@@ -167,6 +167,10 @@ input[type=submit]:hover {
     margin: 0 20px;
 }
 
+.message-va {
+    float: right;
+}
+
 .message-user {
     height: 10px;
 }
