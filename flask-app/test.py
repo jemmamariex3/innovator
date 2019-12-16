@@ -3,7 +3,7 @@
 from google.api.api_python import *
 # API-related info
 modelUrn = "urn:nuance:mix/eng-USA/A174_C599/mix.dialog"
-token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjUzMjMyMiwiZXh0Ijp7fSwiaWF0IjoxNTc2NTI4NzIyLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiYzRlZWY1OTQtNTY5NC00NjA5LWFkYjgtMTQxNGMwZGU4NGJlIiwibmJmIjoxNTc2NTI4NzIyLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.eOv-l2wk2RMONhGfyrAOqcJqwQpmmtQ0MX3UNI65htbx6k6_5UOpDFHeThk3B-HHwYRHOOp-5ea2XVy-Ry2sZFvOdMtJMTLUq2EuUV2OZVcDlyPnDpohhG2JjBjCrV4Hhg7VbHolVnuG2Oe5BPAYtN62FYgKan71ErP4h2UnPcaLZS1UHgB2t3mx45TuWIOsYZTMqzbKVslDazyxa44uExcBv44nZTvL8aicc-RkHpqvLipkL78hL98_EfUDY3VMxLThFFmC_EGB_iALXXsGeVDiDvV99ZBHRAXgMibRqwmwwX1LTvZ9nX8xWW896Mv75IPFNJGk1bASODeBBIqOSe9oQ3z8jqzlbOb5gAq2uiPKIHutBmURm0L34JN9yjpcAbZkUfWHK3g5iEPgF5nhoJv8IGh7_c9zn-UCb9hXEsSFZa6lHpEAv3Rwls_L6eMOuJjnzVD4sfpC7_BU_k4PSBcLOg8U0nKsgnwbsQ8Fn6Qn4YV8og40tRY3V9solFhDFWrrZ15wtGexEqBBNPO6zIsigFbUgxGc_64yYDLz300fqKqmqa6QKW1TNeYOoxQWDXhV7Wm_ITB-CNTJdHHtPN-WIhILhnwAR8yyVRCy1JwlzruVGJy8l5l16leLZXCOGsxxD7T3T6E2IwjsdXnH6rt3HBCt0mMpURJ3dGb6NdU"
+token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjUzNTk4MiwiZXh0Ijp7fSwiaWF0IjoxNTc2NTMyMzgyLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiYjQwY2ExOGMtYmFkZC00MWUyLWEwZmEtMjc2NTBiNmU4MWZjIiwibmJmIjoxNTc2NTMyMzgyLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.Fz9tiV_5exA1GUEPs3itGgy7CnXS1kkaJYtI4RfdUL8TXVJ-mltKOtIeUaBHwiLmD9oqjXsUPlKoPxIzMB-xTB7Xt_vYjx8OWU1-Cf1N7UrcdJYXyCybH2Js1Mw8n36GVbwJMYjdT8uhg-EEiU8B7_T8ruAlBIfvy5L6pc95EV_KdY2-DnwK0brJEM6UPt2QypwPeRNpTPSGgB8ypWKoM3sDs2YIFbKSQnnm76D0Qf2OAIPDK5DPG6ENeQOG7jwneRhb6bZAXUk4JCnMzqhL6DcYOeH0vK2bMZ3umrXCTHstosHkneNqkI91T_mbGBtbxtnOC-ImkL95jFMpzsqysfx1iH6lzNJsrGAhytCjJ-gfEVtPkb6q111FgspLWEN5w1IuzPoIE2uSw3hlcq3l9LBWadSbCrZuCKyLYl11N9NuxRE26Xb-OfLmdKfA12EUOjKNqO0raShxr48zLgpeXUCo0FofZZq8Ws-JegDIZr9fQMbR2G0o8rBluATzqwVoPTIsZvlQekbzHWxaXd9TwUj3osF4FwTLLe2mqvm_2UL-3PtEZOhq0KxeQHIzr31wxXXou_EXMagL-Sdk4YvE4xufb3qOLsQmNFOLRby3okpR-KpeptdXQlpvAYegjpOvcq3TW-8AqHf-ILgT_MOUAaLYTTwQsIqE5UWkfkdFeuc"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 textInput = "test"
 
@@ -18,7 +18,7 @@ session_id = ''
 data_id = ''
 data_values = {}
 response_ticketsArr = []
-userText = "Show me open tickets"
+userText = "Does dalarm have open verizon tickets of high importance?"
 
 ticketsArr = [
     { 'number': 1, 'assignee': "DaLarm Han", 'dueDate': "12/19/2019", 'client': 'Verizon', 'summary': "Register team in mix", 'hoursLogged': 8, 'priority': "high", 'status': 'open' },
@@ -35,7 +35,7 @@ def filter_tickets(option, values):
                 if ticket['number'] is int(ticket_num):
                     response_ticketsArr.append(ticket)
                     final_response = ''.join(map(str,response_ticketsArr))
-            print(final_response)
+            print("Final response: " + final_response)
     elif option is "TAD":
         print("yes, here is the assignee")
         if("_concept_TICKET_NUMBER" in values): 
@@ -44,16 +44,17 @@ def filter_tickets(option, values):
                 if ticket['number'] is int(ticket_num):
                     response_ticketsArr.append(ticket['assignee'])
                     final_response = ''.join(map(str,response_ticketsArr))
-            print(final_response)
+            print("Final response: " + final_response)
     elif option is "TBAD":
         print("yes, here are all the tickets from assignee")
         if("_concept_TICKET_ASSIGNEE" in values):
-            print(values['_concept_TICKET_ASSIGNEE'])
+            # print(values['_concept_TICKET_ASSIGNEE'])
+            assignee = values["_concept_TICKET_ASSIGNEE"]
             # for ticket in ticketsArr:
             #     if ticket['status'] is '':
             #         response_ticketsArr.append(ticket['number'])
             #         final_response = ''.join(map(str,response_ticketsArr))
-            # print(final_response)
+            # print("Final response: " + final_response)
     elif option is "TBPD":
         print("yes here are tickets by 'priority':")
     elif option is "TBSD":
@@ -63,29 +64,89 @@ def filter_tickets(option, values):
                 if ticket['status'] is 'open':
                     response_ticketsArr.append(ticket['number'])
                     final_response = ''.join(map(str,response_ticketsArr))
-            print(final_response)
+            print("Final response: " + final_response)
     elif option is "TBCD":
         print("woo, here are tickets by client")
         if("_concept_TICKET_CLIENT" in values):
+            client = values["_concept_TICKET_CLIENT"]
             for ticket in ticketsArr:
-                if ticket['status'] is 'open':
+                if ticket['client'] == client:
                     response_ticketsArr.append(ticket['number'])
                     final_response = ''.join(map(str,response_ticketsArr))
-            print(final_response)
+            print("Final response: " + final_response)
     elif option is "TBCAD":
         print("here are tickets by client + assignee")
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_ASSIGNEE" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr:
+                if (ticket['client'] == client and ticket['assignee'] == assignee):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBCPD":
         print("here are tickets by client + 'priority':")
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_PRIORITY" in values and  "_concept_TICKET_ASSIGNEE" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            priority = values["concept_TICKET_PRIORITY"]
+            for ticket in ticketsArr: 
+                if (ticket['client'] == client and ticket['priority'] == priority):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBCPAD":
         print("here are tickets by client, 'priority':, assignee")
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_PRIORITY" in values and  "_concept_TICKET_ASSIGNEE" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            priority = values["_concept_TICKET_PRIORITY"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr: 
+                if (ticket['client'] == client and ticket['priority'] == priority and ticket['assignee'] == assignee):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBSAD":
         print("here are tickets by status + assignee")
+        if("_concept_TICKET_STATUS" in values and  "_concept_TICKET_ASSIGNEE" in values):
+            status = values["_concept_TICKET_STATUS"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr: 
+                if (ticket['status'] == status and ticket['assignee'] == assignee):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBSCD":
         print("here are tickets by status+client")
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_STATUS" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            status = values["_concept_TICKET_STATUS"]
+            for ticket in ticketsArr: 
+                if (ticket['client'] == client and ticket['status'] == status):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBSCAD":
         print("here are tickets by status + client + assignee"),
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_STATUS" in values and  "_concept_TICKET_ASSIGNEE" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            status = values["_concept_TICKET_STATUS"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr: 
+                if (ticket['client'] == client and ticket['status'] == status and ticket['assignee'] == assignee):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBSCPD":
         print ("here are tickets by status+client+'priority':")
+        if("_concept_TICKET_CLIENT" in values and "_concept_TICKET_STATUS" in values and  "_concept_TICKET_PRIORITY" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            status = values["_concept_TICKET_STATUS"]
+            priority = values["_concept_TICKET_PRIORITY"]
+            for ticket in ticketsArr: 
+                if (ticket['client'] == client and ticket['status'] == status and ticket['priority'] == priority):
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print("Final response: " + final_response)
     elif option is "TBSCPAD":
         print("here are tickets by status, client, 'priority':, assignee")
     elif option is "TBSPD":
