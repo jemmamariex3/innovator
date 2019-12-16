@@ -1,10 +1,15 @@
 body {
     margin: 0;
-    font-family: 'Cicle Gordita', arial;
+    /* font-family: 'Cicle Gordita', arial; */
+    font-family: 'News Cycle', sans-serif;
 }
 
 h1 {
     color: #ffffff;
+}
+
+button {
+    font-family: 'News Cycle', sans-serif;
 }
 
 .container {
@@ -54,8 +59,31 @@ h1 {
     border-bottom: 2px solid #ffffff;
     color: #ffffff;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_right {
+    padding-right: 5px;
+}
+
+.section_minimize,
+.section_close {
+    border: none;
+    color: white;
+    background-color: transparent;
+    font-size: 1.25em;
+    cursor: pointer;
+}
+
+.section_minimize {
+    margin-right: 0.25em;
+    transform: rotate(90deg);
+}
+
+.right_container.minimize .section_minimize {
+    transform: rotate(-90deg);
 }
 
 #chat_header {
@@ -113,13 +141,34 @@ tr {
 .right_container {
     background-color: #ffffff;
     width: 30%;
-    height: 100%;
     border: 2px solid #C0C0C0;
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.right_container.minimize {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.right_container.minimize #text_container,
+.right_container.minimize .input-group {
+    display: none;
+}
+
+.right_container.close {
+    display: none;
+}
+
+#text_container {
+    position: relative;
+    height: 100%;
 }
 
 .input-group {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     border-top: 2px solid #C0C0C0;
@@ -158,7 +207,7 @@ input[type=submit]:hover {
     color: #ffffff;
 }
 
-#message_container {
+#text_container {
     width: 100%;
     position: relative;
 }

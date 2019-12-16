@@ -18,11 +18,31 @@ class Ticket {
         this.status = status;
         this.startDate = startDate;
     }
+
     getTicketInfo() {
         const {...params } = this;
 
         return params;
     }
+}
+
+// Chat button logic
+function addChatClick() {
+    const chatContainer = document.querySelector(".right_container");
+    const minimizeBtn = document.querySelector(".section_minimize");
+    const closeBtn = document.querySelector(".section_close");
+
+    minimizeBtn.addEventListener("click", (e) => {
+        chatContainer.classList.toggle("minimize");
+        chatContainer.classList.remove("close");
+        console.log("current target for minimize btn: ", e.currentTarget);
+    })
+
+    closeBtn.addEventListener("click", (e) => {
+        chatContainer.classList.toggle("close");
+        chatContainer.classList.remove("minimize");
+        console.log("current target for close btn: ", e.currentTarget);
+    })
 }
 
 //////////////////// Accordion JS Start //////////////////
@@ -86,7 +106,6 @@ for (let i = 0; i < tickets.length; i++) {
     ticketBody.appendChild(ticketPanel);
 
     // Set up text content
-    // ticketKey.textContent = tickets[i].
     const { number, assignee, summary, hoursLogged, priority, status } = tickets[i].getTicketInfo();
     ticketKey.textContent = number;
     ticketSummary.textContent = summary;
@@ -99,6 +118,7 @@ for (let i = 0; i < tickets.length; i++) {
     console.log("Ticket body el: ", ticketHeaders);
 
 }
+
 ////////////////// Populate Accordion End//////////////////
 
 /*
@@ -109,10 +129,14 @@ for (let i = 0; i < tickets.length; i++) {
 <div style="background-color: #E3E3E3;padding: 0 5px;border: solid 1px black;width: 300px;" class="message-text"><p>Hi I'm Kevina. The VA.</p></div>
 </div></div>
 */
+function main() {
+    addAccordionClick();
+    addChatClick();
+}
 
-addAccordionClick();
+main();
 let submit_button = document.getElementById('input-button');
-let chat_window = document.getElementById('message_container');
+let chat_window = document.getElementById('text_container');
 
 async function fetch_start() {
     try {

@@ -3,7 +3,8 @@
 
 <head>
     <title>InnoVAtor</title>
-    <link href="http://allfont.net/allfont.css?fonts=cicle-gordita" rel="stylesheet" type="text/css" />
+    <!-- <link href="http://allfont.net/allfont.css?fonts=cicle-gordita" rel="stylesheet" /> -->
+    <link href="https://fonts.googleapis.com/css?family=News+Cycle&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="static/assets/css/styles.css">
     <script src="static/assets/js/index.js" type="text/javascript" defer></script>
 </head>
@@ -23,58 +24,51 @@
                         <tr>
                             <th>Key #</th>
                             <th>Summary</th>
+                            <th>Assignee</th>
+                            <th>Client</th>
                             <th>Status</th>
                             <th>Hours Logged</th>
                             <th>Priority</th>
                         </tr>
                     </table>
-                    <button class="accordion">
+                    <!-- <button class="accordion">
               <table class="ticket_table">
                 <tr>
                   <th>1</th>
-                  <th>Mix.Hacks -- Create NLU Api</th> 
+                  <th>Mix.Hacks -- Create NLU Api</th>
+                  <th>Jemma Tiongson</th> 
                   <th>In Progress</th>
                   <th>160</th> 
                   <th>High</th>                
                 </tr>
               </table>
             </button>
-                    <div class="panel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
+            <div class="panel">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+            </div> -->
                 </div>
             </div>
         </section>
         <section class="right_container">
             <div class="section_header" id="chat_header">
-                <div class="title">ASK</div>
+                <div class="header_left">
+                    <div class="title">ASK</div>
+                </div>
+                <div class="header_right">
+                    <button class="section_minimize fas fa-chevron-right"></button>
+                    <button class="section_close fas fa-times"></button>
+                </div>
             </div>
-            <div id="message_container"></div>
+            <div id="text_container"></div>
             <div class='input-group'>
                 <form action="/" class="form_group">
                     <input type="text" id="fname" placeholder="Type your question here">
-
                     <input type="submit" id="input-button" value="SEND" alt="Submit Button">
                 </form>
             </div>
         </section>
     </div>
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
-        }
-    </script>
+    <script src="https://kit.fontawesome.com/d616b6ac97.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
