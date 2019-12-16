@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>InnoVAtor</title>
-    <!-- <link href="http://allfont.net/allfont.css?fonts=cicle-gordita" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="http://allfont.net/allfont.css?fonts=cicle-gordita" rel="stylesheet" /> -->
+    <link href="https://fonts.googleapis.com/css?family=News+Cycle&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
@@ -45,16 +46,23 @@
       </section>
       <section class="right_container">
         <div class="section_header" id="chat_header">
-          <div class="title">ASK</div>
+          <div class="header_left">
+            <div class="title">ASK</div>
+          </div>
+          <div class="header_right">
+            <button class="section_minimize fas fa-chevron-right"></button>
+            <button class="section_close fas fa-times"></button>
+          </div>
         </div>
+        <div class="text_container"></div>
         <div class='input-group'>
           <form action="/" class="form_group">
             <input type="text" id="fname" placeholder="Type your question here">
-
             <input type="submit" value="SEND" alt="Submit Button">
           </form>
         </div>
       </section>
     </div>
+    <script src="https://kit.fontawesome.com/d616b6ac97.js" crossorigin="anonymous"></script>
   </body>
 </html>
