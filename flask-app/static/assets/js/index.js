@@ -57,6 +57,24 @@ for (var i = 0; i < tickets.length; i++) {
 // console.log(ticket2.number);
 ////////////////// Populate Accordion End//////////////////
 
+function fetch_start() {
+    try {
+        fetch(`${window.origin}/startchat`)
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("Network response failed.");
+                } else {
+                    console.log(response.json());
+                    console.log("why is this not showing up?");
+                    console.log(response);
+                    return response.json();
+                }
+            })
+    } catch (error) {
+        console.log("Seems like it didn't work out fam", error.message);
+    }
+}
+
 var submit_button = document.getElementById('input-button');
 var chat_window = document.getElementById('message_container');
 submit_button.addEventListener('click', function(event) {
@@ -79,6 +97,7 @@ submit_button.addEventListener('click', function(event) {
     message_bubble.appendChild(message);
     message_container.appendChild(message_bubble);
     chat_window.appendChild(message_container);
+    fetch_start();
 });
 
 /*

@@ -107,45 +107,25 @@ def stop_request(stub, session_id=None):
     log.debug(f'Stop Response: {response}')
     return response, call
 
-def main():
-    modelUrn = "urn:nuance:mix/eng-USA/A174_C517/mix.dialog"
-    token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjQ1NTM2NywiZXh0Ijp7fSwiaWF0IjoxNTc2NDUxNzY3LCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiN2MxMzJkMmQtOGQwMS00MDU0LTkxM2QtN2ZlZTFhNmQxMDMwIiwibmJmIjoxNTc2NDUxNzY3LCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.j4bRAQ_dPVb-yF3u21Xr8mQcdTVMjOfi7uq371iGInhrDBxJh4FrfFyU2_R2oQ7KZSdZiQEcsv-TN5m6cpOU2njQV6KT40dMSj94ZWv8A3Bkogra7jD8re7fUbBPFtupKuEZOhgJsS8_36a3P2YQU4oZhJAJWr1FAqmI6BSsjwkIDVoK9jaNFRiai32V7AzdnjyhYd7XWspuocdjUlb5Wpd69vUUc8tENjRKEwHRSenOl5atziXZoKsjOb0xa0Q08jg4TfmtnNYB4oPWSfwyoUw8_3-XdfasVtFW-mtL9IcBg-pVcsFCJJXjE8tsice3LBzkJlWbwmgV0JzKhBPA2vbINADBzM3cW4YbjXk-n0D7rYs-61-6LwB4rIR2YZpFFeDv3leIzKyYfzaPSfh0eurFnwD-xEZPyLrNzjfbOHa63WgkfjZs6GubLCDvTz2xXSQuEQX3U-ENSMAJKUhUVPPqZQGchOoo6FDJ9vRLL_-586qTo8SK-Tak4sf45kAcbOKC6IMWWM2D6_d4RfnyLiSqRpXQsXvGpWSguzKegaOjYLfviF2pkJKXyvKhbAugx3e6_E0phCNJdhWeLRNGLVNojl8gLkBx1iWI3CxSpC74b0KV9bzcFRtsBatBaJglxFz1kmnx_-Qbcqk6bLmPF1FLtFp9iAuVizwFvKNm3Xw"
-    serverUrl = "dlgaas.beta.mix.nuance.com:443"
-    textInput = "test"    
+def main(): 
     #args = parse_args()
     log_level = logging.DEBUG
     logging.basicConfig(
         format='%(asctime)s %(levelname)-5s: %(message)s', level=log_level)
-    with create_channel(token, serverUrl) as channel:
-        stub = ChannelConnectorServiceStub(channel)
-        selector_dict = {
-            "channel": "smartspeakerva",
-            "language": "en-US",
-            "library": "default"
-        }
-        response, call = start_request(stub, 
-                            model_ref=modelUrn, 
-                            session_id=str(uuid.uuid1()), # Create a session id
-                            selector_dict=selector_dict
-                        )
-        session_id = read_session_id_from_response(response)
-        log.debug(f'Session: {session_id}')
-        assert call.code() == StatusCode.OK
-        payload_dict = {
+
+        
+    session_id = read_session_id_from_response(response)
+    log.debug(f'Session: {session_id}')
+    assert call.code() == StatusCode.OK
+    """
+    payload_dict = {
             "input": {
                 "userText": textInput
             }
-        }
-        response, call = execute_request(stub, 
-                            session_id=session_id, 
-                            selector_dict=selector_dict,
-                            payload_dict=payload_dict
-                        )
-        assert call.code() == StatusCode.OK
-        response, call = stop_request(stub, 
-                            session_id=session_id
-                        )
-        assert call.code() == StatusCode.OK
+    }"""
+
+        
+
 
 if __name__ == '__main__':
     main()
@@ -157,5 +137,21 @@ if __name__ == '__main__':
 
 
 --token $TOKEN 
+
+    modelUrn = "urn:nuance:mix/eng-USA/A174_C517/mix.dialog"
+    token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjQ1NTM2NywiZXh0Ijp7fSwiaWF0IjoxNTc2NDUxNzY3LCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiN2MxMzJkMmQtOGQwMS00MDU0LTkxM2QtN2ZlZTFhNmQxMDMwIiwibmJmIjoxNTc2NDUxNzY3LCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.j4bRAQ_dPVb-yF3u21Xr8mQcdTVMjOfi7uq371iGInhrDBxJh4FrfFyU2_R2oQ7KZSdZiQEcsv-TN5m6cpOU2njQV6KT40dMSj94ZWv8A3Bkogra7jD8re7fUbBPFtupKuEZOhgJsS8_36a3P2YQU4oZhJAJWr1FAqmI6BSsjwkIDVoK9jaNFRiai32V7AzdnjyhYd7XWspuocdjUlb5Wpd69vUUc8tENjRKEwHRSenOl5atziXZoKsjOb0xa0Q08jg4TfmtnNYB4oPWSfwyoUw8_3-XdfasVtFW-mtL9IcBg-pVcsFCJJXjE8tsice3LBzkJlWbwmgV0JzKhBPA2vbINADBzM3cW4YbjXk-n0D7rYs-61-6LwB4rIR2YZpFFeDv3leIzKyYfzaPSfh0eurFnwD-xEZPyLrNzjfbOHa63WgkfjZs6GubLCDvTz2xXSQuEQX3U-ENSMAJKUhUVPPqZQGchOoo6FDJ9vRLL_-586qTo8SK-Tak4sf45kAcbOKC6IMWWM2D6_d4RfnyLiSqRpXQsXvGpWSguzKegaOjYLfviF2pkJKXyvKhbAugx3e6_E0phCNJdhWeLRNGLVNojl8gLkBx1iWI3CxSpC74b0KV9bzcFRtsBatBaJglxFz1kmnx_-Qbcqk6bLmPF1FLtFp9iAuVizwFvKNm3Xw"
+    serverUrl = "dlgaas.beta.mix.nuance.com:443"
+    textInput = "test"   
+
+        response, call = execute_request(stub, 
+                            session_id=session_id, 
+                            selector_dict=selector_dict,
+                            payload_dict=payload_dict
+                        )
+        assert call.code() == StatusCode.OK
+        response, call = stop_request(stub, 
+                            session_id=session_id
+                        )
+        assert call.code() == StatusCode.OK
 
 """
