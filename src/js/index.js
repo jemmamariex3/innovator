@@ -46,38 +46,51 @@ function addAccordionClick() {
   ////////////////// Accordion JS End ////////////////////
 
 ////////////////// Populate Accordion Start //////////////////
+// Global Vars
+let ticketBody, accordionBtn, ticketTable, ticketRow, ticketKey, ticketSummary, ticketAssignee, ticketStatus, ticketHoursLogged, ticketPriority, ticketPanel, ticketHeaders;
+let innerTable, innerRow, userHeader, commentHeader, userSection, commentSection, innerHeaders;
+
 const ticketsArr = [
-  { number: 1, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register team in mix", hoursLogged: 8, priority: "high" }, 
-  { number: 2, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamz in mix", hoursLogged: 2, priority: "low" }, 
-  { number: 3, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamzzz in mix", hoursLogged: 3, priority: "medium" }, 
+  { number: 1, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register team in mix", hoursLogged: 8, comment:"testing", priority: "high" }, 
+  { number: 2, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamz in mix", hoursLogged: 2, comment:"testing", priority: "low" }, 
+  { number: 3, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamzzz in mix", hoursLogged: 3, comment:"testing", priority: "medium" }, 
 ]
 let tickets = [];
 ticketsArr.forEach((ticket) => {
-  const { number, assignee, dueDate, summary, hoursLogged, priority } = ticket; 
-  tickets = [ ...tickets, new Ticket( number, assignee, dueDate, summary, hoursLogged, priority ) ]; 
+  const { number, assignee, dueDate, summary, hoursLogged, comment, priority } = ticket; 
+  tickets = [ ...tickets, new Ticket( number, assignee, dueDate, summary, hoursLogged, comment, priority ) ]; 
 });
 
 for ( let i = 0; i < tickets.length; i++ ) {
   console.log("Ticket info: ", tickets[i]);
   
   // Create HTML elements so we can inject them dynamically
-  let ticketBody = document.querySelector(".ticket_body"); 
-  let accordionBtn = document.createElement("button"); 
-  let ticketTable = document.createElement("table");
-  let ticketRow = document.createElement("tr"); 
-  let ticketKey = document.createElement("th"); 
-  let ticketSummary = document.createElement("th"); 
-  let ticketAssignee = document.createElement("th"); 
-  let ticketStatus = document.createElement("th"); 
-  let ticketHoursLogged = document.createElement("th"); 
-  let ticketPriority = document.createElement("th"); 
-  let ticketPanel = document.createElement("div"); 
-  let ticketHeaders = [ticketKey, ticketSummary, ticketAssignee, ticketStatus, ticketHoursLogged, ticketPriority]; 
+  ticketBody = document.querySelector(".ticket_body"); 
+  accordionBtn = document.createElement("button"); 
+  ticketTable = document.createElement("table");
+  ticketRow = document.createElement("tr"); 
+  ticketKey = document.createElement("th"); 
+  ticketSummary = document.createElement("th"); 
+  ticketAssignee = document.createElement("th"); 
+  ticketStatus = document.createElement("th"); 
+  ticketHoursLogged = document.createElement("th"); 
+  ticketPriority = document.createElement("th"); 
+  ticketPanel = document.createElement("div"); 
+  ticketHeaders = [ticketKey, ticketSummary, ticketAssignee, ticketStatus, ticketHoursLogged, ticketPriority];
+  
+  innerTable = document.createElement("table");
+  innerRow = document.createElement("tr"); 
+  userHeader = document.createElement("th");
+  commentHeader = document.createElement("th");
+  userSection = document.createElement("td");
+  commentSection = document.createElement("td");
+  innerHeaders = [userHeader, commentHeader];
 
   // Set necessary classes
   accordionBtn.className = "accordion"; 
   ticketTable.className = "ticket_table"; 
   ticketPanel.className = "panel"; 
+  innerTable.className = "inner_table";
 
   // Build up the DOM hierarchy
   ticketHeaders.forEach(header => ticketRow.appendChild(header));
@@ -86,21 +99,30 @@ for ( let i = 0; i < tickets.length; i++ ) {
   ticketBody.appendChild(accordionBtn);
   ticketBody.appendChild(ticketPanel); 
 
+  innerHeaders.forEach(innerHeader => innerRow.appendChild(innerHeader));
+  innerTable.appendChild(innerRow); 
+  innerTable.appendChild(userSection); 
+  innerTable.appendChild(commentSection);
+  ticketPanel.appendChild(innerTable);
+
+
   // Set up text content
-  const { number, assignee, summary, hoursLogged, priority, status } = tickets[i].getTicketInfo(); 
+  const { number, assignee, summary, hoursLogged, comment, priority, status } = tickets[i].getTicketInfo(); 
   ticketKey.textContent = number; 
   ticketSummary.textContent = summary; 
   ticketAssignee.textContent = assignee; 
   ticketHoursLogged.textContent = hoursLogged; 
   ticketPriority.textContent = priority; 
   ticketStatus.textContent = status; 
-  ticketPanel.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fugiat quod architecto libero tempora voluptates quo, eius sequi? Repudiandae, ea"; 
-  
+  userHeader.textContent = "User";
+  commentHeader.textContent = "Comment";
+  userSection.textContent = assignee;
+  commentSection.textContent = comment;
   console.log("Ticket body el: ", ticketHeaders); 
 
 }
 
-////////////////// Populate Accordion End//////////////////
+////////////////// Populate Accordion End //////////////////
 
 /*
 
