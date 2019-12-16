@@ -59,29 +59,26 @@ for (var i = 0; i < tickets.length; i++) {
 // console.log(ticket2.number);
 ////////////////// Populate Accordion End//////////////////
 
-function fetch_start() {
+let submit_button = document.getElementById('input-button');
+let chat_window = document.getElementById('message_container');
+
+async function fetch_start() {
     try {
-        fetch(`${window.origin}/startchat`)
-            .then(function(response) {
-                if (!response.ok) {
-                    throw new Error("Network response failed.");
-                } else {
-                    console.log(response.json());
-                    console.log("why is this not showing up?");
-                    console.log(response);
-                    response.resolve();
-                }
-            })
+        let response = await fetch(`${window.origin}/startchat`);
+        if (!response.ok) {
+            throw new Error("Network response failed.");
+        } else {
+            let json = await response.json();
+            update_chat(json.message);
+            return
+        }
     } catch (error) {
         console.log("Seems like it didn't work out fam", error.message);
     }
 }
 
-var submit_button = document.getElementById('input-button');
-var chat_window = document.getElementById('message_container');
-submit_button.addEventListener('click', function(event) {
-    event.preventDefault();
-    let message_value = document.getElementById('fname').value;
+function update_chat(msg, user = "Kevina") {
+    console.log(msg);
     let message_container = document.createElement('div');
     let message_user = document.createElement('p');
     let message_bubble = document.createElement('div');
@@ -91,7 +88,7 @@ submit_button.addEventListener('click', function(event) {
     message_user.className = "message-user";
     message_bubble.className = "message-text";
 
-    message.innerText = message_value;
+    message.innerText = msg;
     message_user.innerText = "Kevina";
 
     message_container.appendChild(message_user);
@@ -99,6 +96,14 @@ submit_button.addEventListener('click', function(event) {
     message_bubble.appendChild(message);
     message_container.appendChild(message_bubble);
     chat_window.appendChild(message_container);
+}
+
+
+submit_button.addEventListener('click', function(event) {
+    event.preventDefault();
+    let message_value = document.getElementById('fname').value;
+    update_chat(message_value, "Me");
+    document.getElementById('fname').value = "";
     fetch_start();
 });
 
