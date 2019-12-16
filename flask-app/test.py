@@ -3,7 +3,7 @@
 from google.api.api_python import *
 # API-related info
 modelUrn = "urn:nuance:mix/eng-USA/A174_C599/mix.dialog"
-token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjUyMjc4MiwiZXh0Ijp7fSwiaWF0IjoxNTc2NTE5MTgyLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiYzFiODNlMTAtMjJjYy00YjM2LWFmYWYtNTNjYjc4ZDUyZWM3IiwibmJmIjoxNTc2NTE5MTgyLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.DXU5f8pFlHk9ynyFxAkVaAss9H56WiKeKKkzYR3g66QvxiBzafd4NN8zCC-RAeVnK1huW_PDjRHHrGySfFxKIVFPe0slNBJPVVAegzNtcPv7hpEyahIMVd5f1biQSyercFlLlS09baWy7lDoLuhu97qZ-CsxhfU-VP2M1m31VPNXsVeouWD05hSTwc7Mt1wlATE_IzV0s1TO7X8HIxnUo4oj8KEZGXRi0Idr2-KTZHOgnzDrpTYejSNKuaQGGR9bOP2tsYEzcw5rg_vzvFMTIivO0xapuAhOyBu9qXYOYMi0jR9OK10LlUKTKVHTaC6VlXFeZU6DmJOxCbAChH14XPEi1_VY6Qug-izdVkLcehmoT-I0gqGJT3KBT3vGpt4KFtR4NHOto7sXEgNrrUJmjjMmjzRjhUH0tR94rnKWl_Gc6d4fMR-MMFKU551MG0lqmtdI-Iq07_mRXDpQlY1Yph0a104ctxe0Tkm0I639ynFFlcucHZVZcOkE9suvTZNDx8khgnmdGy-5H9SIzkTquoJ9bG_VLS4qgA1eSm6b9-LheuZx-fAc6Hqc9xHd6hgse_PJgt-n9UXB9ebEmG8YmoVBNFTFmIqBnBqnD9IBRS9bhJxQPvzKzmvwYPK-2_pcYCiQLA0eVkSd16IR8Abd2UAd-VI15FopdA_uglVcSDw"
+token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjUzMjMyMiwiZXh0Ijp7fSwiaWF0IjoxNTc2NTI4NzIyLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiYzRlZWY1OTQtNTY5NC00NjA5LWFkYjgtMTQxNGMwZGU4NGJlIiwibmJmIjoxNTc2NTI4NzIyLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.eOv-l2wk2RMONhGfyrAOqcJqwQpmmtQ0MX3UNI65htbx6k6_5UOpDFHeThk3B-HHwYRHOOp-5ea2XVy-Ry2sZFvOdMtJMTLUq2EuUV2OZVcDlyPnDpohhG2JjBjCrV4Hhg7VbHolVnuG2Oe5BPAYtN62FYgKan71ErP4h2UnPcaLZS1UHgB2t3mx45TuWIOsYZTMqzbKVslDazyxa44uExcBv44nZTvL8aicc-RkHpqvLipkL78hL98_EfUDY3VMxLThFFmC_EGB_iALXXsGeVDiDvV99ZBHRAXgMibRqwmwwX1LTvZ9nX8xWW896Mv75IPFNJGk1bASODeBBIqOSe9oQ3z8jqzlbOb5gAq2uiPKIHutBmURm0L34JN9yjpcAbZkUfWHK3g5iEPgF5nhoJv8IGh7_c9zn-UCb9hXEsSFZa6lHpEAv3Rwls_L6eMOuJjnzVD4sfpC7_BU_k4PSBcLOg8U0nKsgnwbsQ8Fn6Qn4YV8og40tRY3V9solFhDFWrrZ15wtGexEqBBNPO6zIsigFbUgxGc_64yYDLz300fqKqmqa6QKW1TNeYOoxQWDXhV7Wm_ITB-CNTJdHHtPN-WIhILhnwAR8yyVRCy1JwlzruVGJy8l5l16leLZXCOGsxxD7T3T6E2IwjsdXnH6rt3HBCt0mMpURJ3dGb6NdU"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 textInput = "test"
 
@@ -18,7 +18,7 @@ session_id = ''
 data_id = ''
 data_values = {}
 response_ticketsArr = []
-userText = "Show me the open tickets"
+userText = "Show me open tickets"
 
 ticketsArr = [
     { 'number': 1, 'assignee': "DaLarm Han", 'dueDate': "12/19/2019", 'client': 'Verizon', 'summary': "Register team in mix", 'hoursLogged': 8, 'priority': "high", 'status': 'open' },
@@ -29,22 +29,49 @@ ticketsArr = [
 def filter_tickets(option, values):
     if option is "TD":
         print("yes, here is ticket data")
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    response_ticketsArr.append(ticket)
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print(final_response)
     elif option is "TAD":
         print("yes, here is the assignee")
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    response_ticketsArr.append(ticket['assignee'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print(final_response)
     elif option is "TBAD":
         print("yes, here are all the tickets from assignee")
+        if("_concept_TICKET_ASSIGNEE" in values):
+            print(values['_concept_TICKET_ASSIGNEE'])
+            # for ticket in ticketsArr:
+            #     if ticket['status'] is '':
+            #         response_ticketsArr.append(ticket['number'])
+            #         final_response = ''.join(map(str,response_ticketsArr))
+            # print(final_response)
     elif option is "TBPD":
         print("yes here are tickets by 'priority':")
     elif option is "TBSD":
+        print("here are tickets by status")
         if("_concept_TICKET_STATUS" in values):
             for ticket in ticketsArr:
                 if ticket['status'] is 'open':
                     response_ticketsArr.append(ticket['number'])
                     final_response = ''.join(map(str,response_ticketsArr))
-                
             print(final_response)
     elif option is "TBCD":
         print("woo, here are tickets by client")
+        if("_concept_TICKET_CLIENT" in values):
+            for ticket in ticketsArr:
+                if ticket['status'] is 'open':
+                    response_ticketsArr.append(ticket['number'])
+                    final_response = ''.join(map(str,response_ticketsArr))
+            print(final_response)
     elif option is "TBCAD":
         print("here are tickets by client + assignee")
     elif option is "TBCPD":
@@ -213,9 +240,65 @@ def continue_chat():
     
     #jsonify(userText=''.join(message_array))  
 
+def continue_chat_twice(): 
+    global session_id
+    global data_id
+    global data_values
+    print("This is the session_id (in continue_chat()): ", session_id) 
+    payload_dict = {
+        "input": {
+            "userText": userText2
+        }
+    }
+    response, call = execute_request(stub, 
+                            session_id=session_id, 
+                            selector_dict=selector_dict,
+                            payload_dict=payload_dict
+                        )    
+    print("this is before payload", response)
+    va_response = response["payload"]
+    va_action = va_response["action"]
+    for item in va_action:
+        if "data" in item:
+            intent = filter_intents(item["data"]["id"])
+            data_values = item["data"]["value"]
+            filter_tickets(intent,data_values)
+
+
+    print("This is the va response: ", va_response)
+    message_array = []
+    # print("going to end it now")
+    response, call = stop_request(stub, session_id=session_id)
+    assert call.code() == StatusCode.OK
+    return
+"""     for action in va_response["action"]:
+        if "prompt" in action:
+            for message in action["prompt"]["visual"]:
+                message_array.append(message["text"])
+        elif "data" in action:
+            data_id = action["data"]["id"]
+            data_values = action["data"]["value"]
+            for value in data_values:
+                data_values[value] = 5
+            payload_dict = { 
+                "value": data_values
+            }
+            response, call = execute_request(stub, 
+                            session_id=session_id, 
+                            selector_dict=selector_dict,
+                            payload_dict=payload_dict
+                        )
+            va_response = response["payload"]
+            message_array = []  """    
+    
+    #jsonify(userText=''.join(message_array))  
+
+
+
 
 start_chat()
 continue_chat()
+# continue_chat_twice()
 
 
 
