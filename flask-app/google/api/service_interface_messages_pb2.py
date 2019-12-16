@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
-import runtime_interface_messages_pb2 as runtime__interface__messages__pb2
+import google.api.runtime_interface_messages_pb2 as runtime__interface__messages__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(

@@ -1,6 +1,6 @@
 // With CSS loader, we can import the css in the main JS file, rather than the html file
-import "../css/styles.css";
-import Ticket from "./Ticket.js";
+//import "../css/styles.css";
+//import Ticket from "./Ticket.js";
 // import { configs } from './key';
 
 // const token = require("../../dialog_proto/token_scripts/my-token.json");
@@ -24,6 +24,19 @@ for (i = 0; i < acc.length; i++) {
 }
 ////////////////// Accordion JS End ////////////////////
 
+class Ticket {
+    constructor(number, assignee, dueDate, summary, hoursLogged, priority = "low", status = "open", startDate = new Date()) {
+        this.number = number;
+        this.assignee = assignee;
+        this.dueDate = dueDate;
+        this.summary = summary;
+        this.hoursLogged = hoursLogged;
+        this.priority = priority;
+        this.status = status;
+        this.startDate = startDate;
+    }
+}
+
 ////////////////// Populate Accordion Start //////////////////
 let ticketsArr = [
     //why is this reversed.... & why are some slots undefined..
@@ -44,13 +57,33 @@ for (var i = 0; i < tickets.length; i++) {
 // console.log(ticket2.number);
 ////////////////// Populate Accordion End//////////////////
 
+var submit_button = document.getElementById('input-button');
+var chat_window = document.getElementById('message_container');
+submit_button.addEventListener('click', function(event) {
+    event.preventDefault();
+    let message_value = document.getElementById('fname').value;
+    let message_container = document.createElement('div');
+    let message_user = document.createElement('p');
+    let message_bubble = document.createElement('div');
+    let message = document.createElement('p');
 
+    message_container.className = "message";
+    message_user.className = "message-user";
+    message_bubble.className = "message-text";
 
+    message.innerText = message_value;
+    message_user.innerText = "Kevina";
 
+    message_container.appendChild(message_user);
+
+    message_bubble.appendChild(message);
+    message_container.appendChild(message_bubble);
+    chat_window.appendChild(message_container);
+});
 
 /*
 
-<div class="message_container" style="position: relative;width: 100%;height: auto;">
+
 <div class="message" style="margin: 30px;">
 <p id="message-user">Kevina</p>
 <div style="background-color: #E3E3E3;padding: 0 5px;border: solid 1px black;width: 300px;" class="message-text"><p>Hi I'm Kevina. The VA.</p></div>

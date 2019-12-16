@@ -7,13 +7,17 @@ from google.protobuf.json_format import MessageToJson, MessageToDict
 
 from grpc import StatusCode
 
-from service_interface_messages_pb2 import *
-from runtime_interface_messages_pb2 import *
-from service_interface_pb2 import *
-from service_interface_pb2_grpc import *
+from google.api.service_interface_messages_pb2 import *
+from google.api.runtime_interface_messages_pb2 import *
+from google.api.service_interface_pb2 import *
+from google.api.service_interface_pb2_grpc import *
 
 log = logging.getLogger(__name__)
 
+def test():
+    print('nice')
+
+'''
 def parse_args():
     parser = argparse.ArgumentParser(
         prog="dlg_client.py",
@@ -35,15 +39,16 @@ def parse_args():
                          help="Text to preform interpretation on")
 
     return parser.parse_args()
+'''
 
-def create_channel(args):    
-    log.debug("Adding CallCredentials with token %s" % args.token)
-    call_credentials = grpc.access_token_call_credentials(args.token)
+def create_channel(token, serverUrl):    
+    log.debug("Adding CallCredentials with token %s" % token)
+    call_credentials = grpc.access_token_call_credentials(token)
 
     log.debug("Creating secure gRPC channel")
     channel_credentials = grpc.ssl_channel_credentials()
     channel_credentials = grpc.composite_channel_credentials(channel_credentials, call_credentials)
-    channel = grpc.secure_channel(args.serverUrl, credentials=channel_credentials)
+    channel = grpc.secure_channel(serverUrl, credentials=channel_credentials)
 
     return channel
 
@@ -103,11 +108,15 @@ def stop_request(stub, session_id=None):
     return response, call
 
 def main():
-    args = parse_args()
+    modelUrn = "urn:nuance:mix/eng-USA/A174_C517/mix.dialog"
+    token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjQ1NTM2NywiZXh0Ijp7fSwiaWF0IjoxNTc2NDUxNzY3LCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiN2MxMzJkMmQtOGQwMS00MDU0LTkxM2QtN2ZlZTFhNmQxMDMwIiwibmJmIjoxNTc2NDUxNzY3LCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.j4bRAQ_dPVb-yF3u21Xr8mQcdTVMjOfi7uq371iGInhrDBxJh4FrfFyU2_R2oQ7KZSdZiQEcsv-TN5m6cpOU2njQV6KT40dMSj94ZWv8A3Bkogra7jD8re7fUbBPFtupKuEZOhgJsS8_36a3P2YQU4oZhJAJWr1FAqmI6BSsjwkIDVoK9jaNFRiai32V7AzdnjyhYd7XWspuocdjUlb5Wpd69vUUc8tENjRKEwHRSenOl5atziXZoKsjOb0xa0Q08jg4TfmtnNYB4oPWSfwyoUw8_3-XdfasVtFW-mtL9IcBg-pVcsFCJJXjE8tsice3LBzkJlWbwmgV0JzKhBPA2vbINADBzM3cW4YbjXk-n0D7rYs-61-6LwB4rIR2YZpFFeDv3leIzKyYfzaPSfh0eurFnwD-xEZPyLrNzjfbOHa63WgkfjZs6GubLCDvTz2xXSQuEQX3U-ENSMAJKUhUVPPqZQGchOoo6FDJ9vRLL_-586qTo8SK-Tak4sf45kAcbOKC6IMWWM2D6_d4RfnyLiSqRpXQsXvGpWSguzKegaOjYLfviF2pkJKXyvKhbAugx3e6_E0phCNJdhWeLRNGLVNojl8gLkBx1iWI3CxSpC74b0KV9bzcFRtsBatBaJglxFz1kmnx_-Qbcqk6bLmPF1FLtFp9iAuVizwFvKNm3Xw"
+    serverUrl = "dlgaas.beta.mix.nuance.com:443"
+    textInput = "test"    
+    #args = parse_args()
     log_level = logging.DEBUG
     logging.basicConfig(
         format='%(asctime)s %(levelname)-5s: %(message)s', level=log_level)
-    with create_channel(args) as channel:
+    with create_channel(token, serverUrl) as channel:
         stub = ChannelConnectorServiceStub(channel)
         selector_dict = {
             "channel": "smartspeakerva",
@@ -115,7 +124,7 @@ def main():
             "library": "default"
         }
         response, call = start_request(stub, 
-                            model_ref=args.modelUrn, 
+                            model_ref=modelUrn, 
                             session_id=str(uuid.uuid1()), # Create a session id
                             selector_dict=selector_dict
                         )
@@ -124,7 +133,7 @@ def main():
         assert call.code() == StatusCode.OK
         payload_dict = {
             "input": {
-                "userText": args.textInput
+                "userText": textInput
             }
         }
         response, call = execute_request(stub, 
