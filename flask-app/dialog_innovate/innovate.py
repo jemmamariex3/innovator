@@ -22,10 +22,14 @@ log = logging.getLogger(__name__)
 
 global data_class 
 
+"""
 modelUrn = "urn:nuance:mix/eng-USA/A174_C599/mix.dialog"
 token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3Njc0MTE4MiwiZXh0Ijp7fSwiaWF0IjoxNTc2NzM3NTgyLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiNjVlNjg5MDctYTViOC00MDMzLWI1MDItYWUyODI4N2RiZjYwIiwibmJmIjoxNTc2NzM3NTgyLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.ZaI-Z9jF5qkwpqu8-QOVcm4oW-U1gmCMaC2pMAYHTn9uIqA5ws_iB0y5FZ-h01qIlkwE9CnACgmua6KPRBSDjaoY-kjfUh0oPNgr0x1sBuGWkpL512Pl1h_-nyHub5ZlXf7nILhbzhY-RmxIJ61FVi1jPSp8eZwOixEDCbbqw78o5LiFvOqKa7EZ318oK-5dmt0yxWiREOHCqc4bCAjlrIO06cv6r8Xfq6g9bIpoKtyLk5mOtC5BHotxBHQwZDDDOVOtXT4pHaD6jQrYeAeI3jCaTtpU3QXi1HWqV2GQTiDgduB1RiUrijQwd2aj0U0AXJFm-XG3KTdbAkxO4JcATIho1rRDe-xahnpsfW-85oDEkvKuWjzvegon31YtrUwMO3hUFEKsTQomNma5Q0lkPVbx0BRkPqZeaVuPk21tGtT4IHEC_eNEk3l9W3Y_5kbU-nd3P3Nc6iF-4duOZReMHSEbVAafU8XEqAAQRuIekP2WjympkuxAgNeuFt1-XX2Czo1h8fsEY1ZQ_1An-VTI6mGIst4_sVLzcZDVWf97hYnYCA1r0Zs9fCViaLtzQVkdNzRhYzJCYec2Gfb0v8-RZa3BW8hsEGPVVsCaaIvTwVgVkyXYRI1Xbv1T7sQKiin3V7fqDHRDbxHI2QQCPaQVJcCDo2bHI4yk9zammWbpSok"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 textInput = "test"
+
+Leaving it here in case we want to hardcode test. But in the end, we'll using this api info in app.py
+"""
 
 def create_channel(token, serverUrl):
     
@@ -59,6 +63,26 @@ def start_request(stub, model_ref, session_id, selector_dict={}):
     response = MessageToDict(start_response)
     return response, call
 
+def initial_request(stub, session_id, selector_dict={}, data_action=None):
+    selector = Selector(channel=selector_dict.get('channel'),
+                        library=selector_dict.get('library'),
+                        language=selector_dict.get('language'))
+    initial_input = None
+    initial_data = None
+    initial_event = Event()
+    execute_payload = ExecuteRequestPayload(
+                        input=initial_input, 
+                        event=initial_event, 
+                        session_data=None, # DEFUNCT
+                        data=initial_data)
+    execute_request = ExecuteRequest(session_id=session_id, 
+                        selector=selector, 
+                        payload=execute_payload)
+    execute_response, call = stub.Execute.with_call(execute_request)
+    response = MessageToDict(execute_response)
+    return response, call   
+
+
 def execute_request(stub, session_id, selector_dict={}, payload_dict={}, data_action=None):
     selector = Selector(channel=selector_dict.get('channel'),
                         library=selector_dict.get('library'),
@@ -83,6 +107,17 @@ def execute_request(stub, session_id, selector_dict={}, payload_dict={}, data_ac
                         payload=execute_payload)
     execute_response, call = stub.Execute.with_call(execute_request)
     response = MessageToDict(execute_response)
+    print("This is the VA's response from our ExecuteRequest call. If it's a DA node, we'll do another execute request: ", response)
+    data_action = handle_response(response) #If the response requires a variable from us, we'll handle it here.
+    if data_action is not None:
+        print("This is the data_action: ", data_action)
+        response, call = execute_request(stub,                  #Then we send it back to the VA,
+                        session_id=session_id, 
+                        selector_dict=selector_dict,
+                        payload_dict=payload_dict,
+                        data_action=data_action
+                    )
+        print("Passed the data_action execute_request.")
     return response, call
 
 def stop_request(stub, session_id=None):
@@ -217,7 +252,7 @@ class DataClass:
 
     @data_access_node
     def GetTicketByStatusData(self, data):
-        entity = data['value']['_concept_TICKET_STATUS']
+        entity = data['value']['_concept_TICKET_STATUS'] #Toss in ticket-logic functions in here.
         return {
             "returnMessage": "yo what's up homie, it worked",
         }
