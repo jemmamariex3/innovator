@@ -89,12 +89,15 @@ def execute_request(stub, session_id, selector_dict={}, payload_dict={}, data_ac
                         language=selector_dict.get('language'))
     execute_input = None
     execute_data = None
+    
+
     if not data_action:
         execute_input = Input(user_text=payload_dict.get('input').get('userText'))
     else:
         v = Struct()
         v.update(data_action.get('value'))
         execute_data = RequestData(id=data_action.get('id'), value=v)
+        print("This is the RequestData object: ", execute_data)
     # session_data = SessionData()
     execute_event = Event()
     execute_payload = ExecuteRequestPayload(
@@ -102,22 +105,14 @@ def execute_request(stub, session_id, selector_dict={}, payload_dict={}, data_ac
                         event=execute_event, 
                         session_data=None, # DEFUNCT
                         data=execute_data)
+    print("This is the execute_payload before we call ExecuteRequest: ", execute_payload)
     execute_request = ExecuteRequest(session_id=session_id, 
                         selector=selector, 
                         payload=execute_payload)
     execute_response, call = stub.Execute.with_call(execute_request)
+    print("This worked so far...")
     response = MessageToDict(execute_response)
-    print("This is the VA's response from our ExecuteRequest call. If it's a DA node, we'll do another execute request: ", response)
-    data_action = handle_response(response) #If the response requires a variable from us, we'll handle it here.
-    if data_action is not None:
-        print("This is the data_action: ", data_action)
-        response, call = execute_request(stub,                  #Then we send it back to the VA,
-                        session_id=session_id, 
-                        selector_dict=selector_dict,
-                        payload_dict=payload_dict,
-                        data_action=data_action
-                    )
-        print("Passed the data_action execute_request.")
+    print("This is the VA's response from our ExecuteRequest call. If it's a DA node, we'll do another execute request in app.py: ", response)
     return response, call
 
 def stop_request(stub, session_id=None):
