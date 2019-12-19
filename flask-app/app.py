@@ -16,7 +16,7 @@ CORS(app)    #CORS origin issue still persists.. Hmmm.
 
 # API-related info
 modelUrn = "urn:nuance:mix/eng-USA/A174_C599/mix.dialog"
-token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3Njc4MzYyOSwiZXh0Ijp7fSwiaWF0IjoxNTc2NzgwMDI5LCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiMmMzN2MwNTAtMTNjZC00ODYwLTg0ODUtYTBiZDMzMmQ3ZTUyIiwibmJmIjoxNTc2NzgwMDI5LCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.DVGhpnNBWUajFymN4JxfvjYq1caZP3d6Qon2ICFMeYlS9POSL6cBIuipNQlAEZy_xn6ERoJS3Slydq8cyCzXjvos8MtS_Ao6TkjDb9dsmgIUBSm-F1CdlgUOAWd4sW0VEiUlYxT311RABzoRWP1yColiH13E9sPJrhd9dNkxnPH8ixrFyUD8uzuXH7yc-_SlrcozPFuPfKi7K43bJzdYGnEHfDCwco4p2TrvxqVMHjzTo-MCpTSVB_eiIIv_KQGi3kY0OQfUbmc7UivprVspYGNdOo81WEBnRIj43ThOFuBiw9Y-vZdKWRqUrqut9rjd7Jb9LDvtNyqgFMWQ67mEXQiFUR_k88mUFGSmhujwVyIYbXbZXOoiTUFXoQiBS70CK5UCVxb9Mx3gKLZlf1INC9h7IheCGhwUuN9EbwuHTvrNp8Qxek19Te3C2DxMlypO_KNAlLl2M8cATWSzCo-CpZ52fGWOr253WI1yRYBOT14ge4KXcguwtCGuhqpfheZ_qaUbYWPwoOJWQ9-zpn-T_QpuQBTSg9o9zMtxaKm1mTWvKn0iCI333e3oQm3cEb2JQ4kHjA1RyKlupu20Dv5-D4yGgZeXAOxSqsssh4ZyxBZ172fLNCbS6294SyUaNHw9vm6AmsNy_Hy2eLTwAxJo4HZ8AQIIzPVVSnHKc8FRMcs"
+token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3Njc5NTk2OSwiZXh0Ijp7fSwiaWF0IjoxNTc2NzkyMzY5LCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiY2IyYTdiOTktZTkwZC00M2I2LWI4MDgtMzBmNmEyYzQ5ZmRmIiwibmJmIjoxNTc2NzkyMzY5LCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.NzBnl8RPAfbk-3Og7qfr49yF2aKNw0Y23xtjRPDMrnKBBy--xN9Oz3KbTpm1vWPYWMTuOmK0ORe7-dbNO7GOuL8f1TuP9toOwxZ2XBRWT2xUIu3HAuIc9IovM6SPqpeY92H5QQ_EC6zosRls-8LFEavsh3kBhtteS7akVyvSy94RbPobDs-rhaXoE1BYbM-GKvyBy3KgW-23EMDv3urQAUd3tARFRxeFd-W3m76UCC_EEE3z08aN9Y82BN5A328DaNml8R1FCLjG1zXVqDMdNARJzInIqfs3VS70JFFC4b7CcukMPn-wFN0i50lFv1AeIkqhQ7OiCcK0AA7t0J-nRlWXSUNRmEKQ8_tJgmBoUXspWw33VCqe2lQFQalR91ZxT80vZIsbic20JRJlX-_DVzec4yt-DrDNsTL_QYq80_lWDbnoZYaCs-CZ85NxXUIl3nQo3a7tt0bpHKWtbJVh7__MyplMEuNl5CeIdDymXOpsToQHjzfh_yVdMcgMIFKmp1xvBh02KbxUZy7lqCxbYWKF4qwzEME5pGF9fx3bxDHzOlmEqdW4Z2wczi-3dl7QR8jH_LrO9Mr1_1xbcla-tPfIzTsTBhwkoE22UGuyITonfzdGDEvnogC59rBzf7uQCh6TTlJ0WVzjN2XVndtO1u6ruAXK_8DQ4hgP8RGfY-Y"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 #textInput = "test"  Use this if you want to hardcode messages.
 
@@ -67,7 +67,7 @@ def continue_chat():
                                     session_id=session_id, 
                                     selector_dict=selector_dict,
                                     payload_dict=payload_dict,
-                                    data_action=data_action
+                                    data_action=None
                                 )
     
     va_response = response
