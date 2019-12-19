@@ -4,6 +4,7 @@ import logging
 import uuid
 
 from google.protobuf.json_format import MessageToJson, MessageToDict
+from google.protobuf.struct_pb2 import Struct
 
 from grpc import StatusCode
 
@@ -77,14 +78,23 @@ def start_request(stub, model_ref, session_id, selector_dict={}):
     #log.debug(f'Start Request Response: {response}')
     return response, call
 
-def execute_request(stub, session_id, selector_dict={}, payload_dict={}):
+def execute_request(stub, session_id, selector_dict={}, payload_dict={}, option="text"):
     selector = Selector(channel=selector_dict.get('channel'), 
                         library=selector_dict.get('library'),
                         language=selector_dict.get('language'))
-    input = Input(user_text=payload_dict.get('input').get('userText'))
+    if option is "text":
+        input = Input(user_text=payload_dict.get('input').get('userText'))
+        data = None
+        print("this is the input:", input)
+    else:
+        payload_dict = payload_dict['data']
+        struct_data = Struct()
+        struct_data.update(payload_dict.get('value'))
+        data = RequestData(id=payload_dict.get('id'), value=struct_data)
+        print("this is the struct_data: ", struct_data)
+        input = None
     event = Event()
     # session_data = SessionData()
-    data = RequestData()
     execute_payload = ExecuteRequestPayload(
                         input=input, 
                         event=event, 
