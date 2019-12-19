@@ -4,7 +4,7 @@ from flask_cors import CORS
 import sys
 sys.path.append('../google/api')
 print(sys.path)
-from google.api.api_python import *
+from python_enh.dialog.dlg_client import *
 import mimetypes
 
 mimetypes.add_type('text/javascript', '.js')
@@ -75,19 +75,26 @@ def continue_chat():
     global session_id
     global data_id
     global data_values
+
     if not request.json:
         abort(400)
-    
     payload_dict = {
             "input": request.json
     }
     print(session_id) 
     print("hmmmmmmmMMMMMM")
+
     response, call = execute_request(stub, 
-                            session_id=session_id, 
-                            selector_dict=selector_dict,
-                            payload_dict=payload_dict
-                        )    
+                                    session_id=session_id, 
+                                    selector_dict=selector_dict,
+                                    payload_dict=payload_dict,
+                                    data_action=data_action
+                                )
+    va_response = handle_response(response)
+    print(va_response)
+    assert call.code() == StatusCode.OK
+    return jsonify(userText=va_response)
+"""
     va_response = response["payload"]
     message_array = []
     for action in va_response["action"]:
@@ -108,10 +115,7 @@ def continue_chat():
                             payload_dict=payload_dict
                         )
             va_response = response["payload"]
-            message_array = []     
-
-    assert call.code() == StatusCode.OK
-    return jsonify(userText=''.join(message_array))    
+            message_array = []"""    
 
 # use decorators to link the function to a url
 @app.route('/')

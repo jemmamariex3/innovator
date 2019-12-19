@@ -1,9 +1,9 @@
 
 
-from google.api.python-api-enh import *
+from google.api.api_python import *
 # API-related info
 modelUrn = "urn:nuance:mix/eng-USA/A174_C599/mix.dialog"
-token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjUzMzA2NywiZXh0Ijp7fSwiaWF0IjoxNTc2NTI5NDY3LCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiYmEyMGY5YzQtYTIxMi00OTM4LTg1YzQtNzA4OWEwNTg3NGY1IiwibmJmIjoxNTc2NTI5NDY3LCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.nJhA0QEy1zHggp8Uyb2mt13YdRsijIr-LULqHAMVvwfvDv2rYLAGMGfTslrB6kh1xvn6hP8WpWqBkyoomJGY_dVVgtz2ZN0a7EwaQ51DYgRE0_L9YLsSIKfe2lw2ccN5YqtysGj3ypsJaZo525HRiI6gfB3hFejqr2n7qg5kwwgt4_IhnNT09o7WTndziq62_XlNEETditEyKDH-xX65XMTgiQvjWqNvkEqd0nC7cNFJEMkpAEwWGS-hrtTzcPT3XD3PBXnzQobTduOIrc0250s3CiCBqg2aw3qxNkjHIYUVmN29-afPK_0CWyy3vewWhA-bOjT_X8-qVwiNN8_LgHf4ft71z34qq4DSKjebmcWGuJEu-2cRLI4oAGM7Vd9Mg-8m751r2nGlQTMWLtM3Xf9pT3POdDTMpt3SL-mDdL-wK8arYnwHpjvLlJnJIqOuKHNCtj-XM0yR5zHtFUgSnXzdZyWcAuQAOqgMJ-Ubw8FdAWLDlNoclIFU4I4a95MkbL3G0CkzYX9OlFG2XSJ_0tfNTIyt3vwrux8xZPd0cbRekiBH6r4cSm7qR0DO9WTrE6jPdpvoVgGzS0rUCONXgIulDSuWrQbwacwTDCG7wEB_U6UpSail9FR9SmlrRfQVpGdqtjFrZONwGRsT-ZLmUct3NX5426TyELawTfRUoak"
+token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjczNjYxMiwiZXh0Ijp7fSwiaWF0IjoxNTc2NzMzMDEyLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiZWQzOGY0NjUtOGU5Yi00NTczLTkyNjAtZDZiZjdmMzFhNzEzIiwibmJmIjoxNTc2NzMzMDEyLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.enMtfvjOjfHSONTFpGSfL4hKSqkeqqwblxEVvxpn7mz2ucgimKfWWDBgWVqWefqcatl_OhqbcmWE3RtJ1Lt3SEHKu-Za0gxDBiU_g_N32Ykf6Tn19r-CPT4spi5eIgCCh0TtguF2goFJeb9LcpeY6FqsDGsGCLGp3J8AcBMeyQWRi0BHM3GAQGoRTqIsrZUi598gaBl6IjHsdHy81E7GQCEM042y-HjQvk-_jLvyUy5XC5c5AEG9rI5i-NblcY2T69hh08iqndl6XU0J_c-UKZbKS5qup4wG6hLsfe0fNDZWb1lr4pSvqU-CzigWXDHnE4pGcjjJAiRmYmi-W47LP3DKQU8yJiahz_ZdA2DqdwtllfSPedfKkjvCygq1AHAp-4VcWip_kw6bd7IO8lfjrhDlxkB9msV2wSVaBgn9jhCuLg3FrXRVuJWcBuKDkB9tB6HGPN-QBM5RwtDm38rRioqzuWDUSc1oeswOwt9YlXHPkK4AALZxXfmgwM7CxNTvyZIbwm1BT4A6UFAoe_kk-3Ya6OyQGV2mDggv2bulH7v5agAT2RaqWghoKXnGj1z-RDUqHbf-HVhub_oIXuXUwl9qmyKIJyn7qW4vzwodyluDO_VEFVlHuBNNx9opfn2T1TgO5e8vUkSRmPplVR1NU04hB-6xR5JiUjHtC_jB8YY"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 textInput = "test"
 
@@ -68,7 +68,7 @@ def filter_tickets(option, values):
                     final_response = ','.join(map(str,response_ticketsArr))
             data_dict["data"]["id"] = "GetTicketByStatusData"
             data_dict["data"]["value"] = {"returnMessage":final_response, "returnCode":"0"} 
-            continue_chat(data_dict)
+            continue_chat(data_dict,option="data")
             print(data_dict)
             print("Final response: " + final_response)
     elif option is "TBCD":
@@ -254,18 +254,25 @@ def start_chat():
     print("This is all the messages", message_array)
     return
 
-def continue_chat(payload_msg): 
+def continue_chat(payload_msg, option="text"): 
     global session_id
     global data_id
     global data_values
     print("This is the session_id (in continue_chat()): ", session_id) 
     print("this is the payload info", payload_msg)
     payload_dict = payload_msg
-    response, call = execute_request(stub, 
-                            session_id=session_id, 
-                            selector_dict=selector_dict,
-                            payload_dict=payload_dict
-                        )    
+    if option is "data":
+        response, call = execute_request(stub, 
+                                session_id=session_id, 
+                                selector_dict=selector_dict,
+                                payload_dict=payload_dict, option="data"
+                            )
+    else:
+        response, call = execute_request(stub, 
+                                session_id=session_id, 
+                                selector_dict=selector_dict,
+                                payload_dict=payload_dict
+                            )            
     print("this is before payload", response)
     va_response = response["payload"]
     va_action = va_response["action"]
