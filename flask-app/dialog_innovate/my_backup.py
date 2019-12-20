@@ -278,11 +278,16 @@ def filter_tickets(option, values):
     # Get Tickets
     if option is "TD":
         print("intent = " + option)
-        if("_concept_TICKET_NUMBER" in values): 
+        if("_concept_TICKET_NUMBER" in values):
+            final_response = ""
             ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            print("This is from eval of two values: ", ticket_num)
             for ticket in ticketsArr:
-                if ticket['number'] is int(ticket_num):
+                print("this is the ticket number: ", ticket['number'])
+                if ticket['number'] is ticket_num:
+                    print("it came in here nice.")
                     final_response = ("Ticket #" + ticket['number'] + "\nSummary: " + ticket['summary'] + "\nClient: " + ticket['client'] + "\nPriority: " + ticket['priority'] + "\nStatus: " + ticket['status'] + "\nAssignee: " + ticket['assignee'] + "\nHours Logged: " + ticket['hoursLogged'])
+                    response_ticketsArr.append(final_response)
                     break
             print(option + " - final response: " + final_response)
     elif option is "TDD":
@@ -770,6 +775,18 @@ class DataClass:
                 response_ticketsArr.append(ticket_num)
         final_msg = ' '.join(map(str,response_ticketsArr))
         return {
+            "returnMessage": final_msg + "."
+        }
+    
+    @data_access_node
+    def GetTicketData(self, data):
+        entity = data['value']['_concept_TICKET_NUMBER']
+        intent = filter_intents("GetTicketData")
+        print("This is the appreviation: ", intent)
+        print("this is the data[value]: ", data['value'])
+        filter_tickets(intent, data['value'])
+        final_msg = ' '.join(map(str,response_ticketsArr))
+        return{
             "returnMessage": final_msg + "."
         }
 
