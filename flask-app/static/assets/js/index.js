@@ -8,10 +8,11 @@
 // console.log("Token json: ", token);
 
 class Ticket {
-    constructor(number, assignee, dueDate, summary, hoursLogged, priority = "low", status = "open", startDate = new Date()) {
+    constructor(number, assignee, dueDate, client, summary, hoursLogged, priority = "low", status = "open", startDate = new Date()) {
         this.number = number;
         this.assignee = assignee;
         this.dueDate = dueDate;
+        this.client = client;
         this.summary = summary;
         this.hoursLogged = hoursLogged;
         this.priority = priority;
@@ -66,14 +67,14 @@ function addAccordionClick() {
 
 ////////////////// Populate Accordion Start //////////////////
 const ticketsArr = [
-    { number: 1, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register team in mix", hoursLogged: 8, priority: "high" },
-    { number: 2, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamz in mix", hoursLogged: 2, priority: "low" },
-    { number: 3, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamzzz in mix", hoursLogged: 3, priority: "medium" },
+    { number: 1, assignee: "DaLarm Han", dueDate: "12/19/2019", client: "ATT", summary: "Register team in mix", hoursLogged: 8, priority: "high" },
+    { number: 2, assignee: "DaLarm Han", dueDate: "12/19/2019", client: "Sprint", summary: "Register teamz in mix", hoursLogged: 2, priority: "low" },
+    { number: 3, assignee: "DaLarm Han", dueDate: "12/19/2019", client: "Costco", summary: "Register teamzzz in mix", hoursLogged: 3, priority: "medium" },
 ]
 let tickets = [];
 ticketsArr.forEach((ticket) => {
-    const { number, assignee, dueDate, summary, hoursLogged, priority } = ticket;
-    tickets = [...tickets, new Ticket(number, assignee, dueDate, summary, hoursLogged, priority)];
+    const { number, assignee, dueDate, client, summary, hoursLogged, priority } = ticket;
+    tickets = [...tickets, new Ticket(number, assignee, dueDate, client, summary, hoursLogged, priority)];
 });
 
 for (let i = 0; i < tickets.length; i++) {
@@ -90,8 +91,9 @@ for (let i = 0; i < tickets.length; i++) {
     let ticketStatus = document.createElement("th");
     let ticketHoursLogged = document.createElement("th");
     let ticketPriority = document.createElement("th");
+    let ticketClient = document.createElement("th");
     let ticketPanel = document.createElement("div");
-    let ticketHeaders = [ticketKey, ticketSummary, ticketAssignee, ticketStatus, ticketHoursLogged, ticketPriority];
+    let ticketHeaders = [ticketKey, ticketSummary, ticketAssignee, ticketClient, ticketStatus, ticketHoursLogged, ticketPriority];
 
     // Set necessary classes
     accordionBtn.className = "accordion";
@@ -106,13 +108,14 @@ for (let i = 0; i < tickets.length; i++) {
     ticketBody.appendChild(ticketPanel);
 
     // Set up text content
-    const { number, assignee, summary, hoursLogged, priority, status } = tickets[i].getTicketInfo();
+    const { number, assignee, summary, client, hoursLogged, priority, status } = tickets[i].getTicketInfo();
     ticketKey.textContent = number;
     ticketSummary.textContent = summary;
     ticketAssignee.textContent = assignee;
     ticketHoursLogged.textContent = hoursLogged;
     ticketPriority.textContent = priority;
     ticketStatus.textContent = status;
+    ticketClient.textContent = client;
     ticketPanel.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fugiat quod architecto libero tempora voluptates quo, eius sequi? Repudiandae, ea";
 
     console.log("Ticket body el: ", ticketHeaders);
@@ -170,7 +173,7 @@ async function fetch_continue(msg) {
             throw new Error("Network failed rip.")
         } else {
             let json = await response.json();
-            console.log("This is the userText",json.userText)
+            console.log("This is the userText", json.userText)
             update_chat(json.userText)
         }
     } catch (error) {
