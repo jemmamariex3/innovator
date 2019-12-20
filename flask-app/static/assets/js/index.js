@@ -72,17 +72,17 @@ function addAccordionClick() {
 //     { number: 3, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamzzz in mix", hoursLogged: 3, priority: "medium" },
 // ]
 
-function populateTickets() {
-
-    let ticketsArr = [];
+function populateTickets(ticketsArr) {
+    
     let tickets = [];
     ticketsArr.forEach((ticket) => {
         const { number, assignee, dueDate, summary, hoursLogged, priority } = ticket;
+        console.log("ticket m8: ", ticket, number, assignee); 
         tickets = [...tickets, new Ticket(number, assignee, dueDate, summary, hoursLogged, priority)];
     });
 
     for (let i = 0; i < tickets.length; i++) {
-        console.log("Ticket info: ", tickets[i]);
+        // console.log("Ticket info: ", tickets[i]);
 
         // Create HTML elements so we can inject them dynamically
         let ticketBody = document.querySelector(".ticket_body");
@@ -156,15 +156,11 @@ async function fetch_start() {
         console.log("Promise has been resolved!");
 
         let [tickets, json] = [...promises]
-        tickets = JSON.stringify(tickets).split(/\,(?=\{)/);
-        console.log('json: ', json);
-        console.log('tickets: ', tickets);
-        // let json = responseStart.json();
-        // let tickets = await responseTickets.json(); 
 
-        console.log('tickets arr ', [tickets])
+        console.log('json: ', json);
+
         update_chat(json.userText);
-        // populateTickets(); 
+        populateTickets(JSON.parse(JSON.stringify(tickets))); 
         return
     } catch (error) {
         console.log("Seems like it didn't work out fam", error.message);
