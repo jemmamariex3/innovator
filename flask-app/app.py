@@ -19,7 +19,8 @@ CORS(app)    #CORS origin issue still persists.. Hmmm.
 
 # API-related info
 modelUrn = "urn:nuance:mix/eng-USA/A174_C617/mix.dialog"
-token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3Njg0MTAzMSwiZXh0Ijp7fSwiaWF0IjoxNTc2ODM3NDMxLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiZDhkZWYwNjAtOTM3My00YjhjLWIzNGItYTEzYzE4ZWQwZDYxIiwibmJmIjoxNTc2ODM3NDMxLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.RgNGeS4wBpctQY0OF5g2-Ys4lyLDFaMpj6ZjDaPiT4am66MyLjWhKFqTe5urXY64D4yRNGdVWoiiRk9_Rz-LcRClCRIskGn6P3mwFPdqHlkoUqq-9H27IjDuixIAFHoY4_SNBBtL5MxqmNes0RwbAcVDN8CpSmE8T8L5BGCHgSmLxwqynX35vPvdl4dhHWOjKPrK_OlJwrdKY-WPgIZffnwE-7WhXaone_lQyTnk25j2objB_cZ97m59G5zlNOlf0SaST2i2vkjKJ2w5t7ua0RM558QHBSOhvZpIBlH7cCVyB1qryVkKZEzkoyWBAKGi6Rga9ldEDmkmVaiYMgJFQ77ZY3RXOjTEpwVs0Guj5YRakZOZCpufVVfFS3fJxp1zRqNfnlPQLc1SBVj68x6q5wKYseHp2Lxb-diZbLPkY9xkQqrnJJaJ5eOFyCt0TSp2CJWNd4oQwBIgutqYX5quv8NUifQKRd9htYmN64Da39PgUNELdYrh-KKFVG-wvFpTKfa7d3b6GQK5ygDmi4dI0bmyM6ihBzpAg4VRVz-QbWUpKmaDDs4NWmeYsYEUnlJwOsa_iEl4YnHQ8-v_f76COOHaxHXJ5UQ6xHHkO5O8KEp4FwLhFuOc5RMuzJ_fizEWjIu_UTXWrL5aM4x2yOg-u1LsoEdXISWdAp61fybIKLc"
+#modelUrn = "urn:nuance:mix/eng-USA/A174_C654/mix.dialog" Broken.
+token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3Njg2MzU2MCwiZXh0Ijp7fSwiaWF0IjoxNTc2ODU5OTYwLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiYTI5MTczOGUtNTg1NC00ZmQyLWJhYWMtZGVmODAxMzEzODkxIiwibmJmIjoxNTc2ODU5OTYwLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.CY_FlsD2yW-KR7PCMUxRupADN5IK3ug5QHe1wsn3yva8Mk2JlzlEDmEkSSc4z4heJQAZmV1NFI-bLvxDnqzYfH3KnjPUhkCPP_Yl9xpmHHl50AXshGtr1gAccCsdmqoqihtkEfckcoYLikAPZWP5C10VJ7FVSTfOZYxt0CUsbaPexsat-g5B491ArldO7fbqf6iM9dy9vdkA5mo1Ovulllm_HWcyeHW1ATGqLrYD1shBEOlkB-Z1MQHREWt4whT5udAn5wjY26PoR8IQtBfxavd6992aT2Q67J9uPt_Dze3h77oMJX2U2LW_VVpo_wSqzWUjJuDVZHXEo2R6GLw8W9zvd8WKWSFnJfs9J58MTJdHE-i81fkxiUUCc5f4axqOYBV3dmZyMlA43aub5CW37taX7g0AmhuudVqR1Ewq9MKaFX8_liUYBvloRjXoO5eivTh5kry9RnKd1-_nMu47bQMZlSnOTGcWx03l-DXLT0THlKqROdTTKZyWad_i8S1qhU2Lfn-ggyDP7u5MPXkIXVGrXfjaWFKxu2ZUoO0s31_3BEKzxCA3BXbPoZ1Yu0JdIk0DOrikxPxTEot397xV6Nnop51K5l9ezQ9khofPAMq0Q3ZXTSnShrOCJZKjUqUrvw_JOK9snKcYxZ49Pa0mIGmtJcvs_JAagDVoJve9c-Y"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 #textInput = "test"  Use this if you want to hardcode messages.
 
@@ -101,13 +102,23 @@ def continue_chat():
                                         data_action=data_action
                                 )
     print("VA_Response in JSON for our front-end: ", response)
+    print("This is the userLangage that it detected.. ", userLanguage.lang)
+    if(userLanguage.lang is 'en'):
+        print("This should be caught here.")
+    if('en' in userLanguage.lang):
+        print("what the heck is this")
+    if(userLanguage.lang is initialLanguage):
+        print("this should also be caught?:",userLanguage.lang)
     assert call.code() == StatusCode.OK
     va_response = response["payload"]
     message_array = []
+    english_check = False
     for item in va_response["action"]:
         if 'prompt' in item:
             for message in item["prompt"]["visual"]:
-                if initialLanguage is not 'en':
+                if 'en' in initialLanguage and len(initialLanguage) <= 3:
+                    english_check = True
+                if english_check is False:
                     print("This is the initialLanguage: ", initialLanguage)
                     newMessage = translator.translate(message["text"], dest=initialLanguage)
                     encodedMessage = newMessage.text.encode('utf-8').decode('utf-8')

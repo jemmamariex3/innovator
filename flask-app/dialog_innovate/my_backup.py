@@ -294,6 +294,7 @@ response_ticketsArr = []
 
 def filter_tickets(option, values):
     global userText
+    final_response = ""
     # Get Tickets
     if option is "TD":
         print("intent = " + option)
@@ -325,6 +326,7 @@ def filter_tickets(option, values):
             for ticket in ticketsArr:
                 if ticket['number'] is ticket_num:
                     final_response = (ticket['assignee'])
+                    print("This is the assignee: ", final_response)
                     response_ticketsArr.append(final_response)
                     break
             print(option + " - final response: " + final_response)
@@ -333,8 +335,9 @@ def filter_tickets(option, values):
         if("_concept_TICKET_NUMBER" in values): 
             ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
             for ticket in ticketsArr:
-                if ticket['number'] is int(ticket_num):
+                if ticket['number'] is ticket_num:
                     final_response = (ticket['priority'])
+                    response_ticketsArr.append(final_response)
                     break
             print(option + " - final response: " + final_response)
     elif option is "TSD":
@@ -436,12 +439,15 @@ def filter_tickets(option, values):
             print(option + " - final response: " + final_response)
     elif option is "TBCD":
         print("intent = " + option)
-        if("concept_TICKET_CLIENT" in values):
+        if("_concept_TICKET_CLIENT" in values):
+            final_response = ""
             client = values["_concept_TICKET_CLIENT"]
             for ticket in ticketsArr:
+                print("These are the ticket clients: ", ticket['client'])
                 if (ticket['client'] == client):
+                    print("This is what i'm appending: ", ticket['number'])
                     response_ticketsArr.append("#" + ticket['number'])
-                    final_response = ', '.join(map(str,response_ticketsArr))
+                    #final_response = ', '.join(map(str,response_ticketsArr))
             print(option + " - final response: " + final_response)
     elif option is "TBCAD":
         print("intent = " + option)
@@ -716,6 +722,10 @@ def handle_response(response):
         return process_data_request(data_action)
     return None
 
+def clear_ticket_responses():
+    global response_ticketsArr
+    response_ticketsArr = []
+
 def main():
     channel = create_channel(token, serverUrl)
     stub = ChannelConnectorServiceStub(channel)
@@ -794,6 +804,7 @@ class DataClass:
                 print('ticket has status of open: ', ticket_num)
                 response_ticketsArr.append(ticket_num)
         final_msg = ' '.join(map(str,response_ticketsArr))
+        clear_ticket_responses()
         return {
             "returnMessage": final_msg + "."
         }
@@ -806,6 +817,7 @@ class DataClass:
         print("this is the data[value]: ", data['value'])
         filter_tickets(intent, data['value'])
         final_msg = ' '.join(map(str,response_ticketsArr))
+        clear_ticket_responses()
         return{
             "returnMessage": final_msg + "."
         }
@@ -818,6 +830,33 @@ class DataClass:
         print("this is the data[value]: ", data['value'])
         filter_tickets(intent, data['value'])
         final_msg = ' '.join(map(str,response_ticketsArr))
+        clear_ticket_responses()
+        return{
+            "returnMessage": final_msg + "."
+        }
+
+    @data_access_node
+    def GetTicketPriorityData(self,data):
+        entity = data['value']['_concept_TICKET_NUMBER']
+        intent = filter_intents("GetTicketPriorityData")
+        print("This is the appreviation: ", intent)
+        print("this is the data[value]: ", data['value'])
+        filter_tickets(intent, data['value'])
+        final_msg = ' '.join(map(str,response_ticketsArr))
+        clear_ticket_responses()
+        return{
+            "returnMessage": final_msg + "."
+        }
+
+    @data_access_node
+    def GetTicketByClientData(self,data):
+        entity = data['value']['_concept_TICKET_CLIENT']
+        intent = filter_intents("GetTicketByClientData")
+        print("This is the appreviation: ", intent)
+        print("this is the data[value]: ", data['value'])
+        filter_tickets(intent, data['value'])
+        final_msg = ' '.join(map(str,response_ticketsArr))
+        clear_ticket_responses()
         return{
             "returnMessage": final_msg + "."
         }
