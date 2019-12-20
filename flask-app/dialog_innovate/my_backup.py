@@ -304,8 +304,9 @@ def filter_tickets(option, values):
         if("_concept_TICKET_NUMBER" in values): 
             ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
             for ticket in ticketsArr:
-                if ticket['number'] is int(ticket_num):
+                if ticket['number'] is ticket_num:
                     final_response = (ticket['assignee'])
+                    response_ticketsArr.append(final_response)
                     break
             print(option + " - final response: " + final_response)
     elif option is  "TPD":
@@ -782,6 +783,18 @@ class DataClass:
     def GetTicketData(self, data):
         entity = data['value']['_concept_TICKET_NUMBER']
         intent = filter_intents("GetTicketData")
+        print("This is the appreviation: ", intent)
+        print("this is the data[value]: ", data['value'])
+        filter_tickets(intent, data['value'])
+        final_msg = ' '.join(map(str,response_ticketsArr))
+        return{
+            "returnMessage": final_msg + "."
+        }
+
+    @data_access_node
+    def GetTicketAssigneeData(self, data):
+        entity = data['value']['_concept_TICKET_NUMBER']
+        intent = filter_intents("GetTicketAssigneeData")
         print("This is the appreviation: ", intent)
         print("this is the data[value]: ", data['value'])
         filter_tickets(intent, data['value'])
