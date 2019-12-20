@@ -165,6 +165,8 @@ tr {
 #text_container {
     position: relative;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .input-group {
@@ -218,6 +220,10 @@ input[type=submit]:hover {
 
 .message-va {
     margin-left: 230px;
+}
+
+.message-va:last-child {
+    padding-bottom: 20px;
 }
 
 .message-user {

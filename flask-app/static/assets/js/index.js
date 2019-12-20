@@ -8,10 +8,11 @@
 // console.log("Token json: ", token);
 
 class Ticket {
-    constructor(number, assignee, dueDate, summary, hoursLogged, priority = "low", status = "open", startDate = new Date()) {
+    constructor(number, assignee, dueDate, client, summary, hoursLogged, priority = "low", status = "open", startDate = new Date()) {
         this.number = number;
         this.assignee = assignee;
         this.dueDate = dueDate;
+        this.client = client;
         this.summary = summary;
         this.hoursLogged = hoursLogged;
         this.priority = priority;
@@ -73,7 +74,7 @@ function addAccordionClick() {
 
 function populateTickets() {
 
-    let ticketsArr = []; 
+    let ticketsArr = [];
     let tickets = [];
     ticketsArr.forEach((ticket) => {
         const { number, assignee, dueDate, summary, hoursLogged, priority } = ticket;
@@ -82,7 +83,7 @@ function populateTickets() {
 
     for (let i = 0; i < tickets.length; i++) {
         console.log("Ticket info: ", tickets[i]);
-    
+
         // Create HTML elements so we can inject them dynamically
         let ticketBody = document.querySelector(".ticket_body");
         let accordionBtn = document.createElement("button");
@@ -96,19 +97,19 @@ function populateTickets() {
         let ticketPriority = document.createElement("th");
         let ticketPanel = document.createElement("div");
         let ticketHeaders = [ticketKey, ticketSummary, ticketAssignee, ticketStatus, ticketHoursLogged, ticketPriority];
-    
+
         // Set necessary classes
         accordionBtn.className = "accordion";
         ticketTable.className = "ticket_table";
         ticketPanel.className = "panel";
-    
+
         // Build up the DOM hierarchy
         ticketHeaders.forEach(header => ticketRow.appendChild(header));
         ticketTable.appendChild(ticketRow);
         accordionBtn.appendChild(ticketTable);
         ticketBody.appendChild(accordionBtn);
         ticketBody.appendChild(ticketPanel);
-    
+
         // Set up text content
         const { number, assignee, summary, hoursLogged, priority, status } = tickets[i].getTicketInfo();
         ticketKey.textContent = number;
@@ -118,9 +119,9 @@ function populateTickets() {
         ticketPriority.textContent = priority;
         ticketStatus.textContent = status;
         ticketPanel.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fugiat quod architecto libero tempora voluptates quo, eius sequi? Repudiandae, ea";
-    
+
         console.log("Ticket body el: ", ticketHeaders);
-    
+
     }
 }
 
@@ -150,16 +151,16 @@ async function fetch_start() {
             `${window.origin}/chat`
         ]
 
-        const promises = await Promise.all(urls.map(async (url) => { let response = await fetch(url); return response.json() }));
-        console.log("Promises: ", promises); 
-        console.log("Promise has been resolved!"); 
+        const promises = await Promise.all(urls.map(async(url) => { let response = await fetch(url); return response.json() }));
+        console.log("Promises: ", promises);
+        console.log("Promise has been resolved!");
 
         const [tickets, json] = [...promises]
         console.log('json: ', json);
         console.log('tickets: ', tickets)
-        // let json = responseStart.json();
-        // let tickets = await responseTickets.json(); 
-        
+            // let json = responseStart.json();
+            // let tickets = await responseTickets.json(); 
+
         console.log('tickets arr ', ticketsar)
         update_chat(json.userText);
         // populateTickets(); 
@@ -186,7 +187,7 @@ async function fetch_continue(msg) {
             throw new Error("Network failed rip.")
         } else {
             let json = await response.json();
-            console.log("This is the userText",json.userText)
+            console.log("This is the userText", json.userText)
             update_chat(json.userText)
         }
     } catch (error) {
