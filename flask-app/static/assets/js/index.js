@@ -155,12 +155,13 @@ async function fetch_start() {
         console.log("Promise has been resolved!"); 
 
         const [tickets, json] = [...promises]
+        tickets =  JSON.stringify(tickets).split(/\,(?=\{)/);
         console.log('json: ', json);
-        console.log('tickets: ', tickets)
+        console.log('tickets: ', tickets);
         // let json = responseStart.json();
         // let tickets = await responseTickets.json(); 
         
-        console.log('tickets arr ', ticketsar)
+        console.log('tickets arr ', [tickets])
         update_chat(json.userText);
         // populateTickets(); 
         return
