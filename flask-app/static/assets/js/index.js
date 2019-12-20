@@ -123,6 +123,9 @@ function populateTickets(ticketsArr) {
         console.log("Ticket body el: ", ticketHeaders);
 
     }
+
+    addAccordionClick();
+
 }
 
 ////////////////// Populate Accordion End//////////////////
@@ -136,7 +139,6 @@ function populateTickets(ticketsArr) {
 </div></div>
 */
 function main() {
-    addAccordionClick();
     addChatClick();
 }
 
