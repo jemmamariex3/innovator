@@ -29,7 +29,7 @@ Generic Code
 """
 
 # API-related info
-modelUrn = "urn:nuance:mix/eng-USA/A174_C599/mix.dialog"
+modelUrn = "urn:nuance:mix/eng-USA/A174_C617/mix.dialog"
 token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjgxMTU4MywiZXh0Ijp7fSwiaWF0IjoxNTc2ODA3OTgzLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiOThlZmQwMGItYzQyMS00N2IwLTlhNDYtMjA1Y2FmNDgzYmMyIiwibmJmIjoxNTc2ODA3OTgzLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.ed-ToNzxlpy3KY6s7-Hw-INYrE7j_6joTSDKiwRbt2X5ftucotnKBl9-1Mz4MdzeeCK9QnZf3TMFORc4KCXDru_fP5BmAXG8EYu4BRvZgReNSmaIoZV8wFUZ7RLmLmEUZDCF3QzpGpP5K_jlohJPtqB0jyeKLYbOsDT-UnF5yUWFqHFIiMB7a8GXbdock-jn0oS51jYMyjHAI_5rkF4I95N_esej1T9bdmRKoaMkrgtxLJ5av3y-vNU0kqyjS3bMsLp3tVBrqfZt3vuegxeTks12YVPh_aan-dhpLt3qARIOt3pxpqma3fNYeFJaeJ7Q64xYh4fW7NnZlqNXIXMe4656g6SogiDJEYoWVV8cpnUqqvU-i3RSM7ctbT70Ko14sJjZMHBpnOkpJ0vk0ubzjqNVVB4lPGICWyVhZde3VQFxhdIEG4YECV1Zh3cWGkVx29l9BvvH5oxpnV0CcWj8H-R17wUEnggF2gG83gB-0IZF313Zhbs8b0X-slhlceTiGfkdkgUNsUE89qG2RGEH58KvfLqyuNnmj9kt-IECnGt80vcIVBGSSqYu9XdZOIONIW73EQlNMOCloVXfNQ-CV64Y0wJpaDFGOC8MyZ4ySSQ1qyC4NzxQjCnW0HtYItjJxDzVMVYS58HfK4-WzFI1OCd1DT_I2rgiO3Cr3Jfn_7I"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 
@@ -511,6 +511,7 @@ def main():
                             )
     print("This should be the response after sending the VA the data_action string: ", response)        
     print("Cool, i'm going to end it now. I hope you do well man.")
+
     stop_request(stub, session_id)
 
 
