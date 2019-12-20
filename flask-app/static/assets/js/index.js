@@ -76,9 +76,9 @@ function populateTickets(ticketsArr) {
     
     let tickets = [];
     ticketsArr.forEach((ticket) => {
-        const { number, assignee, dueDate, summary, hoursLogged, priority } = ticket;
-        console.log("ticket m8: ", ticket, number, assignee); 
-        tickets = [...tickets, new Ticket(number, assignee, dueDate, summary, hoursLogged, priority)];
+        const { number, assignee, dueDate, summary, hoursLogged, priority, client } = ticket;
+        console.log("ticket m8: ", ticket, number, assignee, client); 
+        tickets = [...tickets, new Ticket(number, assignee, dueDate, client, summary, hoursLogged, priority)];
     });
 
     for (let i = 0; i < tickets.length; i++) {
@@ -92,11 +92,12 @@ function populateTickets(ticketsArr) {
         let ticketKey = document.createElement("th");
         let ticketSummary = document.createElement("th");
         let ticketAssignee = document.createElement("th");
+        let ticketClient = document.createElement("th");
         let ticketStatus = document.createElement("th");
         let ticketHoursLogged = document.createElement("th");
         let ticketPriority = document.createElement("th");
         let ticketPanel = document.createElement("div");
-        let ticketHeaders = [ticketKey, ticketSummary, ticketAssignee, ticketStatus, ticketHoursLogged, ticketPriority];
+        let ticketHeaders = [ticketKey, ticketSummary, ticketAssignee, ticketClient, ticketStatus, ticketHoursLogged, ticketPriority];
 
         // Set necessary classes
         accordionBtn.className = "accordion";
@@ -111,12 +112,13 @@ function populateTickets(ticketsArr) {
         ticketBody.appendChild(ticketPanel);
 
         // Set up text content
-        const { number, assignee, summary, hoursLogged, priority, status } = tickets[i].getTicketInfo();
+        const { number, assignee, summary, hoursLogged, priority, status, client } = tickets[i].getTicketInfo();
         ticketKey.textContent = number;
         ticketSummary.textContent = summary;
         ticketAssignee.textContent = assignee;
         ticketHoursLogged.textContent = hoursLogged;
         ticketPriority.textContent = priority;
+        ticketClient.textContent = client; 
         ticketStatus.textContent = status;
         ticketPanel.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fugiat quod architecto libero tempora voluptates quo, eius sequi? Repudiandae, ea";
 
@@ -194,7 +196,7 @@ async function fetch_continue(msg) {
     }
 }
 
-function update_chat(msg, user = "Kevina") {
+function update_chat(msg, user = "InnoVAtor") {
     console.log("update chat msg: ", msg);
     let message_container = document.createElement('div');
     let message_user = document.createElement('p');
@@ -204,7 +206,7 @@ function update_chat(msg, user = "Kevina") {
     message_container.className = "message";
     message_user.className = "message-user";
     message_bubble.className = "message-text";
-    if (user == "Kevina") {
+    if (user == "InnoVAtor") {
         message_container.classList.add("message-va");
     }
     message.innerText = msg;
