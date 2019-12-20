@@ -170,6 +170,7 @@ async function fetch_continue(msg) {
             throw new Error("Network failed rip.")
         } else {
             let json = await response.json();
+            console.log("This is the userText",json.userText)
             update_chat(json.userText)
         }
     } catch (error) {

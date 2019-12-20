@@ -7,4 +7,5 @@
 ## Python Installation Files
 ```
 pip install grpcio grpcio-tools protobuf
+pip install googletrans
 ```

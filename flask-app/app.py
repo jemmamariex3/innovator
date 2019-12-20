@@ -6,7 +6,10 @@ sys.path.append('../google/api')
 print(sys.path)
 from dialog_innovate.my_backup import *
 import mimetypes
+from googletrans import Translator
 
+translator = Translator()
+initialLanguage = 'en'
 mimetypes.add_type('text/javascript', '.js')
 
 # create the application object
@@ -16,7 +19,7 @@ CORS(app)    #CORS origin issue still persists.. Hmmm.
 
 # API-related info
 modelUrn = "urn:nuance:mix/eng-USA/A174_C599/mix.dialog"
-token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjgxNTMyMiwiZXh0Ijp7fSwiaWF0IjoxNTc2ODExNzIyLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiZjdmMWVlYmUtZDM1Yy00OTNmLWI2NWItOWI3YWY5NzE1MzA3IiwibmJmIjoxNTc2ODExNzIyLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.MjHssU2DuX0JQN9ceJKUtP8IMGBMqGH2pnNgl5x5aFEYNGT5-1Bn8I279GPYkPw_1cb8LZKPrsWIzven8PitOcod9reZ7zWbQghMvIDO_5-jeXudrNqTF5s9ykKxpAAw0zcWhm3MnVnVhZp5gmpMnJ-ycLzGgxTYXVW_H1utbqJsAYdR8Y09OoisLjr5rbYraaScXvfAy9zGy6yZs34VD_yA5bG6R3axh6ZZeyrrR-i9kWQQ7MH81QuiiWEFBwtKpZ1jUqX4QLrQ7S4NXZGk28rpqTixOhCPA6LMO59i65c1wUXrmDJmEzpT5NsINU22vmF1-UFBx_J4oFA3HxUGH3ZW39Np5YpvIGMbqH9YQ38_icLU3_04eMc5gNBRkKq1jqh1vH3mD2vXkJpdf9iVAhzJh_7jvqnM6XaTiUzyEQ_ztGbwRZzgXulFJUa9c5YiE7w_RX_WLkv-8VqyiV5MdsN9PNTdDO2RKYALufyxjvWlFN0VAZP6lg_xBdV0rSVg9oY0_fcNFeeJE-uR-v5b4lgXrbSSNYXaexZUQ34zQ9ABx0QiVJrbLCRdTKhSDrZclTQJzaLvCTkFVUNgZZ70wLBSsteqJJJrR-sVN3tZVMjG9Catj8t193DVudKd-yCECY1796OuT2RONKksIKMDlI87CZm-KYe9zQMWARkf7nI"
+token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjgyMzY3NywiZXh0Ijp7fSwiaWF0IjoxNTc2ODIwMDc3LCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiZTQ3ZmE5ZTgtZGUwNC00MTZkLTg2YzMtNDY4ZTc3MjcyYzVkIiwibmJmIjoxNTc2ODIwMDc3LCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.cVnZpEluqRRfLHMHme2LtDpCGX--kXHkG0NmpY912Koi7E3DM7GkaBBvow2R0hZPPOuZmoDOdxWsA9hjMFkXY7BbKvbSMDW1q9hhguAVzUNLa7og2QeI4locTED0Clf9Ze92uYiZrVUhSmgEn2_1wbfUEDACy9Ke9qi1g5q0BANQ7ygH-qi_aNHaKIqrVjOZH7y7oT7YOIR29Lj0qeZ6Jyu8S4DLdwNkNFoab695MhFlGDF6RjoM7ilzRX_o24YmZxHBkK8QQ-jiSPpR6M_C6J34eT6q_ZM0KFFHTpwZ8BP5zucorItAVxBvOorh_lqY-YmITB80UayDYFdwWdAX6Pj68BPgjsBNU9-WAU8X1zxs7nxUAOjzl4DB-BKpQCekilZM3OnaqNH3gPvwspRevO4mUHlJcDXWj5c0YMZ9eeUXHFQ_a3cYNW0FUAU9shigyQKgTSeEdg483uAh6QPIh4c5ZNsrv5UL8gZFYb305OiPO-83gcYqsD0AbAR_GCpW2fP49n0fQ-4-bx8vGZdQHc2FF3-MGFI-ye4vP2iRwxYHhSMUwZaum664oEJ2U8m85Dp-2dkiOK7VWtGELdHQPhww0IVMeGULGzeboy0NGk0ACDHnNmbF5Zq2MQYcCCPYdi56UjCPigAsznmuxuIN8fSX0wR2NrlVTXcBZe4hVOE"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 #textInput = "test"  Use this if you want to hardcode messages.
 
@@ -64,12 +67,20 @@ def continue_chat():
     global session_id
     global payload_dict
     global data_action
+    global initialLanguage
 
     if not request.json:
         abort(400)
     payload_dict = {"input": {}}
-
     payload_dict['input'].update(request.json)
+    userMessage = payload_dict['input']['userText']
+    userLanguage = translator.detect(userMessage)
+    print("this is after detecting: ", userLanguage)
+    if userLanguage.lang is not "en":
+        userMessage = translator.translate(userMessage)
+        print("This is the message translated to english: ", userMessage)
+        initialLanguage = userLanguage.lang
+    payload_dict['input']['userText'] = userMessage.text
     print("The user sent a message to the VA. This should be the same session id as the initial request: ", session_id) 
     print("This should hold the user's message: ", payload_dict)
     response, call = execute_request(stub, 
@@ -96,9 +107,17 @@ def continue_chat():
     for item in va_response["action"]:
         if 'prompt' in item:
             for message in item["prompt"]["visual"]:
+                if initialLanguage is not 'en':
+                    print("This is the initialLanguage: ", initialLanguage)
+                    newMessage = translator.translate(message["text"], dest=initialLanguage)
+                    encodedMessage = newMessage.text.encode('utf-8').decode('utf-8')
+                    #print("This is encoded: ", encodedMessage)
+                    #decodedMessage = encodedMessage.decode('utf-8')
+                    #message["text"] = decodedMessage
+                    message["text"] = encodedMessage
                 message_array.append(message["text"])
-    print("This should be the first automated sentence from the VA (formatted): ", message_array)
-    print("We are returning this in JSON format for our front-end's GET request: ", jsonify(userText=''.join(message_array)))
+    #print("This should be the first automated sentence from the VA (formatted): ", message_array)
+    #print("We are returning this in JSON format for our front-end's GET request: ", jsonify(userText=''.join(message_array)))
     return jsonify(userText=''.join(message_array))
 
 # use decorators to link the function to a url
@@ -112,7 +131,6 @@ def chat():
             return start_chat()
         elif request.method == 'POST': 
             return continue_chat()
-
 
 
 # start the server with the 'run()' method
