@@ -12,3 +12,6 @@ key.js
 
 # Ignore dist folder
 dist
+
+# Ignore python cache files
+**/__pycache__/**
