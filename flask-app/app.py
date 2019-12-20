@@ -111,13 +111,8 @@ def continue_chat():
                     print("This is the initialLanguage: ", initialLanguage)
                     newMessage = translator.translate(message["text"], dest=initialLanguage)
                     encodedMessage = newMessage.text.encode('utf-8').decode('utf-8')
-                    #print("This is encoded: ", encodedMessage)
-                    #decodedMessage = encodedMessage.decode('utf-8')
-                    #message["text"] = decodedMessage
                     message["text"] = encodedMessage
                 message_array.append(message["text"])
-    #print("This should be the first automated sentence from the VA (formatted): ", message_array)
-    #print("We are returning this in JSON format for our front-end's GET request: ", jsonify(userText=''.join(message_array)))
     return jsonify(userText=''.join(message_array))
 
 # use decorators to link the function to a url

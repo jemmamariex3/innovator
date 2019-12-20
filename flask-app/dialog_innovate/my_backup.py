@@ -40,6 +40,306 @@ selector_dict = {
 }
 #textInput = "test"  Use this if you want to hardcode messages.
 
+ticketsArr = [
+    { 'number': 1, 'assignee': "DaLarm Han", 'createdDate': "12/17/2019", 'startDate': "12/18/2019", 'endDate': "12/19/2019", 'client': 'Verizon', 'summary': "Register team in mix", 'hoursLogged': 8, 'priority': "high", 'status': 'open', 'comments': "Ready in prod"},
+    { 'number': 2, 'assignee': "DaLarm Han", 'createdDate': "12/17/2019", 'startDate': "12/18/2019", 'endDate': "12/19/2019", 'client': 'AT&T', 'summary': "Register teamz in mix", 'hoursLogged': 2, 'priority': "low", 'status': 'open', 'comments': "Ready in prod"},
+    { 'number': 3, 'assignee': "DaLarm Han", 'createdDate': "12/17/2019", 'startDate': "12/18/2019", 'endDate': "12/19/2019", 'client': 'Sprint', 'summary': "Register teamzzz in mix", 'hoursLogged': 3, 'priority': "medium", 'status': 'open', 'comments': "Ready in prod"}
+]
+response_ticketsArr = []
+
+def filter_tickets(option, values):
+    global userText
+    # Get Tickets
+    if option is "TD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    final_response = ("Ticket #" + ticket['number'] + "\nSummary: " + ticket['summary'] + "\nClient: " + ticket['client'] + "\nPriority: " + ticket['priority'] + "\nStatus: " + ticket['status'] + "\nAssignee: " + ticket['assignee'] + "\nHours Logged: " + ticket['hoursLogged'])
+                    break
+            print(option + " - final response: " + final_response)
+    elif option is "TDD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    final_response = ("Created Date: " + ticket['createdDate'] + "\nStart Date: " + ticket['startDate'] + "\nEnd Date: " + ticket['endDate'])
+                    break
+            print(option + " - final response: " + final_response)
+    elif option is "TAD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    final_response = (ticket['assignee'])
+                    break
+            print(option + " - final response: " + final_response)
+    elif option is  "TPD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    final_response = (ticket['priority'])
+                    break
+            print(option + " - final response: " + final_response)
+    elif option is "TSD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    final_response = (ticket['status'])
+                    break
+            print(option + " - final response: " + final_response)
+    elif option is "TCOD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    final_response = (ticket['comments'])
+                    break
+            print(option + " - final response: " + final_response)
+    # Modify Tickets - no return
+    elif option is "MTCAD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    # MODIFY ASSIGNEE CODE HERE
+                    final_response = (ticket)
+                    break
+            print(option + " - final response: " + final_response)
+    elif option is "MTCPD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    # MODIFY PRIORITY CODE HERE
+                    final_response = (ticket)
+                    break
+            print(option + " - final response: " + final_response)
+    elif option is "MTCSD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    # MODIFY STATUS CODE HERE
+                    final_response = (ticket)
+                    break
+            print(option + " - final response: " + final_response)
+    elif option is "MTLHD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    # MODIFY HOURS LOGGED CODE HERE
+                    final_response = (ticket)
+                    break
+            print(option + " - final response: " + final_response)
+    elif option is "MTACD":
+        print("intent = " + option)
+        if("_concept_TICKET_NUMBER" in values): 
+            ticket_num = (eval(values['_concept_TICKET_NUMBER'])['nuance_CARDINAL_NUMBER'])
+            for ticket in ticketsArr:
+                if ticket['number'] is int(ticket_num):
+                    # MODIFY COMMENT CODE HERE
+                    final_response = (ticket)
+                    break
+            print(option + " - final response: " + final_response)
+    # Get Tickets By
+    elif option is "TBAD":
+        print("intent = " + option)
+        if("concept_TICKET_ASSIGNEE" in values):
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr:
+                if (ticket['assignee'] == assignee):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBPD":
+        print("intent = " + option)
+        if("concept_TICKET_PRIORITY" in values):
+            priority = values["_concept_TICKET_PRIORITY"]
+            for ticket in ticketsArr:
+                if (ticket['priority'] == priority):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBSD":
+        print("intent = " + option)
+        if("concept_TICKET_STATUS" in values):
+            status = values["_concept_TICKET_STATUS"]
+            for ticket in ticketsArr:
+                if (ticket['status'] == status):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBCD":
+        print("intent = " + option)
+        if("concept_TICKET_CLIENT" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            for ticket in ticketsArr:
+                if (ticket['client'] == client):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBCAD":
+        print("intent = " + option)
+        if("concept_TICKET_CLIENT" in values and "concept_TICKET_ASSIGNEE" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr:
+                if (ticket['client'] == client and ticket['assignee'] == assignee):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBCPD":
+        print("intent = " + option)
+        if("concept_TICKET_CLIENT" in values and "concept_TICKET_PRIORITY" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            priority = values["_concept_TICKET_PRIORITY"]
+            for ticket in ticketsArr:
+                if (ticket['client'] == client and ticket['priority'] == priority):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBCPAD":
+        print("intent = " + option)
+        if("concept_TICKET_CLIENT" in values and "concept_TICKET_PRIORITY" in values and "concept_TICKET_ASSIGNEE" in values):
+            client = values["_concept_TICKET_CLIENT"]
+            priority = values["_concept_TICKET_PRIORITY"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr:
+                if (ticket['client'] == client and ticket['priority'] == priority and ticket['assignee'] == assignee):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBSAD":
+        print("intent = " + option)
+        if("concept_TICKET_STATUS" in values and "concept_TICKET_ASSIGNEE" in values):
+            status = values["_concept_TICKET_STATUS"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr:
+                if (ticket['status'] == status and ticket['assignee'] == assignee):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBSCD":
+        print("intent = " + option)
+        if("concept_TICKET_STATUS" in values and "concept_TICKET_CLIENT" in values):
+            status = values["_concept_TICKET_STATUS"]
+            client = values["_concept_TICKET_CLIENT"]
+            for ticket in ticketsArr:
+                if (ticket['status'] == status and ticket['client'] == client):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBSCAD":
+        print("intent = " + option)
+        if("concept_TICKET_STATUS" in values and "concept_TICKET_CLIENT" in values and "concept_TICKET_ASSIGNEE" in values):
+            status = values["_concept_TICKET_STATUS"]
+            client = values["_concept_TICKET_CLIENT"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr:
+                if (ticket['status'] == status and ticket['client'] == client and ticket['assignee'] == assignee):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBSCPD":
+        print("intent = " + option)
+        if("concept_TICKET_STATUS" in values and "concept_TICKET_CLIENT" in values and "concept_TICKET_PRIORITY" in values):
+            status = values["_concept_TICKET_STATUS"]
+            client = values["_concept_TICKET_CLIENT"]
+            priority = values["_concept_TICKET_PRIORITY"]
+            for ticket in ticketsArr:
+                if (ticket['status'] == status and ticket['client'] == client and ticket['priority'] == priority):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBSCPAD":
+        print("intent = " + option)
+        if("concept_TICKET_STATUS" in values and "concept_TICKET_CLIENT" in values and "concept_TICKET_PRIORITY" in values and "concept_TICKET_ASSIGNEE" in values):
+            status = values["_concept_TICKET_STATUS"]
+            client = values["_concept_TICKET_CLIENT"]
+            priority = values["_concept_TICKET_PRIORITY"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr:
+                if (ticket['status'] == status and ticket['client'] == client and ticket['priority'] == priority and ticket['assignee'] == assignee):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBSPD":
+        print("intent = " + option)
+        if("concept_TICKET_STATUS" in values and "concept_TICKET_PRIORITY" in values):
+            status = values["_concept_TICKET_STATUS"]
+            priority = values["_concept_TICKET_PRIORITY"]
+            for ticket in ticketsArr:
+                if (ticket['status'] == status and ticket['priority'] == priority):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBSPAD":
+        print("intent = " + option)
+        if("concept_TICKET_STATUS" in values and "concept_TICKET_PRIORITY" in values and "concept_TICKET_ASSIGNEE" in values):
+            status = values["_concept_TICKET_STATUS"]
+            priority = values["_concept_TICKET_PRIORITY"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr:
+                if (ticket['status'] == status and ticket['priority'] == priority and ticket['assignee'] == assignee):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    elif option is "TBPAD":
+        print("intent = " + option)
+        if("concept_TICKET_PRIORITY" in values and "concept_TICKET_ASSIGNEE" in values):
+            priority = values["_concept_TICKET_PRIORITY"]
+            assignee = values["_concept_TICKET_ASSIGNEE"]
+            for ticket in ticketsArr:
+                if (ticket['priority'] == priority and ticket['assignee'] == assignee):
+                    response_ticketsArr.append("#" + ticket['number'])
+                    final_response = ', '.join(map(str,response_ticketsArr))
+            print(option + " - final response: " + final_response)
+    return final_response
+
+def filter_intents(i):
+    intentSwitcher={
+        "GetTicketData":'TD',
+        "GetTicketAssigneeData":'TAD',
+        "GetTicketByAssigneeData":'TBAD',
+        "GetTicketByPriorityAssigneeData": 'TBPAD',
+        "GetTicketByPriorityData":'TBPD',
+        "GetTicketByStatusData":'TBSD',
+        "GetTicketByClientData":'TBCD',
+        "GetTicketByClientAssigneeData":'TBCAD',
+        "GetTicketByClientPriorityData":'TBCPD',
+        "GetTicketByClientPriorityAssigneeData":'TBCPAD',
+        "GetTicketByStatusAssigneeData":'TBSAD',
+        "GetTicketByStatusClientData":'TBSCD',
+        "GetTicketByStatusClientAssigneeData":'TBSCAD',
+        "GetTicketByStatusClientPriorityData":'TBSCPD',
+        "GetTicketByStatusClientPriorityAssigneeData":"TBSCPAD",
+        "GetTicketByStatusPriorityData":"TBSPD",
+        "GetTicketByStatusPriorityAssigneeData":"TBSPAD",
+        "GetTicketCommentsData":"TCOD",
+        "GetTicketDatesData":"TDD",
+        "GetTicketPriorityData":"TPD",
+        "GetTicketStatusData":"TSD",
+        "ModifyTicketChangeAssigneeData":"MTCAD",
+        "ModifyTicketChangePriorityData":"MTCPD",
+        "ModifyTicketChangeStatusData":"MTCSD",
+        "ModifyTicketLogHoursData":"MTLHD",
+        "ModifyTicketAddCommentData": "MTACD",
+    }
+    return intentSwitcher.get(i,"did not match any intent")
 
 
 def create_channel(token, serverUrl):
