@@ -748,7 +748,7 @@ Custom Code
 """
 
 def get_tickets_arr(): 
-    return ''.join(map(str,ticketsArr))
+    return ','.join(map(str,ticketsArr))
 
 class DataClass:
 
