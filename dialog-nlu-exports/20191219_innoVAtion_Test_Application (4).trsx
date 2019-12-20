@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns:nuance="https://developer.nuance.com/mix/nlu/trsx" xml:lang="eng-USA" nuance:version="2.4">
+    <metadata>
+        <entry key="created_by">Kevin Scaringi</entry>
+        <entry key="created_by">kevin.scaringi@nuance.com</entry>
+        <entry key="created_at">2019-12-18 23:37:13+00:00</entry>
+        <entry key="created_at">2019-12-13 20:28:24+00:00</entry>
+    </metadata>
+    <sources>
+        <source name="nuance_custom_data" displayName="nuance_custom_data" version="1.0" type="CUSTOM" useForOOV="true"/>
+    </sources>
+    <ontology base="http://localhost:8080/resources/ontology-1.0.xml">
+        <intents>
+            <intent name="GET_TICKET_BY_STATUS_PRIORITY_ASSIGNEE">
+                <links>
+                    <link conceptref="TICKET_ASSIGNEE"/>
+                    <link conceptref="TICKET_PRIORITY"/>
+                    <link conceptref="TICKET_STATUS"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_STATUS_ASSIGNEE">
+                <links>
+                    <link conceptref="TICKET_ASSIGNEE"/>
+                    <link conceptref="TICKET_STATUS"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_HOURS_LOGGED">
+                <links>
+                    <link conceptref="TICKET_NUMBER"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_DATES">
+                <links>
+                    <link conceptref="TICKET_NUMBER"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_STATUS_CLIENT_PRIORITY_ASSIGNEE">
+                <links>
+                    <link conceptref="TICKET_ASSIGNEE"/>
+                    <link conceptref="TICKET_CLIENT"/>
+                    <link conceptref="TICKET_PRIORITY"/>
+                    <link conceptref="TICKET_STATUS"/>
+                </links>
+            </intent>
+            <intent name="MODIFY_TICKET_CHANGE_STATUS">
+                <links>
+                    <link conceptref="TICKET_NUMBER"/>
+                    <link conceptref="TICKET_STATUS"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_STATUS">
+                <links>
+                    <link conceptref="TICKET_STATUS"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_ASSIGNEE">
+                <links>
+                    <link conceptref="TICKET_ASSIGNEE"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_PRIORITY">
+                <links>
+                    <link conceptref="TICKET_NUMBER"/>
+                    <link conceptref="nuance_CARDINAL_NUMBER"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_PRIORITY_ASSIGNEE">
+                <links>
+                    <link conceptref="TICKET_ASSIGNEE"/>
+                    <link conceptref="TICKET_PRIORITY"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_ASSIGNEE">
+                <links>
+                    <link conceptref="TICKET_NUMBER"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_COMMENTS">
+                <links>
+                    <link conceptref="TICKET_NUMBER"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_STATUS_CLIENT_ASSIGNEE">
+                <links>
+                    <link conceptref="TICKET_ASSIGNEE"/>
+                    <link conceptref="TICKET_CLIENT"/>
+                    <link conceptref="TICKET_STATUS"/>
+                </links>
+            </intent>
+            <intent name="MODIFY_TICKET_CHANGE_PRIORITY">
+                <links>
+                    <link conceptref="TICKET_NUMBER"/>
+                    <link conceptref="TICKET_PRIORITY"/>
+                </links>
+            </intent>
+            <intent name="END_CHAT"/>
+            <intent name="GET_TICKET_BY_STATUS_CLIENT">
+                <links>
+                    <link conceptref="TICKET_CLIENT"/>
+                    <link conceptref="TICKET_STATUS"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_CLIENT_PRIORITY">
+                <links>
+                    <link conceptref="TICKET_CLIENT"/>
+                    <link conceptref="TICKET_PRIORITY"/>
+                </links>
+            </intent>
+            <intent name="MODIFY_TICKET_ADD_COMMENT">
+                <links>
+                    <link conceptref="TICKET_COMMENT"/>
+                    <link conceptref="TICKET_NUMBER"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET">
+                <links>
+                    <link conceptref="TICKET_NUMBER"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_PRIORITY">
+                <links>
+                    <link conceptref="TICKET_PRIORITY"/>
+                </links>
+            </intent>
+            <intent name="MODIFY_TICKET_LOG_HOURS">
+                <links>
+                    <link conceptref="TICKET_HOURS_LOGGED"/>
+                    <link conceptref="TICKET_NUMBER"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_CLIENT_PRIORITY_ASSIGNEE">
+                <links>
+                    <link conceptref="TICKET_ASSIGNEE"/>
+                    <link conceptref="TICKET_CLIENT"/>
+                    <link conceptref="TICKET_PRIORITY"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_STATUS">
+                <links>
+                    <link conceptref="TICKET_NUMBER"/>
+                    <link conceptref="nuance_CARDINAL_NUMBER"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_STATUS_CLIENT_PRIORITY">
+                <links>
+                    <link conceptref="TICKET_CLIENT"/>
+                    <link conceptref="TICKET_PRIORITY"/>
+                    <link conceptref="TICKET_STATUS"/>
+                </links>
+            </intent>
+            <intent name="MODIFY_TICKET_CHANGE_ASSIGNEE">
+                <links>
+                    <link conceptref="NATURAL_NUMBER"/>
+                    <link conceptref="TICKET_ASSIGNEE"/>
+                    <link conceptref="TICKET_NUMBER"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_CLIENT">
+                <links>
+                    <link conceptref="TICKET_CLIENT"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_STATUS_PRIORITY">
+                <links>
+                    <link conceptref="TICKET_PRIORITY"/>
+                    <link conceptref="TICKET_STATUS"/>
+                </links>
+            </intent>
+            <intent name="GET_TICKET_BY_CLIENT_ASSIGNEE">
+                <links>
+                    <link conceptref="TICKET_ASSIGNEE"/>
+                    <link conceptref="TICKET_CLIENT"/>
+                </links>
+            </intent>
+        </intents>
+        <concepts>
+            <concept name="NATURAL_NUMBER">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="TICKET_CLIENT">
+                <relations>
+                    <relation type="hasReferrers" conceptref="REF_THING"/>
+                </relations>
+            </concept>
+            <concept name="YES_NO_CHECK">
+                <relations>
+                    <relation type="isA" conceptref="YES_NO"/>
+                </relations>
+            </concept>
+            <concept name="TICKET_NUMBER">
+                <relations>
+                    <relation type="isA" conceptref="NATURAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="CREDIT_CARD">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="CC_EXP_DATE">
+                <relations>
+                    <relation type="isA" conceptref="nuance_EXPIRY_DATE"/>
+                </relations>
+            </concept>
+            <concept name="TICKET_PRIORITY"/>
+            <concept name="TICKET_HOURS_LOGGED">
+                <relations>
+                    <relation type="isA" conceptref="NATURAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="TICKET_STATUS"/>
+            <concept name="DATE">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CALENDARX"/>
+                </relations>
+            </concept>
+            <concept name="ZIP_CODE">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="PHONE">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="DIGITS">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+            <concept name="CURRENCY">
+                <relations>
+                    <relation type="isA" conceptref="nuance_AMOUNT"/>
+                </relations>
+            </concept>
+            <concept name="TIME">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CALENDARX"/>
+                </relations>
+            </concept>
+            <concept name="YES_NO">
+                <relations>
+                    <relation type="isA" conceptref="nuance_BOOLEAN"/>
+                </relations>
+            </concept>
+            <concept name="TICKET_ASSIGNEE">
+                <relations>
+                    <relation type="hasReferrers" conceptref="REF_PERSON"/>
+                </relations>
+            </concept>
+            <concept name="TICKET_COMMENT" freetext="true"/>
+            <concept name="SSN">
+                <relations>
+                    <relation type="isA" conceptref="nuance_CARDINAL_NUMBER"/>
+                </relations>
+            </concept>
+        </concepts>
+    </ontology>
+    <dictionaries>
+        <dictionary conceptref="TICKET_CLIENT">
+            <entry literal="AT&amp;T" value="AT&amp;T"/>
+            <entry literal="ATT" value="AT&amp;T"/>
+            <entry literal="Costco" value="Costco"/>
+            <entry literal="Sprint" value="Sprint"/>
+            <entry literal="Verizon" value="Verizon"/>
+        </dictionary>
+        <dictionary conceptref="TICKET_PRIORITY">
+            <entry literal="high" value="high"/>
+            <entry literal="important" value="high"/>
+            <entry literal="low" value="low"/>
+            <entry literal="med" value="medium"/>
+            <entry literal="medium" value="medium"/>
+        </dictionary>
+        <dictionary conceptref="TICKET_STATUS">
+            <entry literal="being worked on" value="in progress"/>
+            <entry literal="closed" value="closed"/>
+            <entry literal="completed" value="completed"/>
+            <entry literal="in progress" value="in progress"/>
+            <entry literal="inprogress" value="in progress"/>
+            <entry literal="open" value="open"/>
+        </dictionary>
+        <dictionary conceptref="TICKET_ASSIGNEE">
+            <entry literal="DaLarm" value="DaLarm Han"/>
+            <entry literal="DaLarm H" value="DaLarm Han"/>
+            <entry literal="DaLarm Han" value="DaLarm Han"/>
+            <entry literal="Jemma" value="Jemma Tiongson"/>
+            <entry literal="Jemma T" value="Jemma Tiongson"/>
+            <entry literal="Jemma Tiongson" value="Jemma Tiongson"/>
+            <entry literal="Kevin" value="Kevin Rickard"/>
+            <entry literal="Kevin R" value="Kevin Rickard"/>
+            <entry literal="Kevin Rickard" value="Kevin Rickard"/>
+            <entry literal="Peter" value="Peter Chea"/>
+            <entry literal="Peter C" value="Peter Chea"/>
+            <entry literal="Peter Chea" value="Peter Chea"/>
+        </dictionary>
+    </dictionaries>
+    <samples>
+        <sample intentref="END_CHAT" count="1">talk to you later !</sample>
+        <sample intentref="END_CHAT" count="1">I'm done</sample>
+        <sample intentref="GET_TICKET_BY_STATUS" count="1">Show me the<annotation conceptref="TICKET_STATUS">open</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_STATUS" count="1">what tickets are currently<annotation conceptref="TICKET_STATUS">closed</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS" count="1">are there any<annotation conceptref="TICKET_STATUS">open</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_STATUS" count="1">What are the<annotation conceptref="TICKET_STATUS">completed</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_STATUS" count="1">which tickets are<annotation conceptref="TICKET_STATUS">in progress</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT" count="1">what tickets are<annotation conceptref="TICKET_STATUS">open</annotation>for<annotation conceptref="TICKET_CLIENT">at &amp; t</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT" count="1">show me the<annotation conceptref="TICKET_STATUS">completed</annotation>tickets for<annotation conceptref="TICKET_CLIENT">costco</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT" count="1">id like to see whats<annotation conceptref="TICKET_STATUS">closed</annotation>for<annotation conceptref="TICKET_CLIENT">verizon</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT" count="1">what<annotation conceptref="TICKET_STATUS">open</annotation>tickets does<annotation conceptref="TICKET_CLIENT">sprint</annotation>have</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_PRIORITY" count="1">id like to see the<annotation conceptref="TICKET_PRIORITY">medium</annotation>priority<annotation conceptref="TICKET_STATUS">closed</annotation>tickets for<annotation conceptref="TICKET_CLIENT">sprint</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_PRIORITY" count="1">what<annotation conceptref="TICKET_PRIORITY">low</annotation>priority tickets are<annotation conceptref="TICKET_STATUS">open</annotation>for<annotation conceptref="TICKET_CLIENT">costco</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_PRIORITY" count="1">show me<annotation conceptref="TICKET_PRIORITY">high</annotation>priority<annotation conceptref="TICKET_STATUS">open</annotation>tickets for<annotation conceptref="TICKET_CLIENT">verizon</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_PRIORITY" count="1">what are the<annotation conceptref="TICKET_PRIORITY">high</annotation>importance tickets for<annotation conceptref="TICKET_CLIENT">att</annotation>that are also<annotation conceptref="TICKET_STATUS">completed</annotation>?</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_PRIORITY_ASSIGNEE" count="1">Show me<annotation conceptref="TICKET_ASSIGNEE">Jemma 's</annotation>
+            <annotation conceptref="TICKET_PRIORITY">high</annotation>priority<annotation conceptref="TICKET_STATUS">open</annotation>tickets for<annotation conceptref="TICKET_CLIENT">Verizon</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_PRIORITY_ASSIGNEE" count="1">what<annotation conceptref="TICKET_PRIORITY">low</annotation>priority<annotation conceptref="TICKET_STATUS">closed</annotation>tickets does<annotation conceptref="TICKET_ASSIGNEE">DaLarm</annotation>have for<annotation conceptref="TICKET_CLIENT">Verizon</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_PRIORITY_ASSIGNEE" count="1">what<annotation conceptref="TICKET_STATUS">open</annotation>,<annotation conceptref="TICKET_PRIORITY">medium</annotation>level tickets does<annotation conceptref="TICKET_ASSIGNEE">Peter</annotation>have for<annotation conceptref="TICKET_CLIENT">costco</annotation>?</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_ASSIGNEE" count="1">Which<annotation conceptref="TICKET_CLIENT">Verizon</annotation>tickets are assigned to<annotation conceptref="TICKET_ASSIGNEE">DaLarm</annotation>and are currently<annotation conceptref="TICKET_STATUS">completed</annotation>?</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_ASSIGNEE" count="1">Does<annotation conceptref="TICKET_ASSIGNEE">Jemma</annotation>have any<annotation conceptref="TICKET_STATUS">open</annotation>tickets for<annotation conceptref="TICKET_CLIENT">Sprint</annotation>?</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_ASSIGNEE" count="1">What<annotation conceptref="TICKET_STATUS">open</annotation>tickets does<annotation conceptref="TICKET_ASSIGNEE">Peter</annotation>have for<annotation conceptref="TICKET_CLIENT">Costco</annotation>?</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_PRIORITY" count="1">Show me the<annotation conceptref="TICKET_PRIORITY">high</annotation>priority<annotation conceptref="TICKET_STATUS">open</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_PRIORITY" count="1">Are there<annotation conceptref="TICKET_STATUS">completed</annotation>tickets with a<annotation conceptref="TICKET_PRIORITY">medium</annotation>priority level ?</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_PRIORITY" count="1">what<annotation conceptref="TICKET_STATUS">closed</annotation>tickets have a<annotation conceptref="TICKET_PRIORITY">low</annotation>priority level</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_PRIORITY" count="1">what are the<annotation conceptref="TICKET_STATUS">open</annotation>
+            <annotation conceptref="TICKET_PRIORITY">high</annotation>level tickets</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_PRIORITY" count="1">what<annotation conceptref="TICKET_PRIORITY">medium</annotation>important tickets are<annotation conceptref="TICKET_STATUS">completed</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_PRIORITY_ASSIGNEE" count="1">does<annotation conceptref="TICKET_ASSIGNEE">kevin rickard</annotation>have any<annotation conceptref="TICKET_PRIORITY">medium</annotation>level<annotation conceptref="TICKET_STATUS">open</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_PRIORITY_ASSIGNEE" count="1">which tickets are<annotation conceptref="TICKET_STATUS">open</annotation>and<annotation conceptref="TICKET_PRIORITY">high</annotation>importance for<annotation conceptref="TICKET_ASSIGNEE">DaLarm</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_PRIORITY_ASSIGNEE" count="1">what<annotation conceptref="TICKET_PRIORITY">high</annotation>level<annotation conceptref="TICKET_STATUS">open</annotation>tickets does<annotation conceptref="TICKET_ASSIGNEE">jemma</annotation>have</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_ASSIGNEE" count="1">what<annotation conceptref="TICKET_STATUS">open</annotation>tickets are assigned to<annotation conceptref="TICKET_ASSIGNEE">Peter</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_ASSIGNEE" count="1">does<annotation conceptref="TICKET_ASSIGNEE">Jemma</annotation>have any<annotation conceptref="TICKET_STATUS">closed</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_ASSIGNEE" count="1">id like to see the<annotation conceptref="TICKET_STATUS">open</annotation>tickets for<annotation conceptref="TICKET_ASSIGNEE">DaLarm</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_ASSIGNEE" count="1">Does<annotation conceptref="TICKET_ASSIGNEE">Kevin R</annotation>have a<annotation conceptref="TICKET_STATUS">open</annotation>
+            <annotation conceptref="TICKET_CLIENT">Verizon</annotation>ticket</sample>
+        <sample intentref="GET_TICKET" count="1">tell me about #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">10001</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET" count="1">ticket info for<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">1007</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET" count="1">show me ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">182945</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_PRIORITY_ASSIGNEE" count="1">what<annotation conceptref="TICKET_PRIORITY">high</annotation>importance<annotation conceptref="TICKET_STATUS">open</annotation>tickets does<annotation conceptref="TICKET_ASSIGNEE">kevin</annotation>have for<annotation conceptref="TICKET_CLIENT">sprint</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_ASSIGNEE" count="1">show me the<annotation conceptref="TICKET_STATUS">completed</annotation>tickets for<annotation conceptref="TICKET_ASSIGNEE">kevin rickard</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_CLIENT" count="1">show me the<annotation conceptref="TICKET_CLIENT">verizon</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_CLIENT" count="1">what are the<annotation conceptref="TICKET_CLIENT">costco</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_CLIENT" count="1">show me everything for<annotation conceptref="TICKET_CLIENT">sprint</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_CLIENT" count="1">i want to see all the<annotation conceptref="TICKET_CLIENT">att</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_PRIORITY" count="1">what are the<annotation conceptref="TICKET_PRIORITY">high</annotation>importance tickets for<annotation conceptref="TICKET_CLIENT">costco</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_PRIORITY" count="1">show me the<annotation conceptref="TICKET_PRIORITY">medium</annotation>priority tickets for<annotation conceptref="TICKET_CLIENT">at &amp; T</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_PRIORITY" count="1">i want to see the<annotation conceptref="TICKET_PRIORITY">low</annotation>level tickets for<annotation conceptref="TICKET_CLIENT">sprint</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_PRIORITY" count="1">are there any<annotation conceptref="TICKET_PRIORITY">high</annotation>importance tickets for<annotation conceptref="TICKET_CLIENT">verizon</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_PRIORITY" count="1">what<annotation conceptref="TICKET_CLIENT">costco</annotation>tickets are a<annotation conceptref="TICKET_PRIORITY">high</annotation>priority</sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_PRIORITY_ASSIGNEE" count="1">what<annotation conceptref="TICKET_PRIORITY">high</annotation>level<annotation conceptref="TICKET_CLIENT">costco</annotation>tickets does<annotation conceptref="TICKET_ASSIGNEE">jemma</annotation>have</sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_PRIORITY_ASSIGNEE" count="1">what<annotation conceptref="TICKET_CLIENT">sprint</annotation>tickets are assigned to<annotation conceptref="TICKET_ASSIGNEE">dalarm</annotation>and are a<annotation conceptref="TICKET_PRIORITY">low</annotation>level of importance</sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_PRIORITY_ASSIGNEE" count="1">does<annotation conceptref="TICKET_ASSIGNEE">jemma</annotation>have any<annotation conceptref="TICKET_PRIORITY">high</annotation>importance<annotation conceptref="TICKET_CLIENT">verizon</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_PRIORITY_ASSIGNEE" count="1">is<annotation conceptref="TICKET_ASSIGNEE">peter</annotation>assigned to any<annotation conceptref="TICKET_PRIORITY">low</annotation>level<annotation conceptref="TICKET_CLIENT">costco</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_ASSIGNEE" count="1">what<annotation conceptref="TICKET_CLIENT">costco</annotation>tickets does<annotation conceptref="TICKET_ASSIGNEE">kevin</annotation>have</sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_ASSIGNEE" count="1">show me<annotation conceptref="TICKET_ASSIGNEE">jemma 's</annotation>
+            <annotation conceptref="TICKET_CLIENT">verizon</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_ASSIGNEE" count="1">what<annotation conceptref="TICKET_CLIENT">sprint</annotation>tickets are assigned to<annotation conceptref="TICKET_ASSIGNEE">peter chea</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_ASSIGNEE" count="1">show ticket info for<annotation conceptref="TICKET_ASSIGNEE">kevin 's</annotation>
+            <annotation conceptref="TICKET_CLIENT">att</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_PRIORITY" count="1">are there any<annotation conceptref="TICKET_PRIORITY">high</annotation>level tickets</sample>
+        <sample intentref="GET_TICKET_BY_PRIORITY" count="1">what are the<annotation conceptref="TICKET_PRIORITY">medium</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_PRIORITY" count="1">show me the<annotation conceptref="TICKET_PRIORITY">low</annotation>importance tickets</sample>
+        <sample intentref="GET_TICKET_BY_PRIORITY" count="1">show me all<annotation conceptref="TICKET_PRIORITY">high</annotation>importance items</sample>
+        <sample intentref="GET_TICKET_BY_PRIORITY_ASSIGNEE" count="1">what<annotation conceptref="TICKET_PRIORITY">high</annotation>improtance tickets are assigned to<annotation conceptref="TICKET_ASSIGNEE">peter</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_PRIORITY_ASSIGNEE" count="1">what<annotation conceptref="TICKET_PRIORITY">low</annotation>level tickets does<annotation conceptref="TICKET_ASSIGNEE">dalarm</annotation>have</sample>
+        <sample intentref="GET_TICKET_BY_PRIORITY_ASSIGNEE" count="1">does<annotation conceptref="TICKET_ASSIGNEE">kevin</annotation>have any<annotation conceptref="TICKET_PRIORITY">medium</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_ASSIGNEE" count="1">what tickets are assigned to<annotation conceptref="TICKET_ASSIGNEE">dalarm</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_ASSIGNEE" count="1">does<annotation conceptref="TICKET_ASSIGNEE">kevin r</annotation>have any tickets ?</sample>
+        <sample intentref="GET_TICKET_BY_ASSIGNEE" count="1">show me<annotation conceptref="TICKET_ASSIGNEE">jemma 's</annotation>tickets</sample>
+        <sample intentref="GET_TICKET_BY_ASSIGNEE" count="1">id like to see all of the tickets that are currently assigned to<annotation conceptref="TICKET_ASSIGNEE">peter</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_ASSIGNEE" count="1">show me who<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="nuance_CARDINAL_NUMBER">10008</annotation>
+            </annotation>is assigned to</sample>
+        <sample intentref="GET_TICKET_ASSIGNEE" count="1">who is assigned to ticket #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="nuance_CARDINAL_NUMBER">100078</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_ASSIGNEE" count="1">who has<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="nuance_CARDINAL_NUMBER">1988547</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_PRIORITY" count="1">what is the priority of<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">11314</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_PRIORITY" count="1">show me the current priority level of<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">1361464</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_PRIORITY" count="1">what is the level of importance for #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">16824</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_HOURS_LOGGED" count="1">how many hours are logged for ticket #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">18468425</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_HOURS_LOGGED" count="1">what are the hours logged for #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">1564641</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_HOURS_LOGGED" count="1">show me the hours for ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">1315616</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_COMMENTS" count="1">does ticket #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">161381</annotation>
+            </annotation>have any comments ?</sample>
+        <sample intentref="GET_TICKET_COMMENTS" count="1">show me the comments on<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">6483161</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_DATES" count="1">show me the date information for ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">13661</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_DATES" count="1">what is the start date of #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">1356181</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_DATES" count="1">what is the current end date for ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">13613</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="END_CHAT" count="1">No . Thanks for the help !</sample>
+        <sample intentref="END_CHAT" count="1">Bye</sample>
+        <sample intentref="END_CHAT" count="1">Thank you . Bye !</sample>
+        <sample intentref="END_CHAT" count="1">I'm all set . Thank you for your assistance .</sample>
+        <sample intentref="END_CHAT" count="1">I'm fine . End the chat .</sample>
+        <sample intentref="END_CHAT" count="1">Please close the chat .</sample>
+        <sample intentref="END_CHAT" count="1">I don't need any more help .</sample>
+        <sample intentref="END_CHAT" count="1">Thanks for your help . Take care !</sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_ASSIGNEE" count="1">Change owner of<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">49282</annotation>
+            </annotation>to<annotation conceptref="TICKET_ASSIGNEE">Kevin</annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_PRIORITY" count="1">update ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">18484</annotation>
+            </annotation>to a<annotation conceptref="TICKET_PRIORITY">high</annotation>priority ticket</sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_PRIORITY" count="1">change #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">10001</annotation>
+            </annotation>to<annotation conceptref="TICKET_PRIORITY">low</annotation>priority</sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_PRIORITY" count="1">modify the priority for ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">18484</annotation>
+            </annotation>to<annotation conceptref="TICKET_PRIORITY">med</annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_PRIORITY" count="1">change the priority for ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">149583</annotation>
+            </annotation>to<annotation conceptref="TICKET_PRIORITY">high</annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_STATUS" count="1">change ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">194948</annotation>
+            </annotation>to<annotation conceptref="TICKET_STATUS">closed</annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_STATUS" count="1">set ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">48271</annotation>
+            </annotation>to<annotation conceptref="TICKET_STATUS">open</annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_STATUS" count="1">update ticket status to<annotation conceptref="TICKET_STATUS">completed</annotation>for #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">18484</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_STATUS" count="1">make<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">184895</annotation>
+            </annotation>
+            <annotation conceptref="TICKET_STATUS">in progress</annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_LOG_HOURS" count="1">add<annotation conceptref="TICKET_HOURS_LOGGED">
+                <annotation conceptref="NATURAL_NUMBER">two hours</annotation>
+            </annotation>to<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">18485</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_LOG_HOURS" count="1">log<annotation conceptref="TICKET_HOURS_LOGGED">
+                <annotation conceptref="NATURAL_NUMBER">15 minutes</annotation>
+            </annotation>to #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">48581</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_ADD_COMMENT" count="1">comment "<annotation conceptref="TICKET_COMMENT">pushed to production</annotation>" on ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">19585</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_ADD_COMMENT" count="1">post<annotation conceptref="TICKET_COMMENT">modifying code</annotation>to ticket #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">18849</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_ASSIGNEE" count="1">Who is assigned to ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="nuance_CARDINAL_NUMBER">10004</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_DATES" count="1">When is ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">10006</annotation>
+            </annotation>due</sample>
+        <sample intentref="GET_TICKET_DATES" count="1">when was ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">158295025</annotation>
+            </annotation>started</sample>
+        <sample intentref="GET_TICKET_DATES" count="1">when does #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">158924</annotation>
+            </annotation>need to be completed by ?</sample>
+        <sample intentref="GET_TICKET_HOURS_LOGGED" count="1">How many hours were logged on ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">1007</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_ASSIGNEE" count="1">Who worked on ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="nuance_CARDINAL_NUMBER">60002</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_ASSIGNEE" count="1">Who is working on ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="nuance_CARDINAL_NUMBER">60003</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_CLIENT_ASSIGNEE" count="1">what<annotation conceptref="TICKET_CLIENT">verizon</annotation>tickets are assigned to<annotation conceptref="TICKET_ASSIGNEE">dalarm</annotation>?</sample>
+        <sample intentref="GET_TICKET_ASSIGNEE" count="1">Who is assigned<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="nuance_CARDINAL_NUMBER">6009</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_ASSIGNEE" count="1">Who is working on<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="nuance_CARDINAL_NUMBER">40002</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_PRIORITY" count="1">are there any<annotation conceptref="TICKET_PRIORITY">high</annotation>priority tickets currently<annotation conceptref="TICKET_STATUS">open</annotation>for<annotation conceptref="TICKET_CLIENT">sprint</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_HOURS_LOGGED" count="1">How many hours were spent on<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">3457</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_CLIENT_PRIORITY" count="1">are there any<annotation conceptref="TICKET_PRIORITY">high</annotation>level<annotation conceptref="TICKET_STATUS">closed</annotation>tickets in<annotation conceptref="TICKET_CLIENT">verizon</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_ASSIGNEE" count="1">does<annotation conceptref="TICKET_ASSIGNEE">kevin</annotation>have any<annotation conceptref="TICKET_STATUS">open</annotation>tickets ?</sample>
+        <sample intentref="MODIFY_TICKET_ADD_COMMENT" count="1">comment<annotation conceptref="TICKET_COMMENT">this is ready in prod</annotation>for ticket #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">184859</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_BY_STATUS_ASSIGNEE" count="1">does<annotation conceptref="TICKET_ASSIGNEE">peter</annotation>have an<annotation conceptref="TICKET_STATUS">open</annotation>ticket ?</sample>
+        <sample intentref="GET_TICKET_BY_STATUS_ASSIGNEE" count="1">does<annotation conceptref="TICKET_ASSIGNEE">kevin rickard</annotation>have an<annotation conceptref="TICKET_STATUS">open</annotation>ticket</sample>
+        <sample intentref="GET_TICKET_BY_PRIORITY" count="1">show me the high priority tickets</sample>
+        <sample intentref="MODIFY_TICKET_LOG_HOURS" count="1">log<annotation conceptref="TICKET_HOURS_LOGGED">
+                <annotation conceptref="NATURAL_NUMBER">30 minutes</annotation>
+            </annotation>on ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">158594</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_PRIORITY" count="1">make<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">194848</annotation>
+            </annotation>a<annotation conceptref="TICKET_PRIORITY">medium</annotation>importance ticket</sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_ASSIGNEE" count="1">Change ticket #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">10003</annotation>
+            </annotation>assignee to<annotation conceptref="TICKET_ASSIGNEE">Peter</annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_ASSIGNEE" count="1">Assign ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">105494</annotation>
+            </annotation>to<annotation conceptref="TICKET_ASSIGNEE">Jemma</annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_CHANGE_ASSIGNEE" count="1">Make<annotation conceptref="TICKET_ASSIGNEE">DaLarm</annotation>the owner for #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">1858</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="MODIFY_TICKET_ADD_COMMENT" count="1">add the following comment to #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">485819</annotation>
+            </annotation>:<annotation conceptref="TICKET_COMMENT">please validate with client</annotation>
+        </sample>
+        <sample intentref="GET_TICKET_STATUS" count="1">what is the status of<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">10028</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_STATUS" count="1">show me the status of #<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">101381</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_STATUS" count="1">id like to see the current status of ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">1236248</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_PRIORITY" count="1">id like to know the level for ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">285</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_PRIORITY" count="1">What priority is ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">20005</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_HOURS_LOGGED" count="1">How many hours were spent on<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">3002</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_HOURS_LOGGED" count="1">id like to see the hours for<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">246352</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET_COMMENTS" count="1">display the comments for ticket<annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">13635</annotation>
+            </annotation>
+        </sample>
+        <sample intentref="GET_TICKET" count="1">
+            <annotation conceptref="TICKET_NUMBER">
+                <annotation conceptref="NATURAL_NUMBER">10008</annotation>
+            </annotation>
+        </sample>
+    </samples>
+</project>

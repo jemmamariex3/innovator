@@ -98,6 +98,36 @@ def initial_request(stub, session_id, selector_dict={}, data_action=None):
     return response, call   
 
 
+# def execute_request(stub, session_id, selector_dict={}, payload_dict={}, data_action=None):
+#     selector = Selector(channel=selector_dict.get('channel'),
+#                         library=selector_dict.get('library'),
+#                         language=selector_dict.get('language'))
+#     execute_input = None
+#     execute_data = None
+#     if not data_action:
+#         execute_input = Input(user_text=payload_dict.get('input').get('userText'))
+#     else:
+#         v = Struct()
+#         v.update(data_action.get('value'))
+#         execute_data = RequestData(id=data_action.get('id'), value=v)
+#         print("This is the RequestData object: ", execute_data)
+#     # session_data = SessionData()
+#     execute_event = Event()
+#     execute_payload = ExecuteRequestPayload(
+#                         input=execute_input, 
+#                         event=execute_event, 
+#                         session_data=None, # DEFUNCT
+#                         data=execute_data)
+#     print("This is the execute_payload before we call ExecuteRequest: ", execute_payload)
+#     execute_request = ExecuteRequest(session_id=session_id, 
+#                         selector=selector, 
+#                         payload=execute_payload)
+#     execute_response, call = stub.Execute.with_call(execute_request)
+#     print("This worked so far...", execute_response, call)
+#     response = MessageToDict(execute_response)
+#     print("This is the VA's response from our ExecuteRequest call. If it's a DA node, we'll do another execute request in app.py: ", response)
+#     return response, call
+
 def execute_request(stub, session_id, selector_dict={}, payload_dict={}, data_action=None):
     selector = Selector(channel=selector_dict.get('channel'),
                         library=selector_dict.get('library'),
@@ -110,22 +140,22 @@ def execute_request(stub, session_id, selector_dict={}, payload_dict={}, data_ac
         v = Struct()
         v.update(data_action.get('value'))
         execute_data = RequestData(id=data_action.get('id'), value=v)
-        print("This is the RequestData object: ", execute_data) 
     # session_data = SessionData()
     execute_event = Event()
     execute_payload = ExecuteRequestPayload(
-                            input=execute_input, 
-                            event=execute_event, 
-                            session_data=None, # DEFUNCT
-                            data=execute_data)
-    print("This is the execute_payload before we call ExecuteRequest: ", execute_payload)
+                        input=execute_input, 
+                        event=execute_event, 
+                        session_data=None, # DEFUNCT
+                        data=execute_data)
     execute_request = ExecuteRequest(session_id=session_id, 
-                            selector=selector, 
-                            payload=execute_payload)
+                        selector=selector, 
+                        payload=execute_payload)
+    log.debug(f'>>>> Execute Request: {execute_request}')
     execute_response, call = stub.Execute.with_call(execute_request)
     response = MessageToDict(execute_response)
-    print("This is the VA's response from our ExecuteRequest call.", response)
-    return response, call   
+    print("This worked so far...", execute_response, call)
+    log.debug(f'<<<< Execute Response: {json.dumps(response, indent=2)}')
+    return response, call
 
 def stop_request(stub, session_id=None):
     stop_req = StopRequest(session_id=session_id)
