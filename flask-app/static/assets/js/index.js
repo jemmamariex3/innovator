@@ -65,58 +65,63 @@ function addAccordionClick() {
 ////////////////// Accordion JS End ////////////////////
 
 ////////////////// Populate Accordion Start //////////////////
-const ticketsArr = [
-    { number: 1, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register team in mix", hoursLogged: 8, priority: "high" },
-    { number: 2, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamz in mix", hoursLogged: 2, priority: "low" },
-    { number: 3, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamzzz in mix", hoursLogged: 3, priority: "medium" },
-]
-let tickets = [];
-ticketsArr.forEach((ticket) => {
-    const { number, assignee, dueDate, summary, hoursLogged, priority } = ticket;
-    tickets = [...tickets, new Ticket(number, assignee, dueDate, summary, hoursLogged, priority)];
-});
+// const ticketsArr = [
+//     { number: 1, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register team in mix", hoursLogged: 8, priority: "high" },
+//     { number: 2, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamz in mix", hoursLogged: 2, priority: "low" },
+//     { number: 3, assignee: "DaLarm Han", dueDate: "12/19/2019", summary: "Register teamzzz in mix", hoursLogged: 3, priority: "medium" },
+// ]
 
-for (let i = 0; i < tickets.length; i++) {
-    console.log("Ticket info: ", tickets[i]);
+function populateTickets() {
 
-    // Create HTML elements so we can inject them dynamically
-    let ticketBody = document.querySelector(".ticket_body");
-    let accordionBtn = document.createElement("button");
-    let ticketTable = document.createElement("table");
-    let ticketRow = document.createElement("tr");
-    let ticketKey = document.createElement("th");
-    let ticketSummary = document.createElement("th");
-    let ticketAssignee = document.createElement("th");
-    let ticketStatus = document.createElement("th");
-    let ticketHoursLogged = document.createElement("th");
-    let ticketPriority = document.createElement("th");
-    let ticketPanel = document.createElement("div");
-    let ticketHeaders = [ticketKey, ticketSummary, ticketAssignee, ticketStatus, ticketHoursLogged, ticketPriority];
+    let ticketsArr = []; 
+    let tickets = [];
+    ticketsArr.forEach((ticket) => {
+        const { number, assignee, dueDate, summary, hoursLogged, priority } = ticket;
+        tickets = [...tickets, new Ticket(number, assignee, dueDate, summary, hoursLogged, priority)];
+    });
 
-    // Set necessary classes
-    accordionBtn.className = "accordion";
-    ticketTable.className = "ticket_table";
-    ticketPanel.className = "panel";
-
-    // Build up the DOM hierarchy
-    ticketHeaders.forEach(header => ticketRow.appendChild(header));
-    ticketTable.appendChild(ticketRow);
-    accordionBtn.appendChild(ticketTable);
-    ticketBody.appendChild(accordionBtn);
-    ticketBody.appendChild(ticketPanel);
-
-    // Set up text content
-    const { number, assignee, summary, hoursLogged, priority, status } = tickets[i].getTicketInfo();
-    ticketKey.textContent = number;
-    ticketSummary.textContent = summary;
-    ticketAssignee.textContent = assignee;
-    ticketHoursLogged.textContent = hoursLogged;
-    ticketPriority.textContent = priority;
-    ticketStatus.textContent = status;
-    ticketPanel.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fugiat quod architecto libero tempora voluptates quo, eius sequi? Repudiandae, ea";
-
-    console.log("Ticket body el: ", ticketHeaders);
-
+    for (let i = 0; i < tickets.length; i++) {
+        console.log("Ticket info: ", tickets[i]);
+    
+        // Create HTML elements so we can inject them dynamically
+        let ticketBody = document.querySelector(".ticket_body");
+        let accordionBtn = document.createElement("button");
+        let ticketTable = document.createElement("table");
+        let ticketRow = document.createElement("tr");
+        let ticketKey = document.createElement("th");
+        let ticketSummary = document.createElement("th");
+        let ticketAssignee = document.createElement("th");
+        let ticketStatus = document.createElement("th");
+        let ticketHoursLogged = document.createElement("th");
+        let ticketPriority = document.createElement("th");
+        let ticketPanel = document.createElement("div");
+        let ticketHeaders = [ticketKey, ticketSummary, ticketAssignee, ticketStatus, ticketHoursLogged, ticketPriority];
+    
+        // Set necessary classes
+        accordionBtn.className = "accordion";
+        ticketTable.className = "ticket_table";
+        ticketPanel.className = "panel";
+    
+        // Build up the DOM hierarchy
+        ticketHeaders.forEach(header => ticketRow.appendChild(header));
+        ticketTable.appendChild(ticketRow);
+        accordionBtn.appendChild(ticketTable);
+        ticketBody.appendChild(accordionBtn);
+        ticketBody.appendChild(ticketPanel);
+    
+        // Set up text content
+        const { number, assignee, summary, hoursLogged, priority, status } = tickets[i].getTicketInfo();
+        ticketKey.textContent = number;
+        ticketSummary.textContent = summary;
+        ticketAssignee.textContent = assignee;
+        ticketHoursLogged.textContent = hoursLogged;
+        ticketPriority.textContent = priority;
+        ticketStatus.textContent = status;
+        ticketPanel.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fugiat quod architecto libero tempora voluptates quo, eius sequi? Repudiandae, ea";
+    
+        console.log("Ticket body el: ", ticketHeaders);
+    
+    }
 }
 
 ////////////////// Populate Accordion End//////////////////
@@ -140,14 +145,25 @@ let chat_window = document.getElementById('text_container');
 
 async function fetch_start() {
     try {
-        let response = await fetch(`${window.origin}/chat`);
-        if (!response.ok) {
-            throw new Error("Network response failed.");
-        } else {
-            let json = await response.json();
-            update_chat(json.userText);
-            return
-        }
+        const urls = [
+            `${window.origin}/tickets`,
+            `${window.origin}/chat`
+        ]
+
+        const promises = await Promise.all(urls.map(async (url) => { let response = await fetch(url); return response.json() }));
+        console.log("Promises: ", promises); 
+        console.log("Promise has been resolved!"); 
+
+        const [tickets, json] = [...promises]
+        console.log('json: ', json);
+        console.log('tickets: ', tickets)
+        // let json = responseStart.json();
+        // let tickets = await responseTickets.json(); 
+        
+        console.log('tickets arr ', ticketsar)
+        update_chat(json.userText);
+        // populateTickets(); 
+        return
     } catch (error) {
         console.log("Seems like it didn't work out fam", error.message);
     }
@@ -179,7 +195,7 @@ async function fetch_continue(msg) {
 }
 
 function update_chat(msg, user = "Kevina") {
-    console.log(msg);
+    console.log("update chat msg: ", msg);
     let message_container = document.createElement('div');
     let message_user = document.createElement('p');
     let message_bubble = document.createElement('div');

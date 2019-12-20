@@ -19,7 +19,7 @@ CORS(app)    #CORS origin issue still persists.. Hmmm.
 
 # API-related info
 modelUrn = "urn:nuance:mix/eng-USA/A174_C617/mix.dialog"
-token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjgyMzY3NywiZXh0Ijp7fSwiaWF0IjoxNTc2ODIwMDc3LCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiZTQ3ZmE5ZTgtZGUwNC00MTZkLTg2YzMtNDY4ZTc3MjcyYzVkIiwibmJmIjoxNTc2ODIwMDc3LCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.cVnZpEluqRRfLHMHme2LtDpCGX--kXHkG0NmpY912Koi7E3DM7GkaBBvow2R0hZPPOuZmoDOdxWsA9hjMFkXY7BbKvbSMDW1q9hhguAVzUNLa7og2QeI4locTED0Clf9Ze92uYiZrVUhSmgEn2_1wbfUEDACy9Ke9qi1g5q0BANQ7ygH-qi_aNHaKIqrVjOZH7y7oT7YOIR29Lj0qeZ6Jyu8S4DLdwNkNFoab695MhFlGDF6RjoM7ilzRX_o24YmZxHBkK8QQ-jiSPpR6M_C6J34eT6q_ZM0KFFHTpwZ8BP5zucorItAVxBvOorh_lqY-YmITB80UayDYFdwWdAX6Pj68BPgjsBNU9-WAU8X1zxs7nxUAOjzl4DB-BKpQCekilZM3OnaqNH3gPvwspRevO4mUHlJcDXWj5c0YMZ9eeUXHFQ_a3cYNW0FUAU9shigyQKgTSeEdg483uAh6QPIh4c5ZNsrv5UL8gZFYb305OiPO-83gcYqsD0AbAR_GCpW2fP49n0fQ-4-bx8vGZdQHc2FF3-MGFI-ye4vP2iRwxYHhSMUwZaum664oEJ2U8m85Dp-2dkiOK7VWtGELdHQPhww0IVMeGULGzeboy0NGk0ACDHnNmbF5Zq2MQYcCCPYdi56UjCPigAsznmuxuIN8fSX0wR2NrlVTXcBZe4hVOE"
+token = "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MzQ3Zjc3OS1hMDIxLTRlMzEtYTQ4ZC1iNWU1NjdjMzg2ZmMiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiJhcHBJRDpOTURQVFJJQUxfZGFsYXJtX2hhbl9udWFuY2VfY29tXzIwMTkxMjAyVDE5MjQ1Nzk0MDkzNSIsImV4cCI6MTU3NjgzMTE0MSwiZXh0Ijp7fSwiaWF0IjoxNTc2ODI3NTQxLCJpc3MiOiJodHRwczovL2F1dGguY3J0Lm51YW5jZS5jb20vIiwianRpIjoiODMxYjc5MzktNDJjYi00NmFkLWI3ZTQtYzVmYjAzZGZiOWE2IiwibmJmIjoxNTc2ODI3NTQxLCJzY3AiOlsiZGxnIl0sInN1YiI6ImFwcElEOk5NRFBUUklBTF9kYWxhcm1faGFuX251YW5jZV9jb21fMjAxOTEyMDJUMTkyNDU3OTQwOTM1In0.pjfEIWxJcz-akgap9hNQ1OX9wmw5N98YeCYHLy6s-RJzMpCWby2gl7XzVDuXJJTESa2O-egkkVHGoK8Z9cCI9ZZXtz3nU42yBkqwbDHVyuLFZNXtWI7KAcJq3MooCG3bEybmcet0Rhe750RGgBmCAtk47oAdSNo6MwEwpSE3Q7Ht0NRHpIaYKon8Oiu5HdUkgReOhTAVdcAS59HxhD5XYV9y8SYoCfwwlLyqm-cd5ipzWjGZzYdG36Pijrd-2Ay6I0BqHbGqzyfvWUaZMLJtKGX97D7bLESow8oLkFEpu8uurFGzo4hilgsqKnvkEdWu-Y8u4Yq585lsvv1FGHmg-J6kDMZGWvHzeAJnHNOxEqsSdPNdq_gU0Ax8Ifn3-BU8oNZxlz9AodkPJVpfPx0_edUDqmuyq52f-KAc_345YD6g0KLNJO78IrbZYfFBNiJZCzNjSPCX0L6fg8I7xVjeJxUhE7jJcaOcASMsRz_h_YGOogOUYCXlwzmCQlCHMBFoGyhVzjWr8YqohqYtH0Ucwwdn9w7s3TbCk16Ep3BEdOMotE_ORz72bTLkgeBuZ6GgmF1qCXZnicvp8mX_ZZLvkIZ1K5m22zUfYtSyaxKmxh3P2Jeq0BIjC4dmwwcrHQQD4eFb4XbgvOE6Y72bftIb75KfCnX5LELoySgG7v3-WMA"
 serverUrl = "dlgaas.beta.mix.nuance.com:443"
 #textInput = "test"  Use this if you want to hardcode messages.
 
@@ -113,7 +113,7 @@ def continue_chat():
                     encodedMessage = newMessage.text.encode('utf-8').decode('utf-8')
                     message["text"] = encodedMessage
                 message_array.append(message["text"])
-    return jsonify(userText=''.join(message_array))
+    return jsonify(userText=' '.join(message_array))
 
 # use decorators to link the function to a url
 @app.route('/')
@@ -127,6 +127,10 @@ def chat():
         elif request.method == 'POST': 
             return continue_chat()
 
+@app.route('/tickets', methods=['GET'])
+def tickets(): 
+        if request.method == 'GET': 
+            return jsonify(get_tickets_arr())
 
 # start the server with the 'run()' method
 if __name__ == '__main__':

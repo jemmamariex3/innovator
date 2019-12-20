@@ -5,6 +5,7 @@ import json
 import inspect
 from functools import wraps
 
+
 import uuid
 
 from google.protobuf.json_format import MessageToJson
@@ -746,17 +747,30 @@ Custom Code
 
 """
 
+def get_tickets_arr(): 
+    return ''.join(map(str,ticketsArr))
+
 class DataClass:
 
     """
     Each function is a DA node. Simply return the values.
     """
 
+    global ticketsArr
+    global response_ticketsArr
+
     @data_access_node
     def GetTicketByStatusData(self, data):
         entity = data['value']['_concept_TICKET_STATUS']
+        for ticket in ticketsArr: 
+            t_status = ticket['status'].lower() == entity.lower()
+            ticket_num = ticket['number']
+            if(t_status): 
+                print('ticket has status of open: ', ticket_num)
+                response_ticketsArr.append(ticket_num)
+        final_msg = ' '.join(map(str,response_ticketsArr))
         return {
-            "returnMessage": "yo what's up homie, it worked",
+            "returnMessage": final_msg + "."
         }
 
 data_class = DataClass()
